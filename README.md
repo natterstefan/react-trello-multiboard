@@ -3,6 +3,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/natterstefan/react-trello-multiboard.svg)](https://github.com/natterstefan/react-trello-multiboard/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/natterstefan/react-trello-multiboard.svg)](https://github.com/natterstefan/react-trello-multiboard/network)
 [![GitHub issues](https://img.shields.io/github/issues/natterstefan/react-trello-multiboard.svg)](https://github.com/natterstefan/react-trello-multiboard/issues)
+[![GitHub license](https://img.shields.io/github/license/natterstefan/react-trello-multiboard.svg)](https://github.com/natterstefan/react-trello-multiboard/blob/master/LICENCE)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/natterstefan/react-trello-multiboard.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/natterstefan/react-trello-multiboard)
 
 React-Trello-Multiboard is a React application displaying multiple cards of
@@ -123,7 +124,7 @@ You can now interact with the board, filter members or show all cards again.
 create a stable and production ready build with `yarn build` before you upload
 the files onto your server.
 
-The output will be available in the `build` folder.
+The output will be available in the `dist` folder.
 
 ## How to Develop and Contribute
 
@@ -166,8 +167,8 @@ can be found [here](https://devhints.io/jest).
 
 ## Troubleshooting
 
-If you run into problems building the App or working with the source code, create
-an issue please.
+If you run into problems building the App or working with the source code, [create
+an issue please][3].
 
 ## Licence
 
@@ -179,4 +180,5 @@ MIT
 
 [1]: https://trello.com/app-key
 [2]: http://localhost:2222/#/
+[3]: https://github.com/natterstefan/react-trello-multiboard/issues
 [natterstefan]: https://github.com/natterstefan
