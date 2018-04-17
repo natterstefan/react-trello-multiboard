@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component/Board should render without throwing an error 1`] = `
+<styled.div>
+  <Connect(TrelloCardsList)
+    config={Object {}}
+    key="0"
+    list={
+      Object {
+        "id": "list-123",
+        "idBoard": "board-123",
+        "name": "ListName",
+      }
+    }
+  />
+</styled.div>
+`;

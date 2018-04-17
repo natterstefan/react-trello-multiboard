@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component/EstimationCard should render without throwing an error 1`] = `
+<Card
+  raised={false}
+>
+  <WithStyles(CardContent)>
+    <WithStyles(List)>
+      <WithStyles(ListItem)
+        button={true}
+        dense={true}
+        key="b1"
+      >
+        <WithStyles(Typography)>
+          Board1
+          : (
+          2
+          )[
+          1
+          ]
+        </WithStyles(Typography)>
+      </WithStyles(ListItem)>
+      <WithStyles(ListItem)
+        button={true}
+        dense={true}
+        key="estimations-2"
+      >
+        <WithStyles(Typography)>
+          <strong>
+            Total: (
+            2
+            )[
+            1
+            ]
+          </strong>
+        </WithStyles(Typography)>
+      </WithStyles(ListItem)>
+    </WithStyles(List)>
+  </WithStyles(CardContent)>
+</Card>
+`;

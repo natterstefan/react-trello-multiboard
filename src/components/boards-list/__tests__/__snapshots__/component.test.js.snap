@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component/BoardsList should render without throwing an error 1`] = `
+<styled.div>
+  <styled.div
+    key="0"
+  >
+    <WithStyles(Typography)
+      variant="headline"
+    >
+      Member 1
+    </WithStyles(Typography)>
+    <Connect(Board)
+      board={
+        Object {
+          "name": "Member 1",
+        }
+      }
+      config={Object {}}
+    />
+  </styled.div>
+</styled.div>
+`;

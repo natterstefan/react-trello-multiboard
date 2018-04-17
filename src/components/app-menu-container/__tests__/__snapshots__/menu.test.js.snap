@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component/AppMenuContent should render without throwing an error 1`] = `
+<WithStyles(List)>
+  <div>
+    <WithStyles(ListItem)
+      button={true}
+      component={[Function]}
+      replace={true}
+      to="/"
+    >
+      <WithStyles(ListItemIcon)>
+        <pure(Dashboard) />
+      </WithStyles(ListItemIcon)>
+      <WithStyles(ListItemText)
+        primary="Dashboard"
+      />
+    </WithStyles(ListItem)>
+    <WithStyles(ListItem)
+      button={true}
+      component={[Function]}
+      replace={true}
+      to="/config"
+    >
+      <WithStyles(ListItemIcon)>
+        <pure(Settings) />
+      </WithStyles(ListItemIcon)>
+      <WithStyles(ListItemText)
+        primary="Config"
+      />
+    </WithStyles(ListItem)>
+    <WithStyles(ListItem)
+      button={true}
+      onClick={[Function]}
+    >
+      <WithStyles(ListItemIcon)>
+        <FontAwesomeIcon$1
+          border={false}
+          className=""
+          fixedWidth={false}
+          flip={null}
+          icon={
+            Array [
+              "fab",
+              "github",
+            ]
+          }
+          listItem={false}
+          mask={null}
+          name=""
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size="lg"
+          spin={false}
+          symbol={false}
+          transform={null}
+        />
+      </WithStyles(ListItemIcon)>
+      <WithStyles(ListItemText)
+        primary="GitHub"
+      />
+    </WithStyles(ListItem)>
+  </div>
+</WithStyles(List)>
+`;

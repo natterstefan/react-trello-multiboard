@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StyledComponents should render an AppContainer with the proper styling 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`StyledComponents should render an BlockContainer with the proper styling 1`] = `
+.c0 {
+  display: block;
+  padding: 10px 10px;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`StyledComponents should render an ColumnContainer with the proper styling 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`StyledComponents should render an Container with the proper styling 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow-x: auto;
+  padding: 10px 10px;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`StyledComponents should render an ListContainer with the proper styling 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow-x: auto;
+  padding: 10px 10px;
+}
+
+@media (max-width:768px) {
+  .c0 {
+    margin: 0 -10px;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;

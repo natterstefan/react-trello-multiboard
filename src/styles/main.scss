@@ -1,0 +1,9 @@
+iframe {
+  /* Trello embed.min.js CSS Hack (2018-04-04)
+   * - as embed.min.js checks for the visability of the cards and sets the height
+   *   to 0 when they are not visible, we force them to be visible. This allows
+   *   us to display and filter cards at any given time. Otherwise cards would be
+   *   at 0 height and only be visible once loaded (polling done)
+  */
+  min-height: 100%;
+}

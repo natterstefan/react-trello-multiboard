@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component/ErrorBoundary should render "Something went wrong" details when an error occured 1`] = `
+<div
+  style={
+    Object {
+      "margin": 20,
+    }
+  }
+>
+  <h1>
+    Something went wrong.
+  </h1>
+  <hr />
+  <h3>
+    error-1
+  </h3>
+</div>
+`;

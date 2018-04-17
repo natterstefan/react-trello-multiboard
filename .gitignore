@@ -1,0 +1,10 @@
+## Developing
+.DS_Store
+*.log
+coverage
+dist
+node_modules
+temp
+
+## Configs
+config.js

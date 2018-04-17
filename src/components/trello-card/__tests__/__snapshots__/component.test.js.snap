@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component/TrelloCard should render without throwing an error 1`] = `
+<TrelloCard
+  addEstimations={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "consumed": 0,
+            "estimated": 0,
+          },
+        ],
+      ],
+    }
+  }
+  card={
+    Object {
+      "id": "id-1",
+      "idMembers": Array [
+        "mb1",
+        "mb2",
+      ],
+      "members": Array [
+        Object {
+          "id": "mb1",
+          "username": "exampleusername",
+        },
+        Object {
+          "id": "mb2",
+          "username": "anotheruser",
+        },
+      ],
+      "name": "example-name",
+    }
+  }
+  config={
+    Object {
+      "estimates_with_round_brackets": false,
+      "estimates_with_square_brackets": false,
+    }
+  }
+  isHidden={false}
+>
+  <div
+    className="card member_mb1 member_mb2"
+    style={
+      Object {
+        "display": "block",
+      }
+    }
+  >
+    <TrelloCardIframe
+      cardId="id-1"
+    >
+      <div
+        id="card_id-1"
+        style={
+          Object {
+            "height": 0,
+            "marginBottom": 15,
+          }
+        }
+      />
+    </TrelloCardIframe>
+  </div>
+</TrelloCard>
+`;

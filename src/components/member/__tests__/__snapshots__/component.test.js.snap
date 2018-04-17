@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component/Member should render without throwing an error 1`] = `
+<Card
+  className="member_card_member1"
+  onClick={[Function]}
+  raised={false}
+  style={
+    Object {
+      "backgroundColor": undefined,
+    }
+  }
+>
+  <WithStyles(CardContent)
+    className="Member-root-1"
+  >
+    <styled.div>
+      <WithStyles(Avatar)
+        alt="Member 1"
+        src="http://example.com/example.png"
+      />
+      <WithStyles(Typography)
+        style={
+          Object {
+            "color": undefined,
+          }
+        }
+      >
+        <span
+          className="member_card_member1--estimations"
+        >
+          (
+          0
+          )[
+          0
+          ]
+        </span>
+      </WithStyles(Typography)>
+    </styled.div>
+  </WithStyles(CardContent)>
+</Card>
+`;

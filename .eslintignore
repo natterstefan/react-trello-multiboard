@@ -1,0 +1,13 @@
+coverage
+node_modules
+dist
+views
+
+## JEST
+__snapshots__
+*.js.snap
+
+## WEBPACK
+webpack/base.config.js
+webpack/dev.config.js
+webpack/prod.config.js

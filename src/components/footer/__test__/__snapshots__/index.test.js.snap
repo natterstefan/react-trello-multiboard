@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component/MainApp should render without throwing an error 1`] = `
+<styled.footer>
+  <WithStyles(Typography)
+    color="inherit"
+  >
+    <a
+      href="https://github.com/natterstefan/react-trello-multiboard/"
+      style={
+        Object {
+          "color": "#fff",
+          "textDecoration": "none",
+        }
+      }
+    >
+      <FontAwesomeIcon$1
+        border={false}
+        className=""
+        fixedWidth={false}
+        flip={null}
+        icon={
+          Array [
+            "fab",
+            "github",
+          ]
+        }
+        listItem={false}
+        mask={null}
+        name=""
+        pull={null}
+        pulse={false}
+        rotation={null}
+        size="lg"
+        spin={false}
+        symbol={false}
+        transform={null}
+      />
+       Star on GitHub
+    </a>
+  </WithStyles(Typography)>
+</styled.footer>
+`;

@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component/MainApp should render without throwing an error 1`] = `
+<div
+  style={
+    Object {
+      "minHeight": "100vh",
+    }
+  }
+>
+  <styled.div>
+    <styled.div>
+      <WithStyles(Typography)
+        component="h2"
+        variant="headline"
+      >
+        Options
+      </WithStyles(Typography)>
+      <WithStyles(Button)
+        className="MainApp-button-2"
+        id="toggleButton"
+        onClick={[Function]}
+        variant="raised"
+      >
+        Toggle preferred Members
+      </WithStyles(Button)>
+    </styled.div>
+    <styled.div>
+      <WithStyles(Typography)
+        component="h2"
+        variant="headline"
+      >
+        Preferred Members
+      </WithStyles(Typography)>
+    </styled.div>
+    <styled.div>
+      <Connect(WithStyles(MembersList)) />
+    </styled.div>
+    <styled.div>
+      <WithStyles(Typography)
+        component="h2"
+        variant="headline"
+      >
+        Estimations
+      </WithStyles(Typography)>
+    </styled.div>
+    <styled.div>
+      <Connect(EstimationCard) />
+    </styled.div>
+    <styled.div>
+      <Connect(BoardsList) />
+    </styled.div>
+  </styled.div>
+  <Footer />
+</div>
+`;
