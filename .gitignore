@@ -8,3 +8,6 @@ temp
 
 ## Configs
 config.js
+
+## Coverall
+.coveralls.yml
