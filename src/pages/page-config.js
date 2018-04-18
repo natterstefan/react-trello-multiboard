@@ -12,7 +12,7 @@ import Typography from 'material-ui/Typography'
 
 // Config & Components
 import proptypes from './page-config.prop-types'
-import Config from '../../config'
+import Config from '../../config/config'
 import AppContainer from '../components/app-menu-container'
 import ErrorBoundary from '../components/error-boundary'
 

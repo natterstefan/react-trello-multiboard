@@ -1,5 +1,5 @@
 import { filter, get, includes, map } from 'lodash'
-import Config from '../../config'
+import Config from '../../config/config'
 
 // example:
 // const members: [{ id: 'mb1', username: 'exampleusername' }, { id: 'mb2', username: 'anotheruser' }],

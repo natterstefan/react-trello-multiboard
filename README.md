@@ -49,11 +49,11 @@ Log in to trello and get your api key here: [https://trello.com/app-key][1]
 
 ```sh
   yarn // or npm install
-  cp config.example.js config.js
 ```
 
-Once you have installed all requirements and copied the `config.js` file, you
-have to enter your [API key][1] and other settings into the `config.js`.
+Once you have installed all requirements, yarn/npm will copy `./config/config.example.js`
+for you and rename it to `./config/config.js`. You then have to customize it according to
+your needs and eg. enter your [API key][1] and other settings into the `config.js`.
 
 ```js
 module.exports = {
