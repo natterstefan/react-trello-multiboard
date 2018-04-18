@@ -4,6 +4,7 @@
 [![Dependencies](https://img.shields.io/david/natterstefan/react-trello-multiboard.svg)](https://github.com/natterstefan/react-trello-multiboard/blob/master/package.json)
 [![DevDependencies](https://img.shields.io/david/dev/natterstefan/react-trello-multiboard.svg)](https://github.com/natterstefan/react-trello-multiboard/blob/master/package.json)
 [![Coverage Status](https://coveralls.io/repos/github/natterstefan/react-trello-multiboard/badge.svg?branch=master)](https://coveralls.io/github/natterstefan/react-trello-multiboard?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/github/natterstefan/react-trello-multiboard/badge.svg)](https://snyk.io/test/github/natterstefan/react-trello-multiboard)
 [![GitHub license](https://img.shields.io/github/license/natterstefan/react-trello-multiboard.svg)](https://github.com/natterstefan/react-trello-multiboard/blob/master/LICENCE)
 
 [![GitHub stars](https://img.shields.io/github/stars/natterstefan/react-trello-multiboard.svg)](https://github.com/natterstefan/react-trello-multiboard/stargazers)
