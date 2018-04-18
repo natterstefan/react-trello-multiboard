@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+  - "8.9"
+script:
+  - npm run lint
+  - npm run lint:scss
+  - npm run test
+  - npm run build
