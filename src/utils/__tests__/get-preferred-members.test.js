@@ -30,7 +30,7 @@ describe('utils/getPreferredMembers', () => {
 
   test('should return an empty array if no preferred member config exists', () => {
     // mock config
-    jest.mock('../../../config', () => ({
+    jest.mock('../../../config/config', () => ({
       preferred_members: undefined,
     }))
     const getPreferredMembersDefault = require('../get-preferred-members').default
@@ -42,7 +42,7 @@ describe('utils/getPreferredMembers', () => {
 
   test('should return an empty array if the preferred_members config is not valid', () => {
     // mock config
-    jest.mock('../../../config', () => ({
+    jest.mock('../../../config/config', () => ({
       preferred_members: 999, // should be a regex string
     }))
     const getPreferredMembersDefault = require('../get-preferred-members').default

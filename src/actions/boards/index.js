@@ -1,5 +1,5 @@
 import { forEach } from 'lodash'
-import Config from '../../../config'
+import Config from '../../../config/config'
 import { getMeBoards } from '../../data/trello'
 
 const actions = {

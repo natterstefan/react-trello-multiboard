@@ -2,7 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-const Config = require('../config')
+const Config = require('../config/config')
 const pkg = require('../package.json')
 const SRC_DIR = path.resolve(process.cwd(), './src')
 

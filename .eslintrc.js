@@ -27,6 +27,7 @@ module.exports = {
     expect: true,
     global: true,
     it: true,
+    module: true,
     window: true,
   },
   rules: {

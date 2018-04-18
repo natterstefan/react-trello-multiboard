@@ -1,6 +1,6 @@
 import { forEach, get, map, some } from 'lodash'
 import { getMember, isTrelloAvailable } from '../../data/trello'
-import Config from '../../../config'
+import Config from '../../../config/config'
 
 // NOTE: currently it is not possible to
 // - request a single member (eg. async or after load etc.)

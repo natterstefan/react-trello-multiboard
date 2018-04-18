@@ -16,7 +16,7 @@ Enzyme.configure({ adapter: new Adapter() })
 // make icons available in all tests
 fontawesome.library.add(brands)
 
-jest.mock('./config', () => ({
+jest.mock('./config/config', () => ({
   app_title: 'Trello Multiboard',
   api_key: 'your_api_key',
   company_member: 'exampleusername',

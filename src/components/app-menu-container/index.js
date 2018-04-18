@@ -16,7 +16,7 @@ import ChevronRightIcon from 'material-ui-icons/ChevronRight'
 
 // App Menu Content
 import AppMenuContent from './menu'
-import Config from '../../../config'
+import Config from '../../../config/config'
 
 const drawerWidth = 240
 
