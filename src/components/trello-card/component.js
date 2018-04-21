@@ -147,6 +147,8 @@ class TrelloCard extends React.Component {
 
   render() {
     const { card, isHidden } = this.props
+    console.log('card', card) /* eslint-disable-line */
+    return null;
 
     return (
       <div
