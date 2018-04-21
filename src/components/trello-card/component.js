@@ -4,6 +4,8 @@ import React from 'react'
 import { get, invoke, map } from 'lodash'
 import proptypes, { cardId as cardIdPropType } from './prop-types'
 
+import TrelloCardUI from './card'
+
 const heightOffset = 10
 
 export class TrelloCardIframe extends React.Component {
@@ -146,9 +148,9 @@ class TrelloCard extends React.Component {
   }
 
   render() {
-    const { card, isHidden } = this.props
+    const { boardName, card, isHidden, list } = this.props
     console.log('card', card) /* eslint-disable-line */
-    return null;
+    // <TrelloCardIframe cardId={card.id} />
 
     return (
       <div
@@ -157,7 +159,7 @@ class TrelloCard extends React.Component {
           display: isHidden ? 'none' : 'block',
         }}
       >
-        <TrelloCardIframe cardId={card.id} />
+        <TrelloCardUI {...card} listName={list.name} boardName={boardName} />
       </div>
     )
   }

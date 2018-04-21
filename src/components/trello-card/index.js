@@ -1,11 +1,12 @@
 import { connect } from 'react-redux'
-import { get } from 'lodash'
+import { find, get } from 'lodash'
 import Card from './component'
 import { isCardHidden } from './utils'
 import { addMembersEstimation } from '../../actions/members'
 import { addBoardEstimations } from '../../actions/boards'
 
 const mapStateToProps = state => ({
+  boardData: get(state, 'boards.data', []),
   memberToggle: get(state, 'app.memberToggle', {}),
   members: get(state, 'members.members', []),
 })
@@ -25,8 +26,15 @@ const mergeProps = (stateProps, { dispatch }, ownProps) => {
     idMembers: get(ownProps, 'card.idMembers', []),
   }
 
+  const currentBoard = find(
+    get(stateProps, 'boardData'),
+    board => get(board, 'board.id') === get(ownProps, 'card.idBoard'),
+  )
+  const boardName = get(currentBoard, 'board.name')
+
   return {
     ...ownProps,
+    boardName,
     isHidden: isCardHidden(isCardHiddenProps),
     addEstimations,
   }

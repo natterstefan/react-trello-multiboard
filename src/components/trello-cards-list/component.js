@@ -14,12 +14,14 @@ class TrelloCardsList extends React.Component {
   }
 
   renderList() {
-    const { cards } = this.props
+    const { cards, list } = this.props
 
     if (cards.length === 0) {
       return <Typography>No matching card(s) found</Typography>
     }
-    return map(cards, (card, idx) => <TrelloCard key={idx} card={card.card} config={card.config} />)
+    return map(cards, (card, idx) => (
+      <TrelloCard key={idx} card={card.card} config={card.config} list={list} />
+    ))
   }
 
   render() {
