@@ -81,9 +81,21 @@
     user-select: none; // no text selection allowed
     width: 32px;
 
-    img {
+    &--image {
       height: 100%;
       object-fit: cover;
+      text-align: center;
+      width: 100%;
+    }
+
+    &--intials {
+      background-color: #e6e6e6;
+      display: block;
+      font-size: 12px;
+      font-weight: bold;
+      height: 100%;
+      line-height: 30px;
+      overflow: hidden;
       text-align: center;
       width: 100%;
     }

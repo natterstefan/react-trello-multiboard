@@ -2,13 +2,13 @@ import React from 'react'
 import { get } from 'lodash'
 
 import { withStyles } from 'material-ui/styles'
-import Avatar from 'material-ui/Avatar'
 import Card, { CardContent } from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
 import { LinearProgress } from 'material-ui/Progress'
 import styled from 'styled-components'
 
 import proptypes from './prop-types'
+import UserAvatar from './user-avatar'
 
 const styles = () => ({
   root: {
@@ -48,7 +48,7 @@ const Member = props => {
     >
       <CardContent className={props.classes.root}>
         <MemberContainer>
-          {member.avatarImg && <Avatar alt={member.name} src={member.avatarImg} />}
+          <UserAvatar member={member} />
           <Typography style={{ color: isActive ? '#fff' : undefined }}>
             {estimations && (
               <span className={`member_card_${member.id}--estimations`}>

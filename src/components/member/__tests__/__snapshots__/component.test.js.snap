@@ -2,7 +2,7 @@
 
 exports[`Component/Member should render without throwing an error 1`] = `
 <Card
-  className="member_card_member1"
+  className="member_card_member-1"
   onClick={[Function]}
   raised={false}
   style={
@@ -15,9 +15,16 @@ exports[`Component/Member should render without throwing an error 1`] = `
     className="Member-root-1"
   >
     <styled.div>
-      <WithStyles(Avatar)
-        alt="Member 1"
-        src="http://example.com/example.png"
+      <WithStyles(UserAvatar)
+        member={
+          Object {
+            "avatarHash": "123456789",
+            "fullName": "Example Username",
+            "id": "member-1",
+            "initials": "EU",
+            "username": "exampleusername",
+          }
+        }
       />
       <WithStyles(Typography)
         style={
@@ -27,7 +34,7 @@ exports[`Component/Member should render without throwing an error 1`] = `
         }
       >
         <span
-          className="member_card_member1--estimations"
+          className="member_card_member-1--estimations"
         >
           (
           0

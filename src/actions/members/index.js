@@ -72,9 +72,9 @@ const loadPreferredMembers = () => async dispatch => {
   const response = await Promise.all(getMemberPromise)
   const members = map(response, member => ({
     ...member,
-    preferred: true,
-    isCompanyMember: member.username === company_member, // eslint-disable-line
     avatarImg: `https://trello-avatars.s3.amazonaws.com/${member.avatarHash}/50.png`,
+    isCompanyMember: member.username === company_member, // eslint-disable-line
+    preferred: true,
   }))
   await dispatch(receiveMembers(members))
 }

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component/UserAvatar should render an user w/o an avatar without throwing an error 1`] = `
+<div>
+  <WithStyles(Avatar)
+    className="UserAvatar-initalAvatar-1"
+  >
+    TU
+  </WithStyles(Avatar)>
+</div>
+`;
+
+exports[`Component/UserAvatar should render without throwing an error 1`] = `
+<div>
+  <WithStyles(Avatar)
+    src="http://example.com/avatar.jpg"
+  />
+</div>
+`;

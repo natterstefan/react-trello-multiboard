@@ -150,7 +150,7 @@ describe('data/Trello', () => {
 
     expect(Trello.getCards(123)).resolves.toEqual('success')
     expect(TrelloJs.get.mock.calls[0][0]).toBe(
-      '/lists/123/cards?members=true&member_fields=username,fullName,avatarHash&fields=id,name,idBoard,idMembers,idList,shortUrl,badges',
+      '/lists/123/cards?members=true&member_fields=avatarHash,fullName,initials,username&fields=id,name,idBoard,idMembers,idList,shortUrl,badges',
     )
   })
 
@@ -159,6 +159,8 @@ describe('data/Trello', () => {
     const Trello = require('../trello')
 
     expect(Trello.getMember(123)).resolves.toEqual('success')
-    expect(TrelloJs.get.mock.calls[0][0]).toBe('/members/123?fields=username,avatarHash,fullName')
+    expect(TrelloJs.get.mock.calls[0][0]).toBe(
+      '/members/123?fields=username,avatarHash,fullName,initials',
+    )
   })
 })

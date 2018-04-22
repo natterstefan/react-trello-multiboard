@@ -40,13 +40,18 @@ const TrelloCardUI = ({ badges, boardName, members, name, shortUrl, listName }) 
         </div>
         <div className="trello-card__members">
           <ul>
-            {map(members, ({ avatarHash, fullName }) => (
+            {map(members, ({ avatarHash, fullName, initials }) => (
               <li key={`${shortUrl}-${avatarHash}`}>
                 <div className="trello-card__member">
-                  <img
-                    src={`https://trello-avatars.s3.amazonaws.com/${avatarHash}/50.png`}
-                    alt={fullName}
-                  />
+                  {avatarHash ? (
+                    <img
+                      className="trello-card__member--image"
+                      src={`https://trello-avatars.s3.amazonaws.com/${avatarHash}/50.png`}
+                      alt={fullName}
+                    />
+                  ) : (
+                    <span className="trello-card__member--intials">{initials}</span>
+                  )}
                 </div>
               </li>
             ))}
@@ -74,6 +79,7 @@ TrelloCardUI.propTypes = {
     PropTypes.shape({
       avatarHash: PropTypes.string,
       fullName: PropTypes.string,
+      initials: PropTypes.string,
     }),
   ).isRequired,
   boardName: PropTypes.string.isRequired,
