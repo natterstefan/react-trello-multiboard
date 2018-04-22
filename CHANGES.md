@@ -6,6 +6,21 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+### Added
+
+* custom `<TrelloCardUi />` component added (replaces Trello's embedded iframe)
+* fallback for missing `avatarHash` implemented (use member's `initials`) added
+
+### Changed
+
+* refactored and removed not used styled components
+* fix `overflow-x` css usage in several components
+* use mocks more consistently in tests
+
+### Deprecated
+
+* `<TrelloCardIframe />` deprecated, use `<TrelloCardUi />` instead now
+
 ## 2018/04/22 0.0.1
 
 ### Added
