@@ -37,15 +37,8 @@
     "test:watch": "jest --watch"
   },
   "lint-staged": {
-    "*.scss": [
-      "stylelint --fix",
-      "git add"
-    ],
-    "*.js": [
-      "eslint --fix",
-      "git add",
-      "jest --findRelatedTests"
-    ]
+    "*.scss": ["npm run format:scss", "git add"],
+    "*.js": ["npm run format", "git add", "jest --findRelatedTests"]
   },
   "peerDependencies": {
     "material-ui": "1.0.0-beta.36",

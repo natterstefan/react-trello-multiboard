@@ -1,19 +1,26 @@
 import PropTypes from 'prop-types'
 
-const estimations = PropTypes.shape({
+export const estimations = PropTypes.shape({
   consumed: PropTypes.number,
   estimated: PropTypes.number,
+})
+
+export const member = PropTypes.shape({
+  avatarHash: PropTypes.string.isRequired,
+  avatarImg: PropTypes.string,
+  fullName: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  initials: PropTypes.string.isRequired,
+  isCompanyMember: PropTypes.bool,
+  preferred: PropTypes.bool,
+  username: PropTypes.string.isRequired,
 })
 
 export default {
   doTogglePreferredMember: PropTypes.func.isRequired,
   error: PropTypes.string,
-  member: PropTypes.shape({
-    id: PropTypes.string,
-    avatarImg: PropTypes.string,
-    name: PropTypes.string,
-    estimations,
-  }),
+  estimations,
+  member: member.isRequired,
   isActive: PropTypes.bool,
   isLoading: PropTypes.bool.isRequired,
 }

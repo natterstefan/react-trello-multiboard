@@ -10,6 +10,10 @@ import Reboot from 'material-ui/Reboot'
 // - see: https://github.com/FortAwesome/react-fontawesome#build-a-library-to-reference-icons-throughout-your-app-more-conveniently
 import fontawesome from '@fortawesome/fontawesome'
 import brands from '@fortawesome/fontawesome-free-brands'
+import faAlignLeft from '@fortawesome/fontawesome-free-solid/faAlignLeft'
+import faCheckSquare from '@fortawesome/fontawesome-free-solid/faCheckSquare'
+import faCommentDots from '@fortawesome/fontawesome-free-solid/faCommentDots'
+import faPaperclip from '@fortawesome/fontawesome-free-solid/faPaperclip'
 
 // Store
 import { Provider } from 'react-redux'
@@ -26,7 +30,7 @@ import ConfigPage from './pages/page-config'
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleware)))
 
 // enable add all brand icons in the entire app
-fontawesome.library.add(brands)
+fontawesome.library.add(brands, faAlignLeft, faCheckSquare, faCommentDots, faPaperclip)
 
 export const TrelloMultiboard = () => (
   <Provider store={store}>

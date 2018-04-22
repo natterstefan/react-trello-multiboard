@@ -53,19 +53,26 @@ describe('Component/TrelloCardContainer', () => {
   test('should get data from the store and prepare props without throwing an error', () => {
     const TrelloCardContainer = require('../').default
     const wrapper = shallow(
-      <TrelloCardContainer store={store} card={props.card} config={props.config} />,
+      <TrelloCardContainer
+        store={store}
+        card={props.card}
+        config={props.config}
+        listName="example-list"
+      />,
     )
 
-    const expectedProps = {
+    const expectedTrelloCardProps = {
+      addEstimations: expect.any(Function),
+      boardName: 'example-board',
       card: props.card,
       config: props.config,
       isHidden: false,
-      addEstimations: expect.any(Function),
+      listName: 'example-list',
     }
 
     expect(wrapper.props()).toEqual(
       expect.objectContaining({
-        ...expectedProps,
+        ...expectedTrelloCardProps,
       }),
     )
   })
@@ -73,7 +80,12 @@ describe('Component/TrelloCardContainer', () => {
   test('should dispatch addMembersEstimation and addBoardEstimations', () => {
     const TrelloCardContainer = require('../').default
     const wrapper = shallow(
-      <TrelloCardContainer store={store} card={props.card} config={props.config} />,
+      <TrelloCardContainer
+        store={store}
+        card={props.card}
+        config={props.config}
+        listName="example-list"
+      />,
     )
 
     wrapper.props().addEstimations()

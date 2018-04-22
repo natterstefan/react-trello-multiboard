@@ -1,0 +1,127 @@
+// based on https://jsfiddle.net/natterstefan/4eghdrLs/
+
+.trello-card-wrapper {
+  color: #4d4d4d;
+  text-decoration: none;
+}
+
+.trello-card {
+  background-color: rgb(0, 121, 191);
+  border-radius: 4px;
+
+  /* Trello css */
+  color: #4d4d4d;
+  font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  line-height: 18px;
+  margin: 0 auto 15px;
+  // max-width: 316px;
+  // min-width: 240px;
+  padding: 8px;
+  width: 316px;
+
+  &__content {
+    background-color: #fff;
+    border-radius: 3px;
+    clear: both;
+    display: block;
+    min-height: 20px;
+    overflow: hidden;
+    padding: 10px 10px 5px;
+    word-wrap: break-word;
+  }
+
+  &__title {
+    color: #4d4d4d;
+  }
+
+  &__badges {
+    // clear: both;
+    display: flex;
+    float: left;
+    margin-right: 15px; // will put members into 2nd row
+    margin-top: 5px;
+    max-width: 100%;
+
+    div:nth-child(-n + 3) {
+      // https://stackoverflow.com/a/8821370/1238150
+      margin-right: 10px;
+    }
+
+    svg {
+      color: #8c8c8c;
+      height: 12px;
+      margin-bottom: 1px;
+    }
+  }
+
+  &__members {
+    float: right;
+    // clear: both;
+    margin-top: 5px;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style-type: none;
+      margin: 0;
+      padding-left: 0;
+    }
+  }
+
+  &__member {
+    border-radius: 16px;
+    display: block;
+    float: left;
+    height: 32px;
+    margin: 0 4px 4px 0;
+    overflow: hidden;
+    position: relative;
+    user-select: none; // no text selection allowed
+    width: 32px;
+
+    &--image {
+      height: 100%;
+      object-fit: cover;
+      text-align: center;
+      width: 100%;
+    }
+
+    &--intials {
+      background-color: #e6e6e6;
+      display: block;
+      font-size: 12px;
+      font-weight: bold;
+      height: 100%;
+      line-height: 30px;
+      overflow: hidden;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  &__board-details {
+    align-items: center;
+    color: #fff;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0;
+    padding-top: 8px;
+  }
+
+  &__board-name {
+    font-weight: 700;
+    margin-right: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__list-name {
+    max-width: 230px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

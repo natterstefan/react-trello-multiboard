@@ -13,6 +13,7 @@ export const mockEampleUser1 = {
   avatarHash: '123456789',
   fullName: 'Example Username',
   id: 'member-1',
+  initials: 'EU',
   username: 'exampleusername',
 }
 
@@ -20,13 +21,24 @@ export const mockEampleUser2 = {
   avatarHash: '987654321',
   fullName: 'Another User',
   id: 'member-2',
+  initials: 'AU',
   username: 'anotheruser',
+}
+
+export const mockEampleUser3 = {
+  avatarHash: null,
+  fullName: 'Third User',
+  id: 'member-3',
+  initials: 'TU',
+  username: 'thirduser',
 }
 
 export const mockExampleMemberResponse = username => {
   switch (username) {
     case 'anotheruser':
       return mockEampleUser2
+    case 'thirduser':
+      return mockEampleUser3
     default:
       return mockEampleUser1
   }

@@ -8,6 +8,7 @@ module.exports = {
     './src/**/__snapshots__/**/*',
   ],
   rules: {
+    'max-nesting-depth': 2,
     // stylelint-config-sass-guidelines requires
     // you to omit the '.scss' ending in @import statements. But in combination
     // with webpack we still need it.

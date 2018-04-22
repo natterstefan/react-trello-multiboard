@@ -2,6 +2,7 @@ coverage
 node_modules
 dist
 views
+package*.json
 
 ## JEST
 __snapshots__

@@ -6,7 +6,7 @@ import {
 } from '../__mocks__/props'
 
 describe('component/TrelloCard/utils', () => {
-  const cardProps = { idMembers: ['mb1', 'mb2'] }
+  const cardProps = { idMembers: ['member-1', 'member-2'] }
 
   test('isCardHidden should return false by default', () => {
     expect(isCardHidden()).toBe(false)

@@ -71,10 +71,6 @@ const styles = theme => ({
     ...theme.mixins.toolbar,
   },
   content: {
-    // Trello like scrolling
-    // - https://codepen.io/SitePoint/pen/brmXRX
-    overflowX: 'auto',
-    // other styles
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing.unit * 3,

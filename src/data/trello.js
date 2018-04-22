@@ -52,7 +52,7 @@ export const getLists = boardId =>
 export const getCards = listId =>
   new Promise((resolve, reject) =>
     getData(
-      `/lists/${listId}/cards?members=true&member_fields=username,fullName&fields=id,name,idBoard,idMembers,idList,shortUrl`,
+      `/lists/${listId}/cards?members=true&member_fields=avatarHash,fullName,initials,username&fields=id,name,idBoard,idMembers,idList,shortUrl,badges`,
       resolve,
       reject,
     ),
@@ -60,7 +60,7 @@ export const getCards = listId =>
 
 export const getMember = memberId =>
   new Promise((resolve, reject) =>
-    getData(`/members/${memberId}?fields=username,avatarHash,fullName`, resolve, reject),
+    getData(`/members/${memberId}?fields=username,avatarHash,fullName,initials`, resolve, reject),
   )
 
 export default {

@@ -56,32 +56,34 @@ const EstimationCard = props => {
   }
 
   return (
-    <Card>
-      <CardContent>
-        <List>
-          {map(data, boardItem => {
-            const { estimated, consumed } = getBoardEstimations(boardItem)
-            const boardName = getBoardName(get(boardItem, 'board.name', '-'))
-            const boardId = get(boardItem, 'board.id')
+    <div style={{ display: 'flex' }}>
+      <Card>
+        <CardContent>
+          <List>
+            {map(data, boardItem => {
+              const { estimated, consumed } = getBoardEstimations(boardItem)
+              const boardName = getBoardName(get(boardItem, 'board.name', '-'))
+              const boardId = get(boardItem, 'board.id')
 
-            return (
-              <ListItem key={boardId} dense button>
-                <Typography>
-                  {boardName}: ({estimated})[{consumed}]
-                </Typography>
-              </ListItem>
-            )
-          })}
-          <ListItem key={`estimations-${totalEstimations}`} dense button>
-            <Typography>
-              <strong>
-                Total: ({totalEstimations})[{totalConsumed}]
-              </strong>
-            </Typography>
-          </ListItem>
-        </List>
-      </CardContent>
-    </Card>
+              return (
+                <ListItem key={boardId} dense button>
+                  <Typography>
+                    {boardName}: ({estimated})[{consumed}]
+                  </Typography>
+                </ListItem>
+              )
+            })}
+            <ListItem key={`estimations-${totalEstimations}`} dense button>
+              <Typography>
+                <strong>
+                  Total: ({totalEstimations})[{totalConsumed}]
+                </strong>
+              </Typography>
+            </ListItem>
+          </List>
+        </CardContent>
+      </Card>
+    </div>
   )
 }
 

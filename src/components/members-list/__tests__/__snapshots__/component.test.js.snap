@@ -1,23 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component/MembersList should render without throwing an error 1`] = `
-<WithStyles(List)
-  style={
-    Object {
-      "alignItems": "self-start",
-      "display": "flex",
+<styled.div>
+  <WithStyles(List)
+    style={
+      Object {
+        "alignItems": "self-start",
+        "display": "flex",
+      }
     }
-  }
->
-  <WithStyles(ListItem)
-    button={true}
-    className="MembersList-root-1"
-    dense={true}
-    key="mb1"
   >
-    <Connect(WithStyles(Member))
-      memberId="mb1"
-    />
-  </WithStyles(ListItem)>
-</WithStyles(List)>
+    <WithStyles(ListItem)
+      button={true}
+      className="MembersList-root-1"
+      dense={true}
+      key="mb1"
+    >
+      <Connect(WithStyles(Member))
+        memberId="mb1"
+      />
+    </WithStyles(ListItem)>
+  </WithStyles(List)>
+</styled.div>
 `;

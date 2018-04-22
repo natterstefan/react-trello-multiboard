@@ -5,6 +5,10 @@ import { invoke } from 'lodash'
 // import icons
 import fontawesome from '@fortawesome/fontawesome'
 import brands from '@fortawesome/fontawesome-free-brands'
+import faAlignLeft from '@fortawesome/fontawesome-free-solid/faAlignLeft'
+import faCheckSquare from '@fortawesome/fontawesome-free-solid/faCheckSquare'
+import faCommentDots from '@fortawesome/fontawesome-free-solid/faCommentDots'
+import faPaperclip from '@fortawesome/fontawesome-free-solid/faPaperclip'
 
 // mock config
 import { mockExampleBoardConfig } from './src/__mocks__/mocks'
@@ -14,7 +18,7 @@ import { mockExampleBoardConfig } from './src/__mocks__/mocks'
 Enzyme.configure({ adapter: new Adapter() })
 
 // make icons available in all tests
-fontawesome.library.add(brands)
+fontawesome.library.add(brands, faAlignLeft, faCheckSquare, faCommentDots, faPaperclip)
 
 jest.mock('./config/config', () => ({
   app_title: 'Trello Multiboard',
