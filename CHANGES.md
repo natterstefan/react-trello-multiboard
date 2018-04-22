@@ -13,6 +13,8 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+* upgraded all packages to latest version, including major releases (eg. `redux`
+  from `3.7.2` to `4.0.0`, and `react` to `16.3.2` and `sass-loader` to `7.0.1`)
 * refactored and removed not used styled components
 * fix `overflow-x` css usage in several components
 * use mocks more consistently in tests
