@@ -17,11 +17,19 @@ exports[`Component/MainApp should render without throwing an error 1`] = `
     </WithStyles(Typography)>
     <WithStyles(Button)
       className="MainApp-button-2"
-      id="toggleButton"
+      id="togglePreferredButton"
       onClick={[Function]}
       variant="raised"
     >
       Toggle preferred Members
+    </WithStyles(Button)>
+    <WithStyles(Button)
+      className="MainApp-button-2"
+      id="doRefreshButton"
+      onClick={[Function]}
+      variant="raised"
+    >
+      Refresh Boards
     </WithStyles(Button)>
   </styled.div>
   <styled.div>

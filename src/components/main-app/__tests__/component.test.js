@@ -32,6 +32,7 @@ describe('Component/MainApp', () => {
   beforeEach(() => {
     props.authorize.mockReset()
     props.doTogglePreferred.mockReset()
+    props.loadBoards.mockReset()
     props.loadPreferredMembers.mockReset()
   })
 
@@ -70,9 +71,9 @@ describe('Component/MainApp', () => {
     expect(props.loadBoards).toHaveBeenCalledTimes(1)
   })
 
-  test('should invoke doTogglePreferred when Toggle Button was clicked and change togglePreferred', () => {
+  test('should invoke doTogglePreferred when Toggle Preferred Button was clicked and change togglePreferred', () => {
     const wrapper = shallow(<MainApp {...props} />).dive()
-    wrapper.find('#toggleButton').simulate('click')
+    wrapper.find('#togglePreferredButton').simulate('click')
 
     expect(props.doTogglePreferred).toHaveBeenCalledTimes(1)
     expect(props.doTogglePreferred).toHaveBeenCalledWith(true) // switched from false, see props
@@ -85,7 +86,14 @@ describe('Component/MainApp', () => {
       },
     })
     wrapper.update()
-    wrapper.find('#toggleButton').simulate('click')
+    wrapper.find('#togglePreferredButton').simulate('click')
     expect(props.doTogglePreferred).toHaveBeenCalledWith(false)
+  })
+
+  test('should invoke loadBoards when Toggle Refresh Boards Button was clicked', () => {
+    const wrapper = shallow(<MainApp {...props} />).dive()
+    wrapper.find('#doRefreshButton').simulate('click')
+
+    expect(props.loadBoards).toHaveBeenCalledTimes(1)
   })
 })

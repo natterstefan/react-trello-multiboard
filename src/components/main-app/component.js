@@ -88,7 +88,7 @@ class MainApp extends React.Component {
           </Typography>
           <Button
             variant="raised"
-            id="toggleButton"
+            id="togglePreferredButton"
             className={classes.button}
             onClick={() => {
               invoke(this.props, 'doTogglePreferred', !togglePreferred)
@@ -97,6 +97,16 @@ class MainApp extends React.Component {
             {togglePreferred || togglePreferredMember
               ? 'Toggle all Members'
               : 'Toggle preferred Members'}
+          </Button>
+          <Button
+            variant="raised"
+            id="doRefreshButton"
+            className={classes.button}
+            onClick={() => {
+              invoke(this.props, 'loadBoards')
+            }}
+          >
+            Refresh Boards
           </Button>
         </BlockContainer>
         <BlockContainer>

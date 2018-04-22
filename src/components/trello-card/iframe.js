@@ -2,6 +2,11 @@
 // This component is not used anymore, and was replaced with ./card.js. But for
 // the record it is still present in the repository. It might be removed in the
 // future though.
+//
+// Note: the following scripts need to be added to index.html if this is enabled
+// again:
+// - <script src="https://p.trellocdn.com/embed.min.js"></script
+// - <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 /* global $ */
 import React from 'react'

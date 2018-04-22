@@ -31,7 +31,10 @@ UserAvatar.propTypes = {
   classes: PropTypes.shape({
     initalAvatar: PropTypes.string,
   }).isRequired,
-  member: memberPropType.isRequired,
+  member: PropTypes.shape({
+    ...memberPropType.isRequired,
+    avatarHash: PropTypes.string,
+  }).isRequired,
 }
 
 export default withStyles(styles)(UserAvatar)
