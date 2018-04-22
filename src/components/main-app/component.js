@@ -15,7 +15,7 @@ import MembersList from '../members-list'
 import Footer from '../footer'
 
 // Styles Components
-import { AppContainer, BlockContainer, Container, ListContainer } from '../styled-components'
+import { BlockContainer } from '../styled-components'
 
 // Material UI Styles
 const styles = theme => ({
@@ -82,49 +82,43 @@ class MainApp extends React.Component {
     // vheight sticky footer trick, see: https://blog.hellojs.org/flexbox-sticky-footer-and-react-d116e4cfca5
     return (
       <div style={{ minHeight: '100vh' }}>
-        <AppContainer>
-          <BlockContainer>
-            <Typography variant="headline" component="h2">
-              Options
-            </Typography>
-            <Button
-              variant="raised"
-              id="toggleButton"
-              className={classes.button}
-              onClick={() => {
-                invoke(this.props, 'doTogglePreferred', !togglePreferred)
-              }}
-            >
-              {togglePreferred || togglePreferredMember
-                ? 'Toggle all Members'
-                : 'Toggle preferred Members'}
-            </Button>
-          </BlockContainer>
-          <BlockContainer>
-            <Typography variant="headline" component="h2">
-              Preferred Members
-            </Typography>
-          </BlockContainer>
-          <Container>
-            <MembersList />
-          </Container>
-          <BlockContainer>
-            <Typography variant="headline" component="h2">
-              {this.getEstimationTitle()}
-            </Typography>
-          </BlockContainer>
-          <Container>
-            <EstimationCard />
-          </Container>
-          <ListContainer>
-            <BoardsList />
-          </ListContainer>
-          {isAppLoading && (
-            <div className={classes.bottomLoader}>
-              <LinearProgress />
-            </div>
-          )}
-        </AppContainer>
+        <BlockContainer>
+          <Typography variant="headline" component="h2">
+            Options
+          </Typography>
+          <Button
+            variant="raised"
+            id="toggleButton"
+            className={classes.button}
+            onClick={() => {
+              invoke(this.props, 'doTogglePreferred', !togglePreferred)
+            }}
+          >
+            {togglePreferred || togglePreferredMember
+              ? 'Toggle all Members'
+              : 'Toggle preferred Members'}
+          </Button>
+        </BlockContainer>
+        <BlockContainer>
+          <Typography variant="headline" component="h2">
+            Preferred Members
+          </Typography>
+        </BlockContainer>
+        <MembersList />
+        <BlockContainer>
+          <Typography variant="headline" component="h2">
+            {this.getEstimationTitle()}
+          </Typography>
+        </BlockContainer>
+        <BlockContainer>
+          <EstimationCard />
+        </BlockContainer>
+        <BoardsList />
+        {isAppLoading && (
+          <div className={classes.bottomLoader}>
+            <LinearProgress />
+          </div>
+        )}
         {!isAppLoading && <Footer />}
       </div>
     )

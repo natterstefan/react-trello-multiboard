@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import proptypes from './prop-types'
 import { getBoardName } from '../../utils/get-board-name'
 import Board from '../board'
-import { Container } from '../styled-components'
+import { ScrollContainer } from '../styled-components'
 
 // Styled Component
 const BoardContent = styled.div`
@@ -26,7 +26,7 @@ const BoardsList = props => {
   }
 
   return (
-    <Container>
+    <ScrollContainer>
       {map(boards, (board, idx) => {
         const boardName = getBoardName(get(board, 'board.name', ''))
         return (
@@ -36,7 +36,7 @@ const BoardsList = props => {
           </BoardContent>
         )
       })}
-    </Container>
+    </ScrollContainer>
   )
 }
 BoardsList.displayName = 'BoardsList'

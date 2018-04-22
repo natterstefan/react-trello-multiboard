@@ -14,24 +14,38 @@ exports[`Component/TrelloCard should render without throwing an error 1`] = `
       ],
     }
   }
+  boardName="example-board"
   card={
     Object {
+      "badges": Object {
+        "attachments": 1,
+        "checkItems": 2,
+        "checkItemsChecked": 1,
+        "comments": 1,
+        "description": false,
+      },
       "id": "id-1",
+      "idBoard": "board-1",
       "idMembers": Array [
-        "mb1",
-        "mb2",
+        "member-1",
+        "member-2",
       ],
       "members": Array [
         Object {
-          "id": "mb1",
+          "avatarHash": "123456789",
+          "fullName": "Example Username",
+          "id": "member-1",
           "username": "exampleusername",
         },
         Object {
-          "id": "mb2",
+          "avatarHash": "987654321",
+          "fullName": "Another User",
+          "id": "member-2",
           "username": "anotheruser",
         },
       ],
       "name": "example-name",
+      "shortUrl": "https://trello.com/id-1",
     }
   }
   config={
@@ -41,28 +55,255 @@ exports[`Component/TrelloCard should render without throwing an error 1`] = `
     }
   }
   isHidden={false}
+  listName="example-list"
 >
   <div
-    className="card member_mb1 member_mb2"
+    className="card member_member-1 member_member-2"
+    id="card_id-1"
     style={
       Object {
         "display": "block",
       }
     }
   >
-    <TrelloCardIframe
-      cardId="id-1"
-    >
-      <div
-        id="card_id-1"
-        style={
-          Object {
-            "height": 0,
-            "marginBottom": 15,
-          }
+    <TrelloCardUI
+      badges={
+        Object {
+          "attachments": 1,
+          "checkItems": 2,
+          "checkItemsChecked": 1,
+          "comments": 1,
+          "description": false,
         }
-      />
-    </TrelloCardIframe>
+      }
+      boardName="example-board"
+      id="id-1"
+      idBoard="board-1"
+      idMembers={
+        Array [
+          "member-1",
+          "member-2",
+        ]
+      }
+      listName="example-list"
+      members={
+        Array [
+          Object {
+            "avatarHash": "123456789",
+            "fullName": "Example Username",
+            "id": "member-1",
+            "username": "exampleusername",
+          },
+          Object {
+            "avatarHash": "987654321",
+            "fullName": "Another User",
+            "id": "member-2",
+            "username": "anotheruser",
+          },
+        ]
+      }
+      name="example-name"
+      shortUrl="https://trello.com/id-1"
+    >
+      <a
+        className="trello-card-wrapper"
+        href="https://trello.com/id-1"
+      >
+        <div
+          className="trello-card"
+        >
+          <div
+            className="trello-card__content"
+          >
+            <div
+              className="trello-card__title"
+            >
+              example-name
+            </div>
+            <div
+              className="trello-card__badges"
+            >
+              <div>
+                <FontAwesomeIcon$1
+                  border={false}
+                  className=""
+                  fixedWidth={false}
+                  flip={null}
+                  icon={
+                    Array [
+                      "fa",
+                      "comment-dots",
+                    ]
+                  }
+                  listItem={false}
+                  mask={null}
+                  name=""
+                  pull={null}
+                  pulse={false}
+                  rotation={null}
+                  size="sm"
+                  spin={false}
+                  symbol={false}
+                  transform={null}
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="svg-inline--fa fa-comment-dots fa-w-16 fa-sm "
+                    data-icon="comment-dots"
+                    data-prefix="fa"
+                    role="img"
+                    style={Object {}}
+                    viewBox="0 0 512 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32zM128 272c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128 0c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"
+                      fill="currentColor"
+                      style={Object {}}
+                    />
+                  </svg>
+                </FontAwesomeIcon$1>
+                 
+                1
+              </div>
+              <div>
+                <FontAwesomeIcon$1
+                  border={false}
+                  className=""
+                  fixedWidth={false}
+                  flip={null}
+                  icon={
+                    Array [
+                      "fa",
+                      "paperclip",
+                    ]
+                  }
+                  listItem={false}
+                  mask={null}
+                  name=""
+                  pull={null}
+                  pulse={false}
+                  rotation={null}
+                  size="sm"
+                  spin={false}
+                  symbol={false}
+                  transform={null}
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="svg-inline--fa fa-paperclip fa-w-14 fa-sm "
+                    data-icon="paperclip"
+                    data-prefix="fa"
+                    role="img"
+                    style={Object {}}
+                    viewBox="0 0 448 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M43.246 466.142c-58.43-60.289-57.341-157.511 1.386-217.581L254.392 34c44.316-45.332 116.351-45.336 160.671 0 43.89 44.894 43.943 117.329 0 162.276L232.214 383.128c-29.855 30.537-78.633 30.111-107.982-.998-28.275-29.97-27.368-77.473 1.452-106.953l143.743-146.835c6.182-6.314 16.312-6.422 22.626-.241l22.861 22.379c6.315 6.182 6.422 16.312.241 22.626L171.427 319.927c-4.932 5.045-5.236 13.428-.648 18.292 4.372 4.634 11.245 4.711 15.688.165l182.849-186.851c19.613-20.062 19.613-52.725-.011-72.798-19.189-19.627-49.957-19.637-69.154 0L90.39 293.295c-34.763 35.56-35.299 93.12-1.191 128.313 34.01 35.093 88.985 35.137 123.058.286l172.06-175.999c6.177-6.319 16.307-6.433 22.626-.256l22.877 22.364c6.319 6.177 6.434 16.307.256 22.626l-172.06 175.998c-59.576 60.938-155.943 60.216-214.77-.485z"
+                      fill="currentColor"
+                      style={Object {}}
+                    />
+                  </svg>
+                </FontAwesomeIcon$1>
+                 
+                1
+              </div>
+              <div>
+                <FontAwesomeIcon$1
+                  border={false}
+                  className=""
+                  fixedWidth={false}
+                  flip={null}
+                  icon={
+                    Array [
+                      "fa",
+                      "check-square",
+                    ]
+                  }
+                  listItem={false}
+                  mask={null}
+                  name=""
+                  pull={null}
+                  pulse={false}
+                  rotation={null}
+                  size="sm"
+                  spin={false}
+                  symbol={false}
+                  transform={null}
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="svg-inline--fa fa-check-square fa-w-14 fa-sm "
+                    data-icon="check-square"
+                    data-prefix="fa"
+                    role="img"
+                    style={Object {}}
+                    viewBox="0 0 448 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"
+                      fill="currentColor"
+                      style={Object {}}
+                    />
+                  </svg>
+                </FontAwesomeIcon$1>
+                 
+                1
+                /
+                2
+              </div>
+            </div>
+            <div
+              className="trello-card__members"
+            >
+              <ul>
+                <li
+                  key="https://trello.com/id-1-123456789"
+                >
+                  <div
+                    className="trello-card__member"
+                  >
+                    <img
+                      alt="Example Username"
+                      src="https://trello-avatars.s3.amazonaws.com/123456789/50.png"
+                    />
+                  </div>
+                </li>
+                <li
+                  key="https://trello.com/id-1-987654321"
+                >
+                  <div
+                    className="trello-card__member"
+                  >
+                    <img
+                      alt="Another User"
+                      src="https://trello-avatars.s3.amazonaws.com/987654321/50.png"
+                    />
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            className="trello-card__board-details"
+          >
+            <div
+              className="trello-card__board-name"
+            >
+              example-board
+              :
+            </div>
+            <div
+              className="trello-card__list-name"
+            >
+              example-list
+            </div>
+          </div>
+        </div>
+      </a>
+    </TrelloCardUI>
   </div>
 </TrelloCard>
 `;

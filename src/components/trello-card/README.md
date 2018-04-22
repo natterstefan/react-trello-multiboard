@@ -1,10 +1,12 @@
 # Trello Card
 
-## Documentation
+## Iframe Embedding
 
-- https://developers.trello.com/docs/cards
+### Documentation
 
-## Issues
+* https://developers.trello.com/docs/cards
+
+### Issues
 
 When using the [embed script from Trello](https://p.trellocdn.com/embed.js) the
 initial loading works fine, but because the embed.js polls in a certain interval
@@ -20,20 +22,25 @@ The issue is based on the following feature of the embed.js:
 // Trello checks if each element is still visible for the user
 var elInViewport = function elInViewport(el) {
   if (!document.body.contains(el)) {
-    return false;
+    return false
   }
-  var bounds = el.getBoundingClientRect();
+  var bounds = el.getBoundingClientRect()
 
-  return bounds.top <= window.innerHeight && bounds.top + bounds.height >= 0 && bounds.left <= window.innerWidth && bounds.left + bounds.width >= 0;
-};
+  return (
+    bounds.top <= window.innerHeight &&
+    bounds.top + bounds.height >= 0 &&
+    bounds.left <= window.innerWidth &&
+    bounds.left + bounds.width >= 0
+  )
+}
 
 // and then later when polling is triggered
-togglePolling(card.el, event.origin, event.data.secret, elInViewport(card.el));
+togglePolling(card.el, event.origin, event.data.secret, elInViewport(card.el))
 ```
 
-## Alternative Rendering w/ iframes
+### Alternative Rendering w/ iframes
 
-One can also create the iframe manually, but resizing (CORS issue) is then still
+One can also create the iframe manually, but resizing (CORS) is then still
 an issue.
 
 Example Code:
@@ -50,6 +57,7 @@ render () {
 ## Solutions from Trello
 
 Solution 1:
+
 ```jsx
 componentDidMount () {
   window.TrelloCards.create(card.id, $('#card_' + card.id)[0], {
@@ -65,8 +73,8 @@ render () {
 ```
 
 Solution 2:
-```jsx
 
+```jsx
 componentDidMount () {
   window.TrelloCards.load(document, { compact: true, allAnchors: false })
 }
@@ -77,7 +85,7 @@ render () {
   return (
     <blockquote className="trello-card-compact">
       <a href={card.shortUrl}>{card.name}</a>
-    </blockquote>   
+    </blockquote>
   )
 }
 ```

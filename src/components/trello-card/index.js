@@ -30,7 +30,7 @@ const mergeProps = (stateProps, { dispatch }, ownProps) => {
     get(stateProps, 'boardData'),
     board => get(board, 'board.id') === get(ownProps, 'card.idBoard'),
   )
-  const boardName = get(currentBoard, 'board.name')
+  const boardName = get(currentBoard, 'board.name', '')
 
   return {
     ...ownProps,

@@ -7,6 +7,8 @@ import Typography from 'material-ui/Typography'
 import TrelloCardsList from '../component'
 import TrelloCard from '../../trello-card'
 
+import { mockExampleBoardConfig } from '../../../__mocks__/mocks'
+
 const props = {
   cards: [
     {
@@ -15,15 +17,10 @@ const props = {
         idMembers: ['mb1', 'mb2'],
         name: 'example-name',
       },
-      config: {},
+      config: mockExampleBoardConfig,
     },
   ],
-  config: {
-    board: 'board-1',
-    estimates_with_round_brackets: false,
-    estimates_with_square_brackets: false,
-    shortcut: 'b1',
-  },
+  config: mockExampleBoardConfig,
   list: {
     id: 'list123',
     idBoard: 'b123',
@@ -64,7 +61,10 @@ describe('Component/TrelloCardsList', () => {
 
   test('should pass the correct properties to the rendered TrelloCard', () => {
     const wrapper = shallow(<TrelloCardsList {...props} />)
-    expect(wrapper.find(TrelloCard).props()).toEqual(props.cards[0])
+    expect(wrapper.find(TrelloCard).props()).toMatchObject({
+      card: { ...props.cards[0].card },
+      listName: props.list.name,
+    })
   })
 
   test('should loadCards once mounted', () => {

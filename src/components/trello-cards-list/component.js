@@ -3,10 +3,15 @@ import { get, invoke, map } from 'lodash'
 
 import Typography from 'material-ui/Typography'
 import { LinearProgress } from 'material-ui/Progress'
+import styled from 'styled-components'
 
 import proptypes from './prop-types'
 import TrelloCard from '../trello-card'
-import { ColumnContainer } from '../styled-components'
+
+const ColumnContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
 class TrelloCardsList extends React.Component {
   componentDidMount() {
@@ -20,7 +25,12 @@ class TrelloCardsList extends React.Component {
       return <Typography>No matching card(s) found</Typography>
     }
     return map(cards, (card, idx) => (
-      <TrelloCard key={idx} card={card.card} config={card.config} list={list} />
+      <TrelloCard
+        key={idx}
+        card={card.card}
+        config={card.config}
+        listName={get(list, 'name', '')}
+      />
     ))
   }
 

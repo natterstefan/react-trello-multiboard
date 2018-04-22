@@ -3,6 +3,9 @@ import { get, map } from 'lodash'
 import List, { ListItem } from 'material-ui/List'
 import { withStyles } from 'material-ui/styles'
 
+// Styles Components
+import { ScrollContainer } from '../styled-components'
+
 import proptypes from './prop-types'
 import Member from '../member'
 
@@ -16,21 +19,23 @@ const MembersList = props => {
   const { members } = props
 
   return (
-    <List style={{ display: 'flex', alignItems: 'self-start' }}>
-      {map(get(members, 'members', []), ({ id }) => {
-        // - display only preferred members in this list
-        const isPreferred = get(members, `[${id}].data.preferred`, false)
-        if (!isPreferred) {
-          return null
-        }
+    <ScrollContainer>
+      <List style={{ display: 'flex', alignItems: 'self-start' }}>
+        {map(get(members, 'members', []), ({ id }) => {
+          // - display only preferred members in this list
+          const isPreferred = get(members, `[${id}].data.preferred`, false)
+          if (!isPreferred) {
+            return null
+          }
 
-        return (
-          <ListItem className={props.classes.root} key={id} dense button>
-            <Member memberId={id} />
-          </ListItem>
-        )
-      })}
-    </List>
+          return (
+            <ListItem className={props.classes.root} key={id} dense button>
+              <Member memberId={id} />
+            </ListItem>
+          )
+        })}
+      </List>
+    </ScrollContainer>
   )
 }
 
