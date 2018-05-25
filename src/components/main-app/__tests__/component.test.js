@@ -26,6 +26,7 @@ describe('Component/MainApp', () => {
     isLoading: false,
     isMembersLoading: false,
     loadBoards: jest.fn(),
+    reloadBoards: jest.fn(),
     loadPreferredMembers: jest.fn(),
   }
 
@@ -33,6 +34,7 @@ describe('Component/MainApp', () => {
     props.authorize.mockReset()
     props.doTogglePreferred.mockReset()
     props.loadBoards.mockReset()
+    props.reloadBoards.mockReset()
     props.loadPreferredMembers.mockReset()
   })
 
@@ -90,10 +92,11 @@ describe('Component/MainApp', () => {
     expect(props.doTogglePreferred).toHaveBeenCalledWith(false)
   })
 
-  test('should invoke loadBoards when Toggle Refresh Boards Button was clicked', () => {
+  test('should invoke resetBoards when Toggle Refresh Boards Button was clicked', () => {
     const wrapper = shallow(<MainApp {...props} />).dive()
-    wrapper.find('#doRefreshButton').simulate('click')
+    wrapper.find('#doResetButton').simulate('click')
 
-    expect(props.loadBoards).toHaveBeenCalledTimes(1)
+    expect(props.reloadBoards).toHaveBeenCalledTimes(1)
+    expect(props.loadPreferredMembers).toHaveBeenCalledTimes(1)
   })
 })

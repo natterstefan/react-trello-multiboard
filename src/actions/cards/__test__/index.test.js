@@ -34,7 +34,7 @@ describe('actions/cards:async actions', () => {
     jest.unmock('../../../data/trello')
   })
 
-  it('creates RECEIVE when fetching cards has been done', async () => {
+  test('creates RECEIVE when fetching cards has been done', async () => {
     const list = {
       id: 'list-123',
     }

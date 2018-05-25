@@ -1,5 +1,6 @@
-import { forEach, forOwn, get, map, merge, omit, pick, uniq } from 'lodash'
+import { assign, forEach, forOwn, get, map, merge, omit, pick, uniq } from 'lodash'
 import { actions } from '../../actions/members'
+import { actions as boardActions } from '../../actions/boards'
 
 export const initialState = {
   error: null,
@@ -11,6 +12,9 @@ export function reducer(state = initialState, action) {
   const type = get(action, 'type')
 
   switch (type) {
+    case boardActions.RESET_BOARDS:
+      return assign({}, initialState)
+
     case actions.REQUEST_MEMBERS:
       return merge({}, state, {
         error: null,

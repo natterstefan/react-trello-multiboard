@@ -1,6 +1,6 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { actions, addBoardEstimations, receiveBoards, requestBoards } from '../'
+import { actions, addBoardEstimations, receiveBoards, requestBoards, resetBoards } from '../'
 
 // some static mocks
 import {
@@ -13,6 +13,7 @@ jest.mock('../../../data/trello')
 
 describe('actions/board', () => {
   const expectedActions = {
+    RESET_BOARDS: 'RESET_BOARDS',
     REQUEST: 'REQUEST_BOARDS',
     RECEIVE: 'RECEIVE_BOARDS',
     ADD_BOARD_ESTIMATION: 'ADD_BOARD_ESTIMATION',
@@ -57,7 +58,7 @@ describe('actions/board:async actions', () => {
     jest.unmock('../../../data/trello')
   })
 
-  it('creates RECEIVE when fetching boards has been done', async () => {
+  test('dispatches RECEIVE when fetching boards has been done', async () => {
     // payload is set in setup-jest.js (config mock)
     const expectedActions = [
       { type: actions.REQUEST },
@@ -74,6 +75,13 @@ describe('actions/board:async actions', () => {
     ]
     const store = mockStore({})
     await store.dispatch(requestBoards())
+    expect(store.getActions()).toEqual(expectedActions)
+  })
+
+  test('resetBoards should dispatch correct actions', async () => {
+    const store = mockStore({})
+    await store.dispatch(resetBoards())
+    const expectedActions = [{ type: actions.RESET_BOARDS }, { type: actions.REQUEST }]
     expect(store.getActions()).toEqual(expectedActions)
   })
 })

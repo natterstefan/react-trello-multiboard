@@ -3,6 +3,7 @@ import Config from '../../../config/config'
 import { getMeBoards } from '../../data/trello'
 
 const actions = {
+  RESET_BOARDS: 'RESET_BOARDS',
   REQUEST: 'REQUEST_BOARDS',
   RECEIVE: 'RECEIVE_BOARDS',
   ADD_BOARD_ESTIMATION: 'ADD_BOARD_ESTIMATION',
@@ -41,4 +42,11 @@ const requestBoards = () => async dispatch => {
   }
 }
 
-export { actions, addBoardEstimations, requestBoards, receiveBoards }
+const resetAllBoards = () => ({ type: actions.RESET_BOARDS })
+
+const resetBoards = () => dispatch => {
+  dispatch(resetAllBoards())
+  dispatch(requestBoards())
+}
+
+export { actions, addBoardEstimations, requestBoards, receiveBoards, resetBoards }

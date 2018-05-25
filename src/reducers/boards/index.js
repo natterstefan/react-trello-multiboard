@@ -10,6 +10,9 @@ export const initialState = {
 export function reducer(state = initialState, action) {
   const type = get(action, 'type')
   switch (type) {
+    case actions.RESET_BOARDS:
+      return assign({}, initialState)
+
     case actions.REQUEST:
       return merge({}, state, {
         isLoading: true,

@@ -1,5 +1,5 @@
 import React from 'react'
-import { find, get, invoke, isEqual } from 'lodash'
+import { find, get, has, invoke, isEqual } from 'lodash'
 
 // Material UI
 import { withStyles } from 'material-ui/styles'
@@ -57,11 +57,16 @@ class MainApp extends React.Component {
     const togglePreferred = get(this.props, 'app.memberToggle.togglePreferred', false)
     const togglePreferredMember = get(this.props, 'app.memberToggle.togglePreferredMember', null)
     const defaultTitle = 'Estimations'
+    const defaultEstimationTitle = `Preferred Member's ${defaultTitle}`
 
     if (togglePreferred && !!togglePreferredMember) {
-      return `${find(members, { id: togglePreferredMember }).fullName}'s ${defaultTitle}`
+      const member = find(members, { id: togglePreferredMember }) || {}
+      if (has(member, 'fullName')) {
+        return `${member.fullName}'s ${defaultTitle}`
+      }
+      return defaultEstimationTitle
     } else if (togglePreferred) {
-      return `Preferred Member's ${defaultTitle}`
+      return defaultEstimationTitle
     }
     return defaultTitle
   }
@@ -100,10 +105,11 @@ class MainApp extends React.Component {
           </Button>
           <Button
             variant="raised"
-            id="doRefreshButton"
+            id="doResetButton"
             className={classes.button}
             onClick={() => {
-              invoke(this.props, 'loadBoards')
+              invoke(this.props, 'reloadBoards')
+              invoke(this.props, 'loadPreferredMembers')
             }}
           >
             Refresh Boards

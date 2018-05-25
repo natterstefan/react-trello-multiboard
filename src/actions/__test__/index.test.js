@@ -15,7 +15,7 @@ import {
 } from '../'
 
 describe('actions/index', () => {
-  it('should export the expected actions', () => {
+  test('should export the expected actions', () => {
     expect({ app, boards, lists, cards, members, user }).toMatchObject({
       app: appActions,
       boards: boardActions,
