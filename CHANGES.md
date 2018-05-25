@@ -6,6 +6,8 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+## 2018/05/25 0.0.2
+
 ### Added
 
 * custom `<TrelloCardUi />` component added (replaces Trello's embedded iframe)
