@@ -5,7 +5,7 @@ import Typography from 'material-ui/Typography'
 import { LinearProgress } from 'material-ui/Progress'
 import styled from 'styled-components'
 
-import proptypes from './prop-types'
+import proptypes from './prop-types' // eslint-disable-line
 import TrelloCard from '../trello-card'
 
 const ColumnContainer = styled.div`

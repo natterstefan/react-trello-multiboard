@@ -18,7 +18,7 @@ export const proptypes = {
   cards: PropTypes.arrayOf(
     PropTypes.shape({
       card,
-      ...listConfig,
+      listConfig,
     }),
   ),
   config: listConfig,
@@ -27,3 +27,5 @@ export const proptypes = {
   list,
   loadCards: PropTypes.func.isRequired,
 }
+
+export default proptypes
