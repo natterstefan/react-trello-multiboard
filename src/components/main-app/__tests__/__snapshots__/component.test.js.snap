@@ -25,7 +25,7 @@ exports[`Component/MainApp should render without throwing an error 1`] = `
     </WithStyles(Button)>
     <WithStyles(Button)
       className="MainApp-button-2"
-      id="doRefreshButton"
+      id="doResetButton"
       onClick={[Function]}
       variant="raised"
     >

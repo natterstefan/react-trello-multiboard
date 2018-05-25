@@ -23,6 +23,10 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 * `<TrelloCardIframe />` deprecated, use `<TrelloCardUi />` instead now
 
+### Fixed
+
+* reloadButton refreshes all data in the store
+
 ## 2018/04/22 0.0.1
 
 ### Added

@@ -3,8 +3,9 @@ import { forOwn, get, includes } from 'lodash'
 
 import { authenticateUser } from '../../actions/user'
 import { togglePreferred } from '../../actions/app'
-import { requestBoards } from '../../actions/boards'
+import { resetBoards, requestBoards } from '../../actions/boards'
 import { loadPreferredMembers } from '../../actions/members'
+
 import MainApp from './component'
 
 const checkLoadingState = (state, type) => {
@@ -35,6 +36,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   authorize: () => dispatch(authenticateUser()),
   loadBoards: () => dispatch(requestBoards()),
+  reloadBoards: () => dispatch(resetBoards()),
   doTogglePreferred: toggle => dispatch(togglePreferred(toggle)),
   loadPreferredMembers: () => dispatch(loadPreferredMembers()),
 })

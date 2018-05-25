@@ -32,7 +32,7 @@ describe('actions/members:async actions', () => {
     jest.unmock('../../../data/trello')
   })
 
-  it('dispatches ADD_MEMBERS_ESTIMATION when adding and calculating the estimations has been done', async () => {
+  test('dispatches ADD_MEMBERS_ESTIMATION when adding and calculating the estimations has been done', async () => {
     const expectedActions = [
       {
         payload: {
@@ -53,7 +53,7 @@ describe('actions/members:async actions', () => {
     expect(store.getActions()).toEqual(expectedActions)
   })
 
-  it('dispatches RECEIVE_MEMBERS when fetching members has been done', async () => {
+  test('dispatches RECEIVE_MEMBERS when fetching members has been done', async () => {
     const expectedActions = [
       { type: actions.REQUEST_MEMBERS },
       {
