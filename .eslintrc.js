@@ -45,6 +45,7 @@ module.exports = {
         trailingComma: 'all',
       },
     ],
+    'react/jsx-curly-brace-presence': 'never', // use '' when passing a strint as a property
     'react/jsx-filename-extension': 0, // we do not use *.jsx files
     'react/sort-comp': 2,
   },
