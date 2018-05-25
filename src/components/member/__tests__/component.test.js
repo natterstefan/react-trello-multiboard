@@ -2,9 +2,9 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { merge } from 'lodash'
 
-import { LinearProgress } from 'material-ui/Progress'
-import Card from 'material-ui/Card'
-import Typography from 'material-ui/Typography'
+import LinearProgress from '@material-ui/core/LinearProgress'
+import Card from '@material-ui/core/Card'
+import Typography from '@material-ui/core/Typography'
 
 import { mockEampleUser1 } from '../../../__mocks__/mocks'
 

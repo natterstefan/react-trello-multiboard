@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Avatar from 'material-ui/Avatar'
+import Avatar from '@material-ui/core/Avatar'
 
 import { mockEampleUser1, mockEampleUser3 } from '../../../__mocks__/mocks'
 

@@ -1,10 +1,12 @@
 import React from 'react'
 import { get, map } from 'lodash'
 
-import { LinearProgress } from 'material-ui/Progress'
-import List, { ListItem } from 'material-ui/List'
-import Card, { CardContent } from 'material-ui/Card'
-import Typography from 'material-ui/Typography'
+import LinearProgress from '@material-ui/core/LinearProgress'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
 
 import proptypes from './prop-types'
 import { getBoardName } from '../../utils/get-board-name'

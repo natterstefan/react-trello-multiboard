@@ -1,10 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component/Member should render without throwing an error 1`] = `
-<Card
+<WithStyles(Card)
   className="member_card_member-1"
   onClick={[Function]}
-  raised={false}
   style={
     Object {
       "backgroundColor": undefined,
@@ -45,5 +44,5 @@ exports[`Component/Member should render without throwing an error 1`] = `
       </WithStyles(Typography)>
     </styled.div>
   </WithStyles(CardContent)>
-</Card>
+</WithStyles(Card)>
 `;

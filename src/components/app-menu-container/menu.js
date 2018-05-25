@@ -1,16 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import List, { ListItem, ListItemIcon, ListItemText } from 'material-ui/List'
-import DashboardIcon from 'material-ui-icons/Dashboard'
-import SettingsIcon from 'material-ui-icons/Settings'
-
-const GITHUB_URL = 'https://github.com/natterstefan/react-trello-multiboard/'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+import DashboardIcon from '@material-ui/icons/Dashboard'
+import SettingsIcon from '@material-ui/icons/Settings'
+import { GITHUB_URL } from '../../constants'
 
 // NOTE: add replace to ListItem because of: https://github.com/ReactTraining/react-router/issues/4467
 const AppMenuContent = () => (
-  <List>
-    <div>
+  <div>
+    <List component="nav">
       <ListItem component={Link} button replace to="/">
         <ListItemIcon>
           <DashboardIcon />
@@ -34,8 +36,8 @@ const AppMenuContent = () => (
         </ListItemIcon>
         <ListItemText primary="GitHub" />
       </ListItem>
-    </div>
-  </List>
+    </List>
+  </div>
 )
 
 AppMenuContent.displayName = 'AppMenuContent'

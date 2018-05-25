@@ -8,9 +8,7 @@ exports[`Component/EstimationCard should render without throwing an error 1`] = 
     }
   }
 >
-  <Card
-    raised={false}
-  >
+  <WithStyles(Card)>
     <WithStyles(CardContent)>
       <WithStyles(List)>
         <WithStyles(ListItem)
@@ -44,6 +42,6 @@ exports[`Component/EstimationCard should render without throwing an error 1`] = 
         </WithStyles(ListItem)>
       </WithStyles(List)>
     </WithStyles(CardContent)>
-  </Card>
+  </WithStyles(Card)>
 </div>
 `;

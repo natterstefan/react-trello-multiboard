@@ -1,10 +1,11 @@
 import React from 'react'
 import { get } from 'lodash'
 
-import { withStyles } from 'material-ui/styles'
-import Card, { CardContent } from 'material-ui/Card'
-import Typography from 'material-ui/Typography'
-import { LinearProgress } from 'material-ui/Progress'
+import { withStyles } from '@material-ui/core/styles'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+import Typography from '@material-ui/core/Typography'
+import LinearProgress from '@material-ui/core/LinearProgress'
 import styled from 'styled-components'
 
 import proptypes from './prop-types'
