@@ -2,10 +2,10 @@ import React from 'react'
 import { find, get, has, invoke, isEqual } from 'lodash'
 
 // Material UI
-import { withStyles } from 'material-ui/styles'
-import { LinearProgress } from 'material-ui/Progress'
-import Button from 'material-ui/Button'
-import Typography from 'material-ui/Typography'
+import { withStyles } from '@material-ui/core/styles'
+import LinearProgress from '@material-ui/core/LinearProgress'
+import Button from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography'
 
 // Components
 import proptypes from './prop-types'

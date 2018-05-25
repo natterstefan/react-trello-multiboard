@@ -1,8 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { LinearProgress } from 'material-ui/Progress'
-import Typography from 'material-ui/Typography'
+import LinearProgress from '@material-ui/core/LinearProgress'
+import Typography from '@material-ui/core/Typography'
 
 import TrelloCardsList from '../component'
 import TrelloCard from '../../trello-card'

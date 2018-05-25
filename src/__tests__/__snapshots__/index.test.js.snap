@@ -13,7 +13,7 @@ exports[`Component/TrelloMultiBoard should render without throwing an error 1`] 
   }
 >
   <div>
-    <WithStyles(Reboot) />
+    <WithStyles(CssBaseline) />
     <HashRouter>
       <Switch>
         <Route

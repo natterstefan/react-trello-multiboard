@@ -4,7 +4,7 @@
 //    instead (2018-04-02)
 import React from 'react'
 import { shallow } from 'enzyme'
-import { LinearProgress } from 'material-ui/Progress'
+import LinearProgress from '@material-ui/core/LinearProgress'
 
 import MainApp from '../component'
 import EstimationCard from '../../estimation-card'

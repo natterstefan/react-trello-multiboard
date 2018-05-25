@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount, shallow } from 'enzyme'
 import { HashRouter as Router } from 'react-router-dom'
-import { ListItem } from 'material-ui/List'
+import ListItem from '@material-ui/core/ListItem'
 
 import AppMenuContent from '../menu'
 

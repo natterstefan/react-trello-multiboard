@@ -1,9 +1,8 @@
 import React from 'react'
-import Typography from 'material-ui/Typography'
+import Typography from '@material-ui/core/Typography'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
-
-const GITHUB_URL = 'https://github.com/natterstefan/react-trello-multiboard/'
+import { GITHUB_URL } from '../../constants'
 
 export const FooterContainer = styled.footer`
   background-color: #3f51b5;

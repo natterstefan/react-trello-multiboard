@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 
 // Material UI
-import Reboot from 'material-ui/Reboot'
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 // FontAwesomeIcons
 // - add it here, to enable usage in all component
@@ -35,7 +35,7 @@ fontawesome.library.add(brands, faAlignLeft, faCheckSquare, faCommentDots, faPap
 export const TrelloMultiboard = () => (
   <Provider store={store}>
     <div>
-      <Reboot />
+      <CssBaseline />
       <Router>
         <Switch>
           <Route exact path="/config" component={ConfigPage} />

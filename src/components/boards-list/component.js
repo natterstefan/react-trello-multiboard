@@ -1,7 +1,7 @@
 import React from 'react'
 import { get, map } from 'lodash'
-import { LinearProgress } from 'material-ui/Progress'
-import Typography from 'material-ui/Typography'
+import LinearProgress from '@material-ui/core/LinearProgress'
+import Typography from '@material-ui/core/Typography'
 import styled from 'styled-components'
 
 import proptypes from './prop-types'

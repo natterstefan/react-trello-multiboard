@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { assign } from 'lodash'
 
-import { LinearProgress } from 'material-ui/Progress'
+import LinearProgress from '@material-ui/core/LinearProgress'
 import EstimationCard from '../component'
 
 const props = {

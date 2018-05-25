@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component/AppMenuContent should render without throwing an error 1`] = `
-<WithStyles(List)>
-  <div>
+<div>
+  <WithStyles(List)
+    component="nav"
+  >
     <WithStyles(ListItem)
       button={true}
       component={[Function]}
@@ -61,6 +63,6 @@ exports[`Component/AppMenuContent should render without throwing an error 1`] = 
         primary="GitHub"
       />
     </WithStyles(ListItem)>
-  </div>
-</WithStyles(List)>
+  </WithStyles(List)>
+</div>
 `;
