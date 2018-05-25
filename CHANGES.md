@@ -10,6 +10,11 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 * custom `<TrelloCardUi />` component added (replaces Trello's embedded iframe)
 * fallback for missing `avatarHash` implemented (use member's `initials`) added
+* `sideEffects` option for webpack's treeshaking feature added, `.babelrc` modified
+  (`"modules": false`) and prod.config.js (webpack config) updated as well. Read more about
+  treeshaking [here](https://webpack.js.org/guides/tree-shaking/),
+  [here](https://stackoverflow.com/a/47675519/1238150) and
+  [here](https://github.com/webpack/webpack/issues/6992#issuecomment-379662391).
 
 ### Changed
 

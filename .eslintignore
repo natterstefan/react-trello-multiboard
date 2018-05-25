@@ -12,3 +12,4 @@ __snapshots__
 webpack/base.config.js
 webpack/dev.config.js
 webpack/prod.config.js
+webpack/prod.analyse.config.js

@@ -141,8 +141,9 @@ proposals.
 
 The following scripts are available (also work with `npm run`):
 
-* `yarn run lint`: lints the js-code with Eslint (without `--fix`)
-* `yarn run lint:scss`: lints the scss-code with Stylelint (without `--fix`)
+* `yarn analyse`: bundles the production build and analyses it with [Jarvis][4], see other analyse [here][5].
+* `yarn lint`: lints the js-code with Eslint (without `--fix`)
+* `yarn lint:scss`: lints the scss-code with Stylelint (without `--fix`)
 * `yarn start`: starts the app with the webpack-dev-server
 * `yarn test`: runs tests with jest
 * `yarn test:watch`: runs tests with jest in watch mode
@@ -187,4 +188,6 @@ MIT
 [1]: https://trello.com/app-key
 [2]: http://localhost:2222/#/
 [3]: https://github.com/natterstefan/react-trello-multiboard/issues
+[4]: https://github.com/zouhir/jarvis
+[5]: https://survivejs.com/webpack/optimizing/build-analysis/
 [natterstefan]: https://github.com/natterstefan

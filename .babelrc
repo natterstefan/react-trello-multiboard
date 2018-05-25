@@ -1,8 +1,15 @@
 {
-  "presets": [["env", { "targets": { "chrome": 54, "safari": 10 } }], "stage-2", "react"],
+  "presets": [
+    ["env", { "targets": { "chrome": 54, "safari": 10 }, "modules": false }],
+    "stage-2",
+    "react"
+  ],
   "env": {
     "production": {
       "plugins": ["transform-react-remove-prop-types"]
+    },
+    "test": {
+      "presets": [["env", { "targets": { "chrome": 54, "safari": 10 } }], "stage-2", "react"]
     }
   }
 }
