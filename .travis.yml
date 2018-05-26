@@ -8,6 +8,7 @@ script:
   - npm run lint:scss
   - npm run test
   - npm run build
+  - npm run analyse:size
 
 notifications:
   email:

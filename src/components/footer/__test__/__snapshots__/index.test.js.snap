@@ -14,7 +14,7 @@ exports[`Component/MainApp should render without throwing an error 1`] = `
         }
       }
     >
-      <FontAwesomeIcon$1
+      <FontAwesomeIcon
         border={false}
         className=""
         fixedWidth={false}

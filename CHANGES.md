@@ -6,6 +6,10 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+### Changed
+
+* upgraded all packages to latest version, including major releases
+
 ## 2018/05/25 0.0.2
 
 ### Added
