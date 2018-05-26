@@ -12,6 +12,12 @@ exports[`Component/TrelloCard should render without throwing an error 1`] = `
           },
         ],
       ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
     }
   }
   boardName="example-board"
@@ -128,7 +134,7 @@ exports[`Component/TrelloCard should render without throwing an error 1`] = `
               className="trello-card__badges"
             >
               <div>
-                <FontAwesomeIcon$1
+                <FontAwesomeIcon
                   border={false}
                   className=""
                   fixedWidth={false}
@@ -166,12 +172,12 @@ exports[`Component/TrelloCard should render without throwing an error 1`] = `
                       style={Object {}}
                     />
                   </svg>
-                </FontAwesomeIcon$1>
+                </FontAwesomeIcon>
                  
                 1
               </div>
               <div>
-                <FontAwesomeIcon$1
+                <FontAwesomeIcon
                   border={false}
                   className=""
                   fixedWidth={false}
@@ -209,12 +215,12 @@ exports[`Component/TrelloCard should render without throwing an error 1`] = `
                       style={Object {}}
                     />
                   </svg>
-                </FontAwesomeIcon$1>
+                </FontAwesomeIcon>
                  
                 1
               </div>
               <div>
-                <FontAwesomeIcon$1
+                <FontAwesomeIcon
                   border={false}
                   className=""
                   fixedWidth={false}
@@ -252,7 +258,7 @@ exports[`Component/TrelloCard should render without throwing an error 1`] = `
                       style={Object {}}
                     />
                   </svg>
-                </FontAwesomeIcon$1>
+                </FontAwesomeIcon>
                  
                 1
                 /

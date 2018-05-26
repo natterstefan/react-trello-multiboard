@@ -75,7 +75,7 @@ describe('Component/TrelloCard', () => {
   })
 
   test('should add only valid estimations to it addEstimations prop function', () => {
-    console.error = jest.genMockFunction() // disable propTypes warning
+    console.error = jest.fn() // disable propTypes warning
     const newProps = merge({}, props, {
       addEstimations: jest.fn(),
       card: {

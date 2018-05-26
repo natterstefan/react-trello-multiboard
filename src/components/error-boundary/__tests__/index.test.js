@@ -53,5 +53,5 @@ describe('Component/ErrorBoundary', () => {
 
   // https://stackoverflow.com/a/43284406/1238150
   // https://github.com/airbnb/enzyme/issues/1255#issuecomment-352529487
-  it.skip('should change the state in componentDidCatch')
+  test.skip('should change the state in componentDidCatch', () => {})
 })
