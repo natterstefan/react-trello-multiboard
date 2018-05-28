@@ -9,6 +9,8 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 ### Changed
 
 * upgraded all packages to latest version, including major releases
+* use [@natterstefan/eslint-config-ns](https://github.com/natterstefan/eslint-config-ns)
+  for eslint, stylelint and prettier
 
 ## 2018/05/25 0.0.2
 
