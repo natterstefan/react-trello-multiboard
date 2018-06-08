@@ -17,10 +17,10 @@ export const member = PropTypes.shape({
 })
 
 export default {
-  doTogglePreferredMember: PropTypes.func.isRequired,
   error: PropTypes.string,
   estimations,
-  member: member.isRequired,
   isActive: PropTypes.bool,
   isLoading: PropTypes.bool.isRequired,
+  member: member.isRequired,
+  onClick: PropTypes.func.isRequired,
 }

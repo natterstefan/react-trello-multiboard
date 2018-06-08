@@ -1,5 +1,5 @@
 import React from 'react'
-import { find, get, has, invoke, isEqual } from 'lodash'
+import { get, has, invoke, isEqual } from 'lodash'
 
 // Material UI
 import { withStyles } from '@material-ui/core/styles'
@@ -7,12 +7,16 @@ import LinearProgress from '@material-ui/core/LinearProgress'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 
-// Components
+// Components and PropTypes
 import proptypes from './prop-types'
-import EstimationCard from '../estimation-card'
 import BoardsList from '../boards-list'
-import MembersList from '../members-list'
+import EstimationCard from '../estimation-card'
 import Footer from '../footer'
+import MembersList from '../members-list'
+import Notification from '../notification'
+
+// Utils
+import { getMemberByOneOfProperty } from '../../utils/get-member-by-property'
 
 // Styles Components
 import { BlockContainer } from '../styled-components'
@@ -34,6 +38,13 @@ const styles = theme => ({
 })
 
 class MainApp extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showEstimationCard: false,
+    }
+  }
+
   componentDidMount() {
     // start autorizing the user automatically, one could also do this onClick on
     // a Login button or different element/interaction
@@ -60,7 +71,7 @@ class MainApp extends React.Component {
     const defaultEstimationTitle = `Preferred Member's ${defaultTitle}`
 
     if (togglePreferred && !!togglePreferredMember) {
-      const member = find(members, { id: togglePreferredMember }) || {}
+      const member = getMemberByOneOfProperty(members, ['id', 'username'], togglePreferredMember)
       if (has(member, 'fullName')) {
         return `${member.fullName}'s ${defaultTitle}`
       }
@@ -72,7 +83,8 @@ class MainApp extends React.Component {
   }
 
   render() {
-    const { app, classes, isAppLoading, isLoading } = this.props
+    const { showEstimationCard } = this.state
+    const { app, appErrors, classes, isAppLoading, isLoading } = this.props
     const togglePreferred = get(app, 'memberToggle.togglePreferred', false)
     const togglePreferredMember = get(app, 'memberToggle.togglePreferredMember', false)
 
@@ -86,57 +98,77 @@ class MainApp extends React.Component {
 
     // vheight sticky footer trick, see: https://blog.hellojs.org/flexbox-sticky-footer-and-react-d116e4cfca5
     return (
-      <div style={{ minHeight: '100vh' }}>
-        <BlockContainer>
-          <Typography variant="headline" component="h2">
-            Options
-          </Typography>
-          <Button
-            variant="raised"
-            id="togglePreferredButton"
-            className={classes.button}
-            onClick={() => {
-              invoke(this.props, 'doTogglePreferred', !togglePreferred)
-            }}
-          >
-            {togglePreferred || togglePreferredMember
-              ? 'Toggle all Members'
-              : 'Toggle preferred Members'}
-          </Button>
-          <Button
-            variant="raised"
-            id="doResetButton"
-            className={classes.button}
-            onClick={() => {
-              invoke(this.props, 'reloadBoards')
-              invoke(this.props, 'loadPreferredMembers')
-            }}
-          >
-            Refresh Boards
-          </Button>
-        </BlockContainer>
-        <BlockContainer>
-          <Typography variant="headline" component="h2">
-            Preferred Members
-          </Typography>
-        </BlockContainer>
-        <MembersList />
-        <BlockContainer>
-          <Typography variant="headline" component="h2">
-            {this.getEstimationTitle()}
-          </Typography>
-        </BlockContainer>
-        <BlockContainer>
-          <EstimationCard />
-        </BlockContainer>
-        <BoardsList />
-        {isAppLoading && (
-          <div className={classes.bottomLoader}>
-            <LinearProgress />
-          </div>
-        )}
-        {!isAppLoading && <Footer />}
-      </div>
+      <React.Fragment>
+        {appErrors &&
+          appErrors.length > 0 && (
+            <Notification message="An error occured. Please try it again later." />
+          )}
+        <div style={{ minHeight: '100vh', marginBottom: 30 }}>
+          <BlockContainer>
+            <Typography variant="headline" component="h2">
+              Options
+            </Typography>
+            <Button
+              variant="raised"
+              id="togglePreferredButton"
+              className={classes.button}
+              onClick={() => {
+                invoke(this.props, 'doTogglePreferred', !togglePreferred)
+              }}
+            >
+              {togglePreferred || togglePreferredMember
+                ? 'Toggle all Members'
+                : 'Toggle preferred Members'}
+            </Button>
+            <Button
+              variant="raised"
+              id="showEstimationCard"
+              className={classes.button}
+              onClick={() => {
+                this.setState({ showEstimationCard: !this.state.showEstimationCard })
+              }}
+            >
+              Show Estimations Card
+            </Button>
+            <Button
+              variant="raised"
+              id="doResetButton"
+              className={classes.button}
+              onClick={() => {
+                invoke(this.props, 'reloadBoards')
+                invoke(this.props, 'loadPreferredMembers')
+              }}
+            >
+              Refresh Boards
+            </Button>
+          </BlockContainer>
+          <BlockContainer>
+            <Typography variant="headline" component="h2">
+              Preferred Members
+            </Typography>
+          </BlockContainer>
+          <MembersList />
+          {showEstimationCard && (
+            <React.Fragment>
+              <BlockContainer>
+                <Typography variant="headline" component="h2">
+                  {this.getEstimationTitle()}
+                </Typography>
+              </BlockContainer>
+              <BlockContainer>
+                <EstimationCard />
+              </BlockContainer>
+            </React.Fragment>
+          )}
+          <BoardsList />
+          {isAppLoading && (
+            <div className={classes.bottomLoader}>
+              <LinearProgress />
+            </div>
+          )}
+          {!isAppLoading && <Footer />}
+        </div>
+      </React.Fragment>
     )
   }
 }

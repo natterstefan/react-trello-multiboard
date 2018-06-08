@@ -1,8 +1,12 @@
 import { connect } from 'react-redux'
 import { get } from 'lodash'
-import { togglePreferredMember } from '../../actions/app'
+
+// acions
+import { push } from 'connected-react-router'
+import { togglePreferredMember as togglePreferredMemberAction } from '../../actions/app'
 
 import Member from './component'
+import { getMemberByOneOfProperty } from '../../utils/get-member-by-property'
 
 const mapStateToProps = state => ({
   members: get(state, 'members', []),
@@ -13,10 +17,14 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({ dispatch })
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  const { togglePreferred, togglePreferredMember } = stateProps
+
   // actions
   const memberState = get(stateProps, `members[${ownProps.memberId}]`, {})
-  const doTogglePreferredMember = memberId =>
-    dispatchProps.dispatch(togglePreferredMember(memberId))
+  const onClick = () => {
+    dispatchProps.dispatch(push(`/member/${memberState.data.username}`))
+    dispatchProps.dispatch(togglePreferredMemberAction(ownProps.memberId))
+  }
 
   // prepare the props needed for the UI
   const member = get(memberState, 'data', {})
@@ -24,16 +32,22 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const isLoading = get(memberState, 'isLoading', false)
   const error = get(memberState, 'error')
 
-  // UI details
-  const isActive = stateProps.togglePreferred && stateProps.togglePreferredMember === member.id
+  // UI details like the active state (from the css perspective)
+  const hasMember =
+    typeof getMemberByOneOfProperty(
+      [memberState.data],
+      ['id', 'username'],
+      togglePreferredMember,
+    ) !== 'undefined'
+  const isActive = togglePreferred && hasMember
 
   return {
-    doTogglePreferredMember,
     error,
     estimations,
     isActive,
     isLoading,
     member,
+    onClick,
   }
 }
 

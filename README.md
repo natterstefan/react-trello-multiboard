@@ -16,6 +16,16 @@ React-Trello-Multiboard is a React application displaying multiple cards of
 several Trello boards and lists. The cards can be filtered by preferred team
 members.
 
+## Main features
+
+* flexible multiboard configuration (eg. select multiple lists to display from multiple boards)
+* deeplinking: send links to preferred members with their stories already filtered
+* built with awesome technologies, like: [react 16.x](https://github.com/facebook/react),
+  [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom),
+  [redux](https://github.com/reduxjs/redux), [material-ui](https://github.com/mui-org/material-ui)
+  and [styled-components](https://github.com/styled-components/styled-components) (to name a few)
+* :muscle: There's more to come. :grinning:
+
 ## Requirements
 
 ```
@@ -180,6 +190,10 @@ an issue please][3].
 ## Licence
 
 MIT
+
+## Examples
+
+Tell me more about your public available TrelloMultiBoard and I can list it here.
 
 ## Author & Contributors
 

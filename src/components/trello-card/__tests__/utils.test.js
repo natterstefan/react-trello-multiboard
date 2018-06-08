@@ -6,26 +6,26 @@ import {
 } from '../__mocks__/props'
 
 describe('component/TrelloCard/utils', () => {
-  const cardProps = { idMembers: ['member-1', 'member-2'] }
+  const cardProps = { cardMembers: ['member-1', 'member-2'] }
 
   test('isCardHidden should return false by default', () => {
     expect(isCardHidden()).toBe(false)
   })
 
-  test('isCardHidden should return true when preferred is toggled, but no member of the card', () => {
+  test('isCardHidden should return false when preferred is toggled and one of the cardMembers is a preferredMember', () => {
     const props = {
       ...cardProps,
       memberToggle: storeStateMockPreferred.app.memberToggle,
-      members: storeStateMockPreferred.members,
+      members: storeStateMockPreferred.members.members,
     }
-    expect(isCardHidden(props)).toBe(true)
+    expect(isCardHidden(props)).toBe(false)
   })
 
   test('isCardHidden should return false when a member of the card is toggled', () => {
     const props = {
       ...cardProps,
       memberToggle: storeStateMockPreferredMember.app.memberToggle,
-      members: storeStateMockPreferredMember.members,
+      members: storeStateMockPreferredMember.members.members,
     }
     expect(isCardHidden(props)).toBe(false)
   })
@@ -34,7 +34,7 @@ describe('component/TrelloCard/utils', () => {
     const props = {
       ...cardProps,
       memberToggle: storeStateMockPreferredMemberInvalid.app.memberToggle,
-      members: storeStateMockPreferredMemberInvalid.members,
+      members: storeStateMockPreferredMemberInvalid.members.members,
     }
     expect(isCardHidden(props)).toBe(true)
   })

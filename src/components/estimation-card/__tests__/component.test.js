@@ -23,6 +23,7 @@ const props = {
   },
   isLoading: false,
   members: {
+    members: [{ id: 'member-1' }],
     'member-1': {
       boardEstimations: {
         b1: {
@@ -71,5 +72,15 @@ describe('Component/EstimationCard', () => {
 
     const wrapper = shallow(<EstimationCard {...props} memberToggle={memberToggle} />)
     expect(wrapper.find('strong').text()).toEqual('Total: (3)[3]')
+  })
+
+  test('should render fallback estimations if the toggled member is not valid', () => {
+    const memberToggle = {
+      togglePreferred: true,
+      togglePreferredMember: 'member-2',
+    }
+
+    const wrapper = shallow(<EstimationCard {...props} memberToggle={memberToggle} />)
+    expect(wrapper.find('strong').text()).toEqual('Total: (0)[0]')
   })
 })

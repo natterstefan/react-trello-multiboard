@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+import { connectRouter, ConnectedRouter, routerMiddleware } from 'connected-react-router'
 
 // Material UI
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -15,19 +16,23 @@ import faCheckSquare from '@fortawesome/fontawesome-free-solid/faCheckSquare'
 import faCommentDots from '@fortawesome/fontawesome-free-solid/faCommentDots'
 import faPaperclip from '@fortawesome/fontawesome-free-solid/faPaperclip'
 
-// Store
+// Store and Browser History
 import { Provider } from 'react-redux'
 import { applyMiddleware, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
 import reducers from './reducers'
+import history from './utils/history'
 
 // Components
 import AppPage from './pages/page-app'
 import ConfigPage from './pages/page-config'
 
-// Redux Store
-const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleware)))
+// Setup Redux store
+const store = createStore(
+  connectRouter(history)(reducers),
+  composeWithDevTools(applyMiddleware(thunkMiddleware, routerMiddleware(history))),
+)
 
 // enable add all brand icons in the entire app
 fontawesome.library.add(brands, faAlignLeft, faCheckSquare, faCommentDots, faPaperclip)
@@ -36,12 +41,12 @@ export const TrelloMultiboard = () => (
   <Provider store={store}>
     <div>
       <CssBaseline />
-      <Router>
+      <ConnectedRouter history={history}>
         <Switch>
           <Route exact path="/config" component={ConfigPage} />
           <Route path="/" component={AppPage} />
         </Switch>
-      </Router>
+      </ConnectedRouter>
     </div>
   </Provider>
 )

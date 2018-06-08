@@ -10,11 +10,15 @@ const props = {
   boards: [
     {
       board: {
-        name: 'Member 1',
+        name: 'board-1',
       },
       config: {},
     },
   ],
+  getEstimations: () => ({
+    estimated: 3,
+    consumed: 2,
+  }),
   isLoading: false,
 }
 
@@ -40,6 +44,6 @@ describe('Component/BoardsList', () => {
 
   test('should pass the correct properties to the rendered Board', () => {
     const wrapper = shallow(<BoardsList {...props} />)
-    expect(wrapper.find(Board).props()).toMatchObject({ board: { name: 'Member 1' }, config: {} })
+    expect(wrapper.find(Board).props()).toMatchObject({ board: { name: 'board-1' }, config: {} })
   })
 })

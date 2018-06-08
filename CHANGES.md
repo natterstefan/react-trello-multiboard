@@ -6,8 +6,18 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
 
+### Added
+
+* [connected-react-router](https://github.com/supasate/connected-react-router)
+  added to make history actions and current location available to all components
+  in the redux store
+* Deeplinkg feature for preferred members: You now get a shareable link when you
+  click on a member to filter his cards.
+
 ### Changed
 
+* <EstimationCard /> is visible only after it was toggled in the <MainApp />
+* <BoardsList /> displays it's estimations already in the title
 * upgraded all packages to latest version, including major releases
 * use [@natterstefan/eslint-config-ns](https://github.com/natterstefan/eslint-config-ns)
   for eslint, stylelint and prettier

@@ -4,10 +4,11 @@ import LinearProgress from '@material-ui/core/LinearProgress'
 import Typography from '@material-ui/core/Typography'
 import styled from 'styled-components'
 
-import proptypes from './prop-types'
 import { getBoardName } from '../../utils/get-board-name'
-import Board from '../board'
+
+import proptypes from './prop-types'
 import { ScrollContainer } from '../styled-components'
+import Board from '../board'
 
 // Styled Component
 const BoardContent = styled.div`
@@ -16,7 +17,7 @@ const BoardContent = styled.div`
 `
 
 const BoardsList = props => {
-  const { boards, isLoading, error } = props
+  const { boards, error, getEstimations, isLoading } = props
 
   if (error) {
     return <span />
@@ -25,13 +26,24 @@ const BoardsList = props => {
     return <LinearProgress />
   }
 
+  const renderEstimations = board => {
+    const estimations = getEstimations(board)
+    return (
+      <span>
+        ({estimations.estimated || 0})[{estimations.consumed || 0}]
+      </span>
+    )
+  }
+
   return (
     <ScrollContainer>
       {map(boards, (board, idx) => {
         const boardName = getBoardName(get(board, 'board.name', ''))
         return (
           <BoardContent key={idx}>
-            <Typography variant="headline">{boardName}</Typography>
+            <Typography variant="headline">
+              {boardName} {renderEstimations(board)}
+            </Typography>
             <Board board={board.board} config={board.config} />
           </BoardContent>
         )
