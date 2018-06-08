@@ -26,6 +26,15 @@ members.
   and [styled-components](https://github.com/styled-components/styled-components) (to name a few)
 * :muscle: There's more to come. :grinning:
 
+## Example
+
+![TrelloMultiBoardExample](trello_multiboard_example.png)
+
+As you can see in the example, there are three boards in the list. From each board
+the list with the matching pattern `#pattern` in the title (can be any pattern,
+defined in [config.js](config/config.example.js)) is listed below. Each member
+can be filtered for and only his cards are presented then.
+
 ## Requirements
 
 ```
@@ -151,7 +160,8 @@ proposals.
 
 The following scripts are available (also work with `npm run`):
 
-* `yarn analyse`: bundles the production build and analyses it with [Jarvis][4], see other analyse [here][5].
+* `yarn analyse`: bundles the production build and analyses it with [Jarvis][4],
+  see other analyse [here][5].
 * `yarn lint`: lints the js-code with Eslint (without `--fix`)
 * `yarn lint:scss`: lints the scss-code with Stylelint (without `--fix`)
 * `yarn start`: starts the app with the webpack-dev-server
