@@ -7,14 +7,33 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/natterstefan/react-trello-multiboard/badge.svg)](https://snyk.io/test/github/natterstefan/react-trello-multiboard)
 [![GitHub license](https://img.shields.io/github/license/natterstefan/react-trello-multiboard.svg)](https://github.com/natterstefan/react-trello-multiboard/blob/master/LICENCE)
 
-[![GitHub stars](https://img.shields.io/github/stars/natterstefan/react-trello-multiboard.svg)](https://github.com/natterstefan/react-trello-multiboard/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/natterstefan/react-trello-multiboard.svg)](https://github.com/natterstefan/react-trello-multiboard/network)
-[![GitHub issues](https://img.shields.io/github/issues/natterstefan/react-trello-multiboard.svg)](https://github.com/natterstefan/react-trello-multiboard/issues)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/natterstefan/react-trello-multiboard.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/natterstefan/react-trello-multiboard)
+React-Trello-Multiboard is a single-page application built with React displaying
+multiple cards of several Trello boards and lists. The cards can be filtered by
+preferred team members.
 
-React-Trello-Multiboard is a React application displaying multiple cards of
-several Trello boards and lists. The cards can be filtered by preferred team
-members.
+<!-- TOC -->
+
+## Table of Contents
+
+* [React-Trello-Multiboard](#react-trello-multiboard)
+  * [Main Features](#main-features)
+  * [Example](#example)
+  * [Development & Build Requirements](#development--build-requirements)
+  * [Setup & Configuration Quickstart](#setup--configuration-quickstart)
+    * [Trello API Key](#trello-api-key)
+    * [Dependencies](#dependencies)
+    * [Config.js](#config-js)
+  * [How to start the App locally](#how-to-start-the-app-locally)
+  * [How to build the App for Production](#how-to-build-the-app-for-production)
+  * [How to develop and contribute](#how-to-develop-and-contribute)
+    * [List of npm scripts and git hooks](#-list-of-npm-scripts-and-git-hooks)
+  * [How to test your changes](#how-to-test-your-changes)
+  * [Troubleshooting](#troubleshooting)
+  * [Licence](#licence)
+  * [More Examples](#more-examples)
+  * [Maintainers](#maintainers)
+
+<!-- /TOC -->
 
 ## Main features
 
@@ -24,19 +43,26 @@ members.
   [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom),
   [redux](https://github.com/reduxjs/redux), [material-ui](https://github.com/mui-org/material-ui)
   and [styled-components](https://github.com/styled-components/styled-components) (to name a few)
-* :package: Small package size thanks to [size-limit](https://github.com/ai/size-limit)
+* :package: Small package size thanks to [webpack](https://github.com/webpack) and
+  [size-limit](https://github.com/ai/size-limit)
 * :muscle: There's more to come. :grinning:
 
 ## Example
 
 ![TrelloMultiBoardExample](trello_multiboard_example.png)
 
-As you can see in the example, there are three boards in the list. From each board
-the list with the matching pattern `#pattern` in the title (can be any pattern,
-defined in [config.js](config/config.example.js)) is listed below. Each member
-can be filtered for and only his cards are presented then.
+As you can see in the example, there are three trello boards and two members.
+From each board all cards of a list matching the `#pattern` pattern in the
+title (can be any pattern, defined in [config.js](config/config.example.js)) is
+listed below. Each member can be selected, which causes the list of cards to only
+show those of the selected member.
 
-## Requirements
+## Development & Build Requirements
+
+[![GitHub stars](https://img.shields.io/github/stars/natterstefan/react-trello-multiboard.svg)](https://github.com/natterstefan/react-trello-multiboard/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/natterstefan/react-trello-multiboard.svg)](https://github.com/natterstefan/react-trello-multiboard/network)
+[![GitHub issues](https://img.shields.io/github/issues/natterstefan/react-trello-multiboard.svg)](https://github.com/natterstefan/react-trello-multiboard/issues)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/natterstefan/react-trello-multiboard.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/natterstefan/react-trello-multiboard)
 
 ```
   node v8.9.x
@@ -49,11 +75,7 @@ can be filtered for and only his cards are presented then.
 Switch to the required version with `nvm use`. If you have not installed this
 node version, install it with eg. `nvm install v8.9.4`.
 
-### Trello API Key
-
-Log in to trello and get your api key here: [https://trello.com/app-key][1]
-
-### Full Example Setup with nvm
+#### Full Example Setup with nvm
 
 ```sh
   // first install nvm (eg. with brew)
@@ -69,13 +91,23 @@ Log in to trello and get your api key here: [https://trello.com/app-key][1]
   nvm use
 ```
 
-## Setup & Configuration
+## Setup & Configuration Quickstart
+
+### Trello API Key
+
+Log in to Trello and get your api key here: [https://trello.com/app-key][1]
+
+### Dependencies
+
+First install all Dependencies with
 
 ```sh
   yarn // or npm install
 ```
 
-Once you have installed all requirements, yarn/npm will copy `./config/config.example.js`
+### Config.js
+
+Once you have installed all dependencies, yarn/npm will copy `./config/config.example.js`
 for you and rename it to `./config/config.js`. You then have to customize it according to
 your needs and eg. enter your [API key][1] and other settings into the `config.js`.
 
@@ -96,8 +128,6 @@ module.exports = {
   ],
 }
 ```
-
-### Configuration Description
 
 The main config properties look like this:
 
@@ -137,14 +167,14 @@ Example:
 
 Would result in the following total estimation for the board: Example-Board \(6)\[1]
 
-## Start the App locally
+## How to start the App locally
 
 Now, when you have set up the `config.js` start the app with: `yarn start`. The
 webpack-dev-server will start the app and open: [http://localhost:2222/#/][2].
 
 You can now interact with the board, filter members or show all cards again.
 
-## Build the App
+## How to build the App for Production
 
 `yarn start` will build and run a development version of the app, but you should
 create a stable and production ready build with `yarn build` before you upload
@@ -152,12 +182,12 @@ the files onto your server.
 
 The output will be available in the `dist` folder.
 
-## How to Develop and Contribute
+## How to develop and contribute
 
-Please create for the project and create a PR for new features, bugfixes or other
-proposals.
+Clone the repository, commit your changes and create a PR for new features,
+bugfixes or other ideas.
 
-### Available tasks
+### List of npm scripts and git hooks
 
 The following scripts are available (also work with `npm run`):
 
@@ -171,7 +201,7 @@ The following scripts are available (also work with `npm run`):
 * `yarn test:coverage`: runs tests with jest and creates a coverage report
 * `yarn test:verbose`: runs tests with jest in the verbose mode
 
-### Pre-Commit Hooks
+#### Pre-Commit Hooks
 
 When attempting to commit and push changes, some taks will automatically run:
 
@@ -183,11 +213,11 @@ When attempting to commit and push changes, some taks will automatically run:
 * **Scss files (.scss):**
   * runs `stylelint` and formats the code
 
-### Pre-Push Hooks
+#### Pre-Push Hooks
 
 Runs all tests with Jest.
 
-### How to Test
+### How to Test your Changes
 
 Jest was selected as the test framework for this app. Simply run it with one of
 the test commands listed above. A cheatsheet for some of the most important features
@@ -200,19 +230,36 @@ an issue please][3].
 
 ## Licence
 
-MIT
+[MIT](LICENCE)
 
-## Examples
+## More Examples
 
-Tell me more about your public available TrelloMultiBoard and I can list it here.
+I would be very happy if you tell me more about your project and if your TrelloMultiBoard
+is public I can list it here if you want.
 
-## Author & Contributors
+## Maintainers
 
-* [Stefan Natter][natterstefan] [![@natterstefan](https://img.shields.io/twitter/follow/natterstefan.svg?style=social&label=Follow)](https://twitter.com/natterstefan)
+<table>
+  <tbody>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/natterstefan">
+          <img width="150" height="150" src="https://github.com/natterstefan.png?v=3&s=150">
+          </br>
+          Stefan Natter
+        </a>
+        <div>
+          <a href="https://twitter.com/natterstefan">
+            <img src="https://img.shields.io/twitter/follow/natterstefan.svg?style=social&label=Follow" />
+          </a>
+        </div>
+      </td>
+    </tr>
+  <tbody>
+</table>
 
 [1]: https://trello.com/app-key
 [2]: http://localhost:2222/#/
 [3]: https://github.com/natterstefan/react-trello-multiboard/issues
 [4]: https://github.com/zouhir/jarvis
 [5]: https://survivejs.com/webpack/optimizing/build-analysis/
-[natterstefan]: https://github.com/natterstefan
