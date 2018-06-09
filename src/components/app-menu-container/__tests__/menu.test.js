@@ -29,5 +29,11 @@ describe('Component/AppMenuContent', () => {
         .at(1)
         .prop('to'),
     ).toBe('/config')
+    expect(
+      wrapper
+        .find(ListItem)
+        .at(2)
+        .prop('to'),
+    ).toBe('/github')
   })
 })

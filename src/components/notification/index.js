@@ -64,7 +64,11 @@ class Notification extends React.Component {
 
 Notification.propTypes = {
   classes: PropTypes.object.isRequired, // eslint-disable-line
-  message: PropTypes.string.isRequired,
+  message: PropTypes.string,
+}
+
+Notification.defaultProps = {
+  message: undefined,
 }
 
 export default withStyles(styles)(Notification)

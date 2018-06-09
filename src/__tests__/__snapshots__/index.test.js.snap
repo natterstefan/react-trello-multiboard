@@ -44,6 +44,10 @@ exports[`Component/TrelloMultiBoard should render without throwing an error 1`] 
         />
         <Route
           component={[Function]}
+          path="/github"
+        />
+        <Route
+          component={[Function]}
           path="/"
         />
       </Switch>

@@ -23,6 +23,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
 import reducers from './reducers'
 import history from './utils/history'
+import { GITHUB_URL } from './constants'
 
 // Components
 import AppPage from './pages/page-app'
@@ -44,6 +45,14 @@ export const TrelloMultiboard = () => (
       <ConnectedRouter history={history}>
         <Switch>
           <Route exact path="/config" component={ConfigPage} />
+          <Route
+            path="/github"
+            component={() => {
+              // alternative https://stackoverflow.com/a/42988282/1238150
+              window.location.href = GITHUB_URL
+              return null
+            }}
+          />
           <Route path="/" component={AppPage} />
         </Switch>
       </ConnectedRouter>
