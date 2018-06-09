@@ -18,12 +18,13 @@ members.
 
 ## Main features
 
-* flexible multiboard configuration (eg. select multiple lists to display from multiple boards)
-* deeplinking: send links to preferred members with their stories already filtered
-* built with awesome technologies, like: [react 16.x](https://github.com/facebook/react),
+* :memo: flexible multiboard configuration (eg. select multiple lists to display from multiple boards)
+* :office: optimised teamwork experience, (eg. send deeplinks to your colleagues with their stories already filtered)
+* :hammer: built with awesome technologies, like: [react 16.x](https://github.com/facebook/react),
   [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom),
   [redux](https://github.com/reduxjs/redux), [material-ui](https://github.com/mui-org/material-ui)
   and [styled-components](https://github.com/styled-components/styled-components) (to name a few)
+* :package: Small package size thanks to [size-limit](https://github.com/ai/size-limit)
 * :muscle: There's more to come. :grinning:
 
 ## Example
