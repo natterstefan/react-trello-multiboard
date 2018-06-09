@@ -12,7 +12,6 @@ import Member from '../component'
 import UserAvatar from '../user-avatar'
 
 const props = {
-  doTogglePreferredMember: jest.fn(),
   error: null,
   estimations: {
     consumed: 0,
@@ -21,6 +20,7 @@ const props = {
   isActive: false,
   isLoading: false,
   member: mockEampleUser1,
+  onClick: jest.fn(),
 }
 
 describe('Component/Member', () => {
@@ -68,12 +68,10 @@ describe('Component/Member', () => {
     expect(wrapper.find('.member_card_member-1--estimations').html()).toEqual(expectedSpan)
   })
 
-  test('should invoke doTogglePreferredMember when the Card is clicked', () => {
-    const doTogglePreferredMember = jest.fn()
-    const wrapper = shallow(
-      <Member {...props} doTogglePreferredMember={doTogglePreferredMember} />,
-    ).dive()
+  test('should invoke onClick when the Card is clicked', () => {
+    const onClick = jest.fn()
+    const wrapper = shallow(<Member {...props} onClick={onClick} />).dive()
     wrapper.find('.member_card_member-1').simulate('click')
-    expect(doTogglePreferredMember).toHaveBeenCalledTimes(1)
+    expect(onClick).toHaveBeenCalledTimes(1)
   })
 })

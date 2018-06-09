@@ -21,9 +21,9 @@ const mergeProps = (stateProps, { dispatch }, ownProps) => {
   }
 
   const isCardHiddenProps = {
+    cardMembers: get(ownProps, 'card.cardMembers', []),
     memberToggle: get(stateProps, 'memberToggle'),
     members: get(stateProps, 'members', []),
-    idMembers: get(ownProps, 'card.idMembers', []),
   }
 
   const currentBoard = find(

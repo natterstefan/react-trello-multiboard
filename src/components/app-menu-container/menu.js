@@ -7,7 +7,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import DashboardIcon from '@material-ui/icons/Dashboard'
 import SettingsIcon from '@material-ui/icons/Settings'
-import { GITHUB_URL } from '../../constants'
 
 // NOTE: add replace to ListItem because of: https://github.com/ReactTraining/react-router/issues/4467
 const AppMenuContent = () => (
@@ -25,12 +24,7 @@ const AppMenuContent = () => (
         </ListItemIcon>
         <ListItemText primary="Config" />
       </ListItem>
-      <ListItem
-        button
-        onClick={() => {
-          window.location.href = GITHUB_URL
-        }}
-      >
+      <ListItem component={Link} button replace to="/github">
         <ListItemIcon>
           <FontAwesomeIcon icon={['fab', 'github']} size="lg" />
         </ListItemIcon>

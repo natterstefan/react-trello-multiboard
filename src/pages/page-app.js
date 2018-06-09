@@ -5,10 +5,10 @@ import ErrorBoundary from '../components/error-boundary'
 import AppContainer from '../components/app-menu-container'
 import MainApp from '../components/main-app'
 
-const App = () => (
+const App = props => (
   <ErrorBoundary>
     <AppContainer>
-      <MainApp />
+      <MainApp {...props} />
     </AppContainer>
   </ErrorBoundary>
 )

@@ -22,7 +22,7 @@ const MembersList = props => {
   return (
     <ScrollContainer>
       <List style={{ display: 'flex', alignItems: 'self-start' }}>
-        {map(get(members, 'members', []), ({ id }) => {
+        {map(get(members, 'members', []), ({ id }, index) => {
           // - display only preferred members in this list
           const isPreferred = get(members, `[${id}].data.preferred`, false)
           if (!isPreferred) {
@@ -30,7 +30,7 @@ const MembersList = props => {
           }
 
           return (
-            <ListItem className={props.classes.root} key={id} dense button>
+            <ListItem className={props.classes.root} key={`${id}-${index}`} dense button>
               <Member memberId={id} />
             </ListItem>
           )

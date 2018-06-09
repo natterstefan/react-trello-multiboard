@@ -8,12 +8,20 @@ exports[`Component/BoardsList should render without throwing an error 1`] = `
     <WithStyles(Typography)
       variant="headline"
     >
-      Member 1
+      board-1
+       
+      <span>
+        (
+        3
+        )[
+        2
+        ]
+      </span>
     </WithStyles(Typography)>
     <Connect(Board)
       board={
         Object {
-          "name": "Member 1",
+          "name": "board-1",
         }
       }
       config={Object {}}

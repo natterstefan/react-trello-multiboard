@@ -97,11 +97,7 @@ class AppMenuContainer extends React.Component {
   static propTypes = {
     classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
     theme: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-    children: PropTypes.node,
-  }
-
-  static defaultProps = {
-    children: () => <span />,
+    children: PropTypes.node.isRequired,
   }
 
   constructor(props) {

@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component/AppMenuContainer should render without throwing an error 1`] = `
+<div
+  className="AppMenuContainer-root-1"
+>
+  <div
+    className="AppMenuContainer-appFrame-3"
+  >
+    <WithStyles(AppBar)
+      className="AppMenuContainer-appBar-4"
+    >
+      <WithStyles(Toolbar)
+        disableGutters={true}
+      >
+        <WithStyles(IconButton)
+          aria-label="open drawer"
+          className="AppMenuContainer-menuButton-7"
+          color="inherit"
+          onClick={[Function]}
+        >
+          <pure(Menu) />
+        </WithStyles(IconButton)>
+        <WithStyles(Typography)
+          className="AppMenuContainer-flex-2"
+          color="inherit"
+          noWrap={true}
+          variant="title"
+        >
+          Trello Multiboard
+        </WithStyles(Typography)>
+      </WithStyles(Toolbar)>
+    </WithStyles(AppBar)>
+    <WithStyles(Drawer)
+      anchor="left"
+      classes={
+        Object {
+          "paper": "AppMenuContainer-drawerPaper-9",
+        }
+      }
+      open={false}
+      variant="persistent"
+    >
+      <div
+        className="AppMenuContainer-drawerHeader-10"
+      >
+        <WithStyles(IconButton)
+          onClick={[Function]}
+        >
+          <pure(ChevronLeft) />
+        </WithStyles(IconButton)>
+      </div>
+      <WithStyles(Divider) />
+      <AppMenuContent />
+    </WithStyles(Drawer)>
+    <main
+      className="AppMenuContainer-content-11 AppMenuContainer-content-left-12"
+    >
+      <div
+        className="AppMenuContainer-drawerHeader-10"
+      />
+      <Child />
+    </main>
+  </div>
+</div>
+`;

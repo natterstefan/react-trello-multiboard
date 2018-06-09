@@ -23,7 +23,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     boards: stateProps.boards,
     error,
     isLoading,
-    members: omit(stateProps.members, ['error', 'isLoading', 'members']),
+    members: omit(stateProps.members, ['error', 'isLoading']),
     memberToggle: stateProps.memberToggle,
   }
 }

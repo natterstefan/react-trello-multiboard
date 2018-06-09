@@ -1,10 +1,15 @@
 import { get, merge } from 'lodash'
 import { actions } from '../../actions/app'
+import history from '../../utils/history'
+
+// if the initial url contains '/member/<username>' we reflect this in the initialState
+// to show the data for the username already
+const memberFromUrl = get(history, 'location.pathname').split('/member/')[1]
 
 const initialState = {
   memberToggle: {
-    togglePreferred: false,
-    togglePreferredMember: null,
+    togglePreferred: typeof memberFromUrl !== 'undefined' || false,
+    togglePreferredMember: memberFromUrl || null,
   },
 }
 

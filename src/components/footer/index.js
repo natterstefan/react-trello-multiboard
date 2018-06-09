@@ -13,6 +13,10 @@ export const FooterContainer = styled.footer`
   margin-top: 30;
   margin: 55px -30px -24px;
   padding: 10px 0px;
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  left: 0;
 `
 
 const Footer = () => (

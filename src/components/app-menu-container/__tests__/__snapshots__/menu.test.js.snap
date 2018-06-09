@@ -33,7 +33,9 @@ exports[`Component/AppMenuContent should render without throwing an error 1`] = 
     </WithStyles(ListItem)>
     <WithStyles(ListItem)
       button={true}
-      onClick={[Function]}
+      component={[Function]}
+      replace={true}
+      to="/github"
     >
       <WithStyles(ListItemIcon)>
         <FontAwesomeIcon

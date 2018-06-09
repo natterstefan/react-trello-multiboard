@@ -14,7 +14,7 @@ exports[`Component/MembersList should render without throwing an error 1`] = `
       button={true}
       className="MembersList-root-1"
       dense={true}
-      key="mb1"
+      key="mb1-0"
     >
       <Connect(WithStyles(Member))
         memberId="mb1"

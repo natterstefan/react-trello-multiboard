@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography'
 
 import proptypes from './prop-types'
 import { getBoardName } from '../../utils/get-board-name'
+import { getMemberByOneOfProperty } from '../../utils/get-member-by-property'
 
 const EstimationCard = props => {
   const { boards, companyMember, error, isLoading, memberToggle, members } = props
@@ -33,12 +34,21 @@ const EstimationCard = props => {
     let estimated = 0
 
     if (togglePreferred && togglePreferredMember) {
-      // get the member specific estimation for the board
-      const getMemberEstimation = key =>
-        get(members, `[${togglePreferredMember}].boardEstimations[${boardId}][${key}]`, 0)
+      // find the correct member in the list of available members
+      const member = getMemberByOneOfProperty(
+        members.members,
+        ['id', 'username'],
+        togglePreferredMember,
+      )
 
-      consumed = getMemberEstimation('consumed')
-      estimated = getMemberEstimation('estimated')
+      if (member) {
+        // get the member specific estimation for the board
+        const getMemberEstimation = key =>
+          get(members, `[${member.id}].boardEstimations[${boardId}][${key}]`, 0)
+
+        consumed = getMemberEstimation('consumed')
+        estimated = getMemberEstimation('estimated')
+      }
     } else if (togglePreferred) {
       // get the values for each board from the main account
       const getEstimations = key =>

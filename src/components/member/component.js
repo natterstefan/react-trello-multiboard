@@ -27,7 +27,7 @@ const MemberContainer = styled.div`
 `
 
 const Member = props => {
-  const { doTogglePreferredMember, error, estimations, isActive, isLoading, member } = props
+  const { error, estimations, isActive, isLoading, member, onClick } = props
 
   if (error) {
     return <span />
@@ -45,7 +45,7 @@ const Member = props => {
       style={{
         backgroundColor: isActive ? '#3f51b5' : undefined,
       }}
-      onClick={() => doTogglePreferredMember(member.id)}
+      onClick={() => onClick()}
     >
       <CardContent className={props.classes.root}>
         <MemberContainer>

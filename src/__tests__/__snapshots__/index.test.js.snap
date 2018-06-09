@@ -14,7 +14,28 @@ exports[`Component/TrelloMultiBoard should render without throwing an error 1`] 
 >
   <div>
     <WithStyles(CssBaseline) />
-    <HashRouter>
+    <Connect(ConnectedRouter)
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
       <Switch>
         <Route
           component={[Function]}
@@ -23,10 +44,14 @@ exports[`Component/TrelloMultiBoard should render without throwing an error 1`] 
         />
         <Route
           component={[Function]}
+          path="/github"
+        />
+        <Route
+          component={[Function]}
           path="/"
         />
       </Switch>
-    </HashRouter>
+    </Connect(ConnectedRouter)>
   </div>
 </Provider>
 `;
