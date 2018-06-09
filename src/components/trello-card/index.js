@@ -21,7 +21,7 @@ const mergeProps = (stateProps, { dispatch }, ownProps) => {
   }
 
   const isCardHiddenProps = {
-    cardMembers: get(ownProps, 'card.cardMembers', []),
+    cardMembers: get(ownProps, 'card.idMembers', []),
     memberToggle: get(stateProps, 'memberToggle'),
     members: get(stateProps, 'members', []),
   }

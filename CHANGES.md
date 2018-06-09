@@ -6,6 +6,10 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased][1]
 
+## 2018/06/09 [0.1.1][5]
+
+* Bugfix TrelloCard `isHidden` calculation
+
 ## 2018/06/09 [0.1.0][4]
 
 ### Added
@@ -69,3 +73,4 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 [2]: https://github.com/natterstefan/react-trello-multiboard/releases/tag/v0.0.1
 [3]: https://github.com/natterstefan/react-trello-multiboard/compare/v0.0.1...v0.0.2
 [4]: https://github.com/natterstefan/react-trello-multiboard/compare/v0.0.2...v0.1.0
+[5]: https://github.com/natterstefan/react-trello-multiboard/compare/v0.1.0...v0.1.1
