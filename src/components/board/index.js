@@ -4,8 +4,9 @@ import Board from './component'
 import { requestLists } from '../../actions/lists'
 
 const mapStateToProps = state => ({
-  info: get(state, 'info', {}),
   lists: get(state, 'lists', {}),
+  listsConfig: get(state, 'app.config.lists'),
+  toggleList: get(state, 'app.listToggle.toggleList'),
 })
 
 const mapDispatchToProps = dispatch => ({ dispatch })
@@ -18,6 +19,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const error = get(listState, 'error')
 
   // actions
+  // TODO: validate ownProps, what is still necessary to have to eg. fullfill loadLists
   const loadLists = () => dispatchProps.dispatch(requestLists(ownProps.board, ownProps.config))
 
   return {

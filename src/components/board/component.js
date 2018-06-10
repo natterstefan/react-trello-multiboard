@@ -1,5 +1,5 @@
 import React from 'react'
-import { invoke, map } from 'lodash'
+import { filter, invoke, map } from 'lodash'
 import Typography from '@material-ui/core/Typography'
 import LinearProgress from '@material-ui/core/LinearProgress'
 import styled from 'styled-components'
@@ -19,12 +19,13 @@ class Board extends React.Component {
   }
 
   renderList() {
-    const { lists } = this.props
+    const { lists, toggleList } = this.props
+    console.log('lists', lists && lists[0] && typeof lists[0].pattern) /* eslint-disable-line */
 
     if (lists.length === 0) {
       return <Typography>No matching list(s) found</Typography>
     }
-    return map(lists, (list, idx) => (
+    return map(filter(lists, ['pattern', toggleList]), (list, idx) => (
       <TrelloCardsList key={idx} list={list.list} config={list.config} />
     ))
   }

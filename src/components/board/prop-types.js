@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { list } from '../trello-cards-list/prop-types'
 
 export default {
-  error: PropTypes.string,
+  error: PropTypes.object,
   lists: PropTypes.arrayOf(
     PropTypes.shape({
       list,
