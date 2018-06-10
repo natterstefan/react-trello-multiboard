@@ -11,13 +11,13 @@ const styles = () => ({
     backgroundColor: 'transparent',
     flexGrow: 1,
     marginBottom: 30,
+    marginTop: 30,
     width: '100%',
   },
 })
 
 // TODO:
 // - add tests and fix ui on smaller screens (padding/margin right)
-// - adjust so that it works with scrolling, see https://material-ui.com/demos/tabs/#automatic-scroll-buttons
 class ListTabs extends React.Component {
   handleChange = (event, value) => {
     this.props.changeListToggle(get(this.props, `listsConfig[${value}]`))
@@ -35,14 +35,17 @@ class ListTabs extends React.Component {
       <div className={classes.root}>
         <AppBar position="static" color="default">
           <Tabs
-            value={toggleList}
-            onChange={this.handleChange}
             indicatorColor="primary"
-            textColor="primary"
+            onChange={this.handleChange}
             scrollable
             scrollButtons="on"
+            textColor="primary"
+            value={toggleList}
           >
-            {map(listsConfig, (list, idx) => <Tab label={list.replace('/', '')} key={idx} />)}
+            {map(listsConfig, (list, idx) => {
+              const isDisabled = list === toggleList
+              return <Tab label={list.replace(/\//g, '')} key={idx} disabled={isDisabled} />
+            })}
           </Tabs>
         </AppBar>
       </div>

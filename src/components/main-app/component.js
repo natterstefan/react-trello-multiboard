@@ -162,7 +162,7 @@ class MainApp extends React.Component {
             </React.Fragment>
           )}
           <Typography variant="headline" component="h2">
-            Boards
+            Boards {get(this.props, 'app.listToggle.toggleList', '').replace(/\//g, '')}
           </Typography>
           <ListTabs />
           <BoardsList />

@@ -8,19 +8,21 @@ import { regexStringifier } from '../../utils/regex-stringify'
 // to show the data for the username already
 const memberFromUrl = get(history, 'location.pathname').split('/member/')[1]
 
-// TODO: compare initial url for current active toggleList
-const availablePattern = map(Config.lists, i => regexStringifier('lists', i))
+// if the initial url contains '/pattern/<toggleList>' we reflect this in the initialState
+const patternFromUrl = get(history, 'location.pathname').split('/pattern/')[1] || false
+const decodedPatternFromUrl = patternFromUrl ? decodeURIComponent(patternFromUrl) : false
+const listConfig = map(Config.lists, i => regexStringifier('lists', i))
 
 const initialState = {
   config: {
-    lists: availablePattern,
+    lists: listConfig,
   },
   memberToggle: {
     togglePreferred: typeof memberFromUrl !== 'undefined' || false,
     togglePreferredMember: memberFromUrl || null,
   },
   listToggle: {
-    toggleList: availablePattern[0] || false,
+    toggleList: decodedPatternFromUrl || listConfig[0] || false,
   },
 }
 

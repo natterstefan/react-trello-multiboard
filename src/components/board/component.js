@@ -28,13 +28,14 @@ class Board extends React.Component {
 
   renderList() {
     const { lists, toggleList } = this.props
+    const filteredLists = filter(lists, ['pattern', toggleList])
 
-    if (lists.length === 0) {
+    if (filteredLists.length === 0) {
       return <Typography>No matching list(s) found</Typography>
     }
 
     // we only show those lists which match the current toggleList
-    return map(filter(lists, ['pattern', toggleList]), list => (
+    return map(filteredLists, list => (
       <TrelloCardsList key={list.list.id} list={list.list} config={list.config} />
     ))
   }

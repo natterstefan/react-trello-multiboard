@@ -24,6 +24,7 @@ import thunkMiddleware from 'redux-thunk'
 import reducers from './reducers'
 import history from './utils/history'
 import { GITHUB_URL } from './constants'
+import historyMiddleware from './middleware/history'
 
 // Components
 import AppPage from './pages/page-app'
@@ -32,7 +33,9 @@ import ConfigPage from './pages/page-config'
 // Setup Redux store
 const store = createStore(
   connectRouter(history)(reducers),
-  composeWithDevTools(applyMiddleware(thunkMiddleware, routerMiddleware(history))),
+  composeWithDevTools(
+    applyMiddleware(thunkMiddleware, routerMiddleware(history), historyMiddleware),
+  ),
 )
 
 // enable add all brand icons in the entire app
