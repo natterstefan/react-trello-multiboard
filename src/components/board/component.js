@@ -18,15 +18,24 @@ class Board extends React.Component {
     invoke(this.props, 'loadLists')
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.toggleList !== this.props.toggleList) {
+      // when the app switches between lists, we need to reset the estimations
+      // before a reload is triggered
+      invoke(this.props, 'resetEstimations')
+    }
+  }
+
   renderList() {
     const { lists, toggleList } = this.props
-    console.log('lists', lists && lists[0] && typeof lists[0].pattern) /* eslint-disable-line */
 
     if (lists.length === 0) {
       return <Typography>No matching list(s) found</Typography>
     }
-    return map(filter(lists, ['pattern', toggleList]), (list, idx) => (
-      <TrelloCardsList key={idx} list={list.list} config={list.config} />
+
+    // we only show those lists which match the current toggleList
+    return map(filter(lists, ['pattern', toggleList]), list => (
+      <TrelloCardsList key={list.list.id} list={list.list} config={list.config} />
     ))
   }
 

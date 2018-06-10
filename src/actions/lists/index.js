@@ -1,4 +1,4 @@
-import { forEach, uniq } from 'lodash'
+import { forEach } from 'lodash'
 import { getLists } from '../../data/trello'
 import Config from '../../../config/config'
 import { regexStringifier } from '../../utils/regex-stringify'
@@ -47,8 +47,6 @@ const requestLists = (board, config) => async dispatch => {
       }
     })
 
-    console.log('patterns', uniq(patterns)) /* eslint-disable-line */
-    console.log('lists', lists) /* eslint-disable-line */
     dispatch(receiveLists(board.id, lists))
   } catch (errorMsg) {
     dispatch(receiveLists(board.id, null, errorMsg))

@@ -4,7 +4,6 @@ import List from './component'
 import { requestCards } from '../../actions/cards'
 
 const mapStateToProps = state => ({
-  info: get(state, 'info', {}),
   cards: get(state, 'cards', {}),
 })
 

@@ -37,10 +37,10 @@ const BoardsList = props => {
 
   return (
     <ScrollContainer>
-      {map(boards, (board, idx) => {
+      {map(boards, board => {
         const boardName = getBoardName(get(board, 'board.name', ''))
         return (
-          <BoardContent key={idx}>
+          <BoardContent key={board.board.id}>
             <Typography variant="headline">
               {boardName} {renderEstimations(board)}
             </Typography>

@@ -12,6 +12,7 @@ import proptypes from './prop-types'
 import BoardsList from '../boards-list'
 import EstimationCard from '../estimation-card'
 import Footer from '../footer'
+import ListTabs from '../list-tabs'
 import MembersList from '../members-list'
 import Notification from '../notification'
 
@@ -160,6 +161,10 @@ class MainApp extends React.Component {
               </BlockContainer>
             </React.Fragment>
           )}
+          <Typography variant="headline" component="h2">
+            Boards
+          </Typography>
+          <ListTabs />
           <BoardsList />
           {isAppLoading && (
             <div className={classes.bottomLoader}>

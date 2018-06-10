@@ -36,6 +36,7 @@ export function reducer(state = initialState, action) {
           togglePreferredMember: action.toggle ? togglePreferredMember : null,
         },
       })
+
     case actions.TOGGLE_PREFERRED_MEMBER:
       return merge({}, state, {
         memberToggle: {
@@ -43,6 +44,14 @@ export function reducer(state = initialState, action) {
           togglePreferredMember: action.memberId || null,
         },
       })
+
+    case actions.TOGGLE_PREFERRED_LIST:
+      return merge({}, state, {
+        listToggle: {
+          toggleList: get(action, 'pattern') || undefined,
+        },
+      })
+
     default:
       return state
   }

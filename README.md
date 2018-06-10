@@ -117,11 +117,11 @@ module.exports = {
   api_key: 'your_api_key',
   company_member: 'exampleusername'
   preferred_members: /exampleusername|anotheruser/,
+  lists: [/#sprint1/, /#sprint2/, /#sprint3/],
   boards: [
     {
       shortcut: 'hw',
       board: 'hello-world',
-      lists: /#upcoming/,
       estimates_with_round_brackets: true,
       estimates_with_square_brackets: true,
     },
@@ -139,14 +139,14 @@ The main config properties look like this:
 * `preferred_members`: usernames of the ones you want to highlight, filter and
   calculate the estimations from. Note: currently the app can only display
   preferred members and not all of the found ones
+* `lists` (array with regex strings): search pattern of the list name(s) you
+  want to get tasks from
 * `boards`: array of board configs
 
 The list of boards should contain board objects like this:
 
 * `shortcut` (string): the title above each list of tasks
 * `board` (string): name of trello board
-* `lists` (regex string): search pattern of the list name(s) you want to get
-  tasks from
 
 #### Estimations Configuration
 

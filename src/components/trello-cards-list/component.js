@@ -24,9 +24,10 @@ class TrelloCardsList extends React.Component {
     if (cards.length === 0) {
       return <Typography>No matching card(s) found</Typography>
     }
-    return map(cards, (card, idx) => (
+
+    return map(cards, card => (
       <TrelloCard
-        key={idx}
+        key={card.card.id}
         card={card.card}
         config={card.config}
         listName={get(list, 'name', '')}
