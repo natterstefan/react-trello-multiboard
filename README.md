@@ -147,6 +147,8 @@ The list of boards should contain board objects like this:
 
 * `shortcut` (string): the title above each list of tasks
 * `board` (string): name of trello board
+* `estimates_with_round_brackets` (bool)
+* `estimates_with_square_brackets` (bool)
 
 #### Estimations Configuration
 

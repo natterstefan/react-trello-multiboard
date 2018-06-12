@@ -8,13 +8,16 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
-* `config.js` can now contain multiple `lists` patterns, each list will be available
-  in the <ListTabs /> and can later be used to select a specific list. All filters
-  work as expected and as before.
+* **Breaking**: `config.js` can now contain multiple `lists` patterns, each list
+  will be available in the `<ListTabs \/>` component and can later be used to
+  select a specific list. All filters work as expected and as before (also with
+  deeplinking for the list patterns)
+  * _Note_: even though semver would suggest adding releasing a major release, I
+    decided to stick to 0.x.y still until further notice here.
 
 ### Added
 
-* <ListTabs /> added
+* `<ListTabs \/>` added
 
 ## 2018/06/09 [0.1.1][5]
 

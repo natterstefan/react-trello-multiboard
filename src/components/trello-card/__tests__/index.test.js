@@ -17,7 +17,7 @@ import { shallow } from 'enzyme'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 
-import { props, storeStateMock } from '../__mocks__/props'
+import { props, storeStateMock } from '../__mocks__/trello-card'
 
 // inspired by https://github.com/reactjs/redux/issues/1534#issuecomment-205061049
 const mockStore = configureMockStore([thunk])

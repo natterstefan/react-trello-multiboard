@@ -5,7 +5,7 @@ import { merge } from 'lodash'
 import TrelloCard from '../component'
 import TrelloCardUi from '../card'
 
-import { props } from '../__mocks__/props'
+import { props } from '../__mocks__/trello-card'
 
 describe('Component/TrelloCard', () => {
   test('should render without throwing an error', () => {
