@@ -51,6 +51,13 @@ exports[`Component/MainApp should render without throwing an error 1`] = `
       </WithStyles(Typography)>
     </styled.div>
     <Connect(WithStyles(MembersList)) />
+    <WithStyles(Typography)
+      component="h2"
+      variant="headline"
+    >
+      Boards 
+    </WithStyles(Typography)>
+    <Connect(WithStyles(ListTabs)) />
     <Connect(BoardsList) />
     <Footer />
   </div>

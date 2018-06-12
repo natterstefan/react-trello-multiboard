@@ -29,6 +29,7 @@ const requestLists = (board, config) => async dispatch => {
       let pattern = ''
       if (
         // some and rx.test inspired by https://stackoverflow.com/a/38075457/1238150
+        Config.lists &&
         Config.lists.some(rx => {
           if (rx.test(list.name)) {
             pattern = regexStringifier('regex', rx) // convert to string for better re-usage

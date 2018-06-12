@@ -10,6 +10,7 @@ const props = {
   boards: [
     {
       board: {
+        id: 'board-1',
         name: 'board-1',
       },
       config: {},

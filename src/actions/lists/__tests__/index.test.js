@@ -49,6 +49,7 @@ describe('actions/cards:async actions', () => {
           {
             list,
             config,
+            pattern: '/#upcoming/',
           },
         ],
         type: actions.RECEIVE,

@@ -19,7 +19,6 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   const error = get(listState, 'error')
 
   // actions
-  // TODO: validate ownProps, what is still necessary to have to eg. fullfill loadLists
   const loadLists = () => dispatchProps.dispatch(requestLists(ownProps.board, ownProps.config))
 
   return {

@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import { omit } from 'lodash'
 
 import LinearProgress from '@material-ui/core/LinearProgress'
 import Typography from '@material-ui/core/Typography'
@@ -17,9 +18,11 @@ const props = {
         name: 'ListName',
       },
       config: {},
+      pattern: 'pattern-1',
     },
   ],
   isLoading: false,
+  toggleList: 'pattern-1',
 }
 
 describe('Component/Board', () => {
@@ -33,7 +36,7 @@ describe('Component/Board', () => {
   })
 
   test('should render an empty span when an error occured', () => {
-    const wrapper = shallow(<Board {...props} error="sample error" />)
+    const wrapper = shallow(<Board {...props} error={{ message: 'sample error' }} />)
     expect(wrapper.html()).toEqual('<span></span>')
   })
 
@@ -55,6 +58,6 @@ describe('Component/Board', () => {
 
   test('should pass the correct properties to the rendered TrelloCardsList', () => {
     const wrapper = shallow(<Board {...props} />)
-    expect(wrapper.find(TrelloCardsList).props()).toMatchObject(props.lists[0])
+    expect(wrapper.find(TrelloCardsList).props()).toMatchObject(omit(props.lists[0], ['pattern']))
   })
 })

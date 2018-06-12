@@ -4,7 +4,7 @@ exports[`Component/Board should render without throwing an error 1`] = `
 <styled.div>
   <Connect(TrelloCardsList)
     config={Object {}}
-    key="0"
+    key="list-123"
     list={
       Object {
         "id": "list-123",

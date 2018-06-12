@@ -38,9 +38,6 @@ describe('Component/BoardContainer', () => {
     const expectedBoardProps = {
       board: props.board,
       error: null,
-      info: {
-        version: 1,
-      },
       isLoading: false,
       lists: [
         {
@@ -50,6 +47,7 @@ describe('Component/BoardContainer', () => {
         },
       ],
       loadLists: expect.any(Function),
+      resetEstimations: expect.any(Function),
     }
 
     expect(wrapper.props()).toEqual(

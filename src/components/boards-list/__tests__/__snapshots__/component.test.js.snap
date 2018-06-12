@@ -3,7 +3,7 @@
 exports[`Component/BoardsList should render without throwing an error 1`] = `
 <styled.div>
   <styled.div
-    key="0"
+    key="board-1"
   >
     <WithStyles(Typography)
       variant="headline"
@@ -21,6 +21,7 @@ exports[`Component/BoardsList should render without throwing an error 1`] = `
     <Connect(Board)
       board={
         Object {
+          "id": "board-1",
           "name": "board-1",
         }
       }
