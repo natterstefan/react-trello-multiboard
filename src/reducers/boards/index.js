@@ -12,7 +12,7 @@ export function reducer(state = initialState, action) {
   const type = get(action, 'type')
   switch (type) {
     case actions.RESET_BOARDS:
-      return assign({}, initialState)
+      return initialState
 
     case appActions.RESET_ESTIMATIONS:
       const newData = map(state.data, board => {
@@ -45,6 +45,11 @@ export function reducer(state = initialState, action) {
       const { payload } = action
       const { estimations } = payload
       const boardIndex = findIndex(state.data, item => item.board.id === action.payload.boardId)
+
+      if (boardIndex < 0) {
+        // eg. the board was not added yet
+        return state
+      }
 
       const newState = assign({}, state)
       const estimated =
