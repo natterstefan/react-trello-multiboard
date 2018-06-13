@@ -27,7 +27,7 @@ class ListTabs extends React.Component {
     const { classes, listsConfig, toggleList } = this.props
 
     // - only render tabs, when there is more than one listpattern
-    if (listsConfig.length <= 1) {
+    if (!listsConfig || listsConfig.length <= 1) {
       return null
     }
 

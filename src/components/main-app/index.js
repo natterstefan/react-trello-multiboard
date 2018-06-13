@@ -2,7 +2,6 @@ import { connect } from 'react-redux'
 import { forOwn, get, includes } from 'lodash'
 
 // actions
-import { push } from 'connected-react-router'
 import { authenticateUser } from '../../actions/user'
 import { togglePreferred } from '../../actions/app'
 import { resetBoards, requestBoards } from '../../actions/boards'
@@ -53,14 +52,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   authorize: () => dispatch(authenticateUser()),
   loadBoards: () => dispatch(requestBoards()),
-  reloadBoards: () => {
-    dispatch(push('/'))
-    dispatch(resetBoards())
-  },
-  doTogglePreferred: toggle => {
-    dispatch(push('/'))
-    dispatch(togglePreferred(toggle))
-  },
+  reloadBoards: () => dispatch(resetBoards()),
+  doTogglePreferred: toggle => dispatch(togglePreferred(toggle)),
   loadPreferredMembers: () => dispatch(loadPreferredMembers()),
 })
 

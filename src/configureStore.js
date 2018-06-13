@@ -6,6 +6,8 @@ import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage
 
 import historyMiddleware from './middleware/history'
+import authenticationMiddleware from './middleware/authentication'
+import reloadMiddleware from './middleware/reload'
 import history from './utils/history'
 import rootReducer from './reducers'
 
@@ -23,7 +25,13 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 export const store = createStore(
   connectRouter(history)(persistedReducer),
   composeWithDevTools(
-    applyMiddleware(thunkMiddleware, routerMiddleware(history), historyMiddleware),
+    applyMiddleware(
+      thunkMiddleware,
+      routerMiddleware(history),
+      historyMiddleware,
+      authenticationMiddleware,
+      reloadMiddleware,
+    ),
   ),
 )
 
