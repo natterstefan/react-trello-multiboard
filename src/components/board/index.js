@@ -3,6 +3,7 @@ import { get } from 'lodash'
 import Board from './component'
 import { requestLists } from '../../actions/lists'
 import { resetEstimations } from '../../actions/app'
+import { shouldUpdate } from '../../utils/should-update'
 
 const mapStateToProps = state => ({
   lists: get(state, 'lists', {}),
@@ -29,6 +30,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     isLoading,
     loadLists,
     resetEstimations: () => dispatchProps.dispatch(resetEstimations()),
+    shouldUpdate: shouldUpdate(get(stateProps, 'lists.ts')),
   }
 }
 

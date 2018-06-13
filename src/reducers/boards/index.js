@@ -39,6 +39,7 @@ export function reducer(state = initialState, action) {
         isLoading: false,
         data: action.payload,
         error: action.error,
+        ts: new Date().getTime(),
       })
 
     case actions.ADD_BOARD_ESTIMATION:

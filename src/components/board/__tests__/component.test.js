@@ -60,4 +60,22 @@ describe('Component/Board', () => {
     const wrapper = shallow(<Board {...props} />)
     expect(wrapper.find(TrelloCardsList).props()).toMatchObject(omit(props.lists[0], ['pattern']))
   })
+
+  test('should not loadCards once mounted by default', () => {
+    const loadLists = jest.fn()
+    shallow(<Board {...props} loadLists={loadLists} />)
+    expect(loadLists).toHaveBeenCalledTimes(0)
+  })
+
+  test('should loadLists once mounted and shouldUpdate is true', () => {
+    const loadLists = jest.fn()
+    shallow(<Board {...props} loadLists={loadLists} shouldUpdate />)
+    expect(loadLists).toHaveBeenCalledTimes(1)
+  })
+
+  test('should loadLists once mounted and no cards are loaded (available)', () => {
+    const loadLists = jest.fn()
+    shallow(<Board {...props} loadLists={loadLists} lists={[]} />)
+    expect(loadLists).toHaveBeenCalledTimes(1)
+  })
 })

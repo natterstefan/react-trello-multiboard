@@ -4,54 +4,61 @@ exports[`Component/TrelloMultiBoard should render without throwing an error 1`] 
 <Provider
   store={
     Object {
-      "dispatch": [Function],
-      "getState": [Function],
-      "replaceReducer": [Function],
-      "subscribe": [Function],
-      Symbol(observable): [Function],
+      "dispatch": [MockFunction],
+      "getState": [MockFunction],
+      "subscribe": [MockFunction],
     }
   }
 >
-  <div>
-    <WithStyles(CssBaseline) />
-    <Connect(ConnectedRouter)
-      history={
-        Object {
-          "action": "POP",
-          "block": [Function],
-          "createHref": [Function],
-          "go": [Function],
-          "goBack": [Function],
-          "goForward": [Function],
-          "length": 1,
-          "listen": [Function],
-          "location": Object {
-            "hash": "",
-            "pathname": "/",
-            "search": "",
-            "state": undefined,
-          },
-          "push": [Function],
-          "replace": [Function],
-        }
+  <PersistGate
+    loading={null}
+    persistor={
+      Object {
+        "persistStore": "dummy-persistStore",
       }
-    >
-      <Switch>
-        <Route
-          component={[Function]}
-          exact={true}
-          path="/config"
-        />
-        <Route
-          component={[Function]}
-          path="/github"
-        />
-        <Route
-          component={[Function]}
-          path="/"
-        />
-      </Switch>
-    </Connect(ConnectedRouter)>
-  </div>
+    }
+  >
+    <div>
+      <WithStyles(CssBaseline) />
+      <Connect(ConnectedRouter)
+        history={
+          Object {
+            "action": "POP",
+            "block": [Function],
+            "createHref": [Function],
+            "go": [Function],
+            "goBack": [Function],
+            "goForward": [Function],
+            "length": 1,
+            "listen": [Function],
+            "location": Object {
+              "hash": "",
+              "pathname": "/",
+              "search": "",
+              "state": undefined,
+            },
+            "push": [Function],
+            "replace": [Function],
+          }
+        }
+      >
+        <Switch>
+          <Route
+            component={[Function]}
+            exact={true}
+            path="/config"
+          />
+          <Route
+            component={[Function]}
+            path="/github"
+          />
+          <Route
+            component={[Function]}
+            path="/"
+          />
+        </Switch>
+      </Connect(ConnectedRouter)>
+    </div>
+  </PersistGate>
 </Provider>
 `;

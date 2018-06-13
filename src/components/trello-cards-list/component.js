@@ -15,7 +15,7 @@ const ColumnContainer = styled.div`
 
 class TrelloCardsList extends React.Component {
   componentDidMount() {
-    if (this.props.cards && this.props.cards.length === 0) {
+    if ((this.props.cards && this.props.cards.length === 0) || this.props.shouldUpdate) {
       invoke(this.props, 'loadCards')
     }
   }
