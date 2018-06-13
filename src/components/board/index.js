@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => ({ dispatch })
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   // data
   const listState = get(stateProps, `lists[${ownProps.board.id}]`, {})
-  const lists = get(listState, 'data', [])
+  const lists = get(listState, 'data', []) || []
   const isLoading = get(listState, 'isLoading', false)
   const error = get(listState, 'error')
 

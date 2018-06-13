@@ -15,7 +15,10 @@ const ThinContainer = styled.div`
 
 class Board extends React.Component {
   componentDidMount() {
-    invoke(this.props, 'loadLists')
+    // NOTE: add lastFetch timestamp to figure out when to refetch data
+    if (this.props.lists && this.props.lists.length === 0) {
+      invoke(this.props, 'loadLists')
+    }
   }
 
   componentDidUpdate(prevProps) {
