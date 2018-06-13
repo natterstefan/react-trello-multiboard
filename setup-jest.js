@@ -25,6 +25,7 @@ jest.mock('./config/config', () => ({
   api_key: 'your_api_key',
   company_member: 'exampleusername',
   preferred_members: /exampleusername|anotheruser/,
+  lists: [/#upcoming/],
   boards: [mockExampleBoardConfig],
 }))
 

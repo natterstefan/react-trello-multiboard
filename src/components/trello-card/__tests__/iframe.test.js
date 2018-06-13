@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { props } from '../__mocks__/props'
+import { props } from '../__mocks__/trello-card'
 
 import TrelloCardIframe from '../iframe'
 

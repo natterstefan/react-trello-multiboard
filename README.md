@@ -52,10 +52,12 @@ preferred team members.
 ![TrelloMultiBoardExample](trello_multiboard_example.png)
 
 As you can see in the example, there are three trello boards and two members.
-From each board all cards of a list matching the `#pattern` pattern in the
+From each board all cards of a list matching the `#sprint1` pattern in the
 title (can be any pattern, defined in [config.js](config/config.example.js)) is
 listed below. Each member can be selected, which causes the list of cards to only
-show those of the selected member.
+show those of the selected member. Additionally, you see five sprints on the page.
+You can select one sprint and see the cards of the selected pattern. This allows
+you to plan ahead.
 
 ## Development & Build Requirements
 
@@ -117,11 +119,11 @@ module.exports = {
   api_key: 'your_api_key',
   company_member: 'exampleusername'
   preferred_members: /exampleusername|anotheruser/,
+  lists: [/#sprint1/, /#sprint2/, /#sprint3/],
   boards: [
     {
       shortcut: 'hw',
       board: 'hello-world',
-      lists: /#upcoming/,
       estimates_with_round_brackets: true,
       estimates_with_square_brackets: true,
     },
@@ -139,14 +141,16 @@ The main config properties look like this:
 * `preferred_members`: usernames of the ones you want to highlight, filter and
   calculate the estimations from. Note: currently the app can only display
   preferred members and not all of the found ones
+* `lists` (array with regex strings): search pattern of the list name(s) you
+  want to get tasks from
 * `boards`: array of board configs
 
 The list of boards should contain board objects like this:
 
 * `shortcut` (string): the title above each list of tasks
 * `board` (string): name of trello board
-* `lists` (regex string): search pattern of the list name(s) you want to get
-  tasks from
+* `estimates_with_round_brackets` (bool)
+* `estimates_with_square_brackets` (bool)
 
 #### Estimations Configuration
 

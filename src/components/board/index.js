@@ -2,10 +2,11 @@ import { connect } from 'react-redux'
 import { get } from 'lodash'
 import Board from './component'
 import { requestLists } from '../../actions/lists'
+import { resetEstimations } from '../../actions/app'
 
 const mapStateToProps = state => ({
-  info: get(state, 'info', {}),
   lists: get(state, 'lists', {}),
+  toggleList: get(state, 'app.listToggle.toggleList'),
 })
 
 const mapDispatchToProps = dispatch => ({ dispatch })
@@ -27,6 +28,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     lists,
     isLoading,
     loadLists,
+    resetEstimations: () => dispatchProps.dispatch(resetEstimations()),
   }
 }
 

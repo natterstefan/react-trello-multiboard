@@ -1,5 +1,5 @@
 import React from 'react'
-import { invoke, map } from 'lodash'
+import { filter, invoke, map } from 'lodash'
 import Typography from '@material-ui/core/Typography'
 import LinearProgress from '@material-ui/core/LinearProgress'
 import styled from 'styled-components'
@@ -18,14 +18,25 @@ class Board extends React.Component {
     invoke(this.props, 'loadLists')
   }
 
-  renderList() {
-    const { lists } = this.props
+  componentDidUpdate(prevProps) {
+    if (prevProps.toggleList !== this.props.toggleList) {
+      // when the app switches between lists, we need to reset the estimations
+      // before a reload is triggered
+      invoke(this.props, 'resetEstimations')
+    }
+  }
 
-    if (lists.length === 0) {
+  renderList() {
+    const { lists, toggleList } = this.props
+    const filteredLists = filter(lists, ['pattern', toggleList])
+
+    if (filteredLists.length === 0) {
       return <Typography>No matching list(s) found</Typography>
     }
-    return map(lists, (list, idx) => (
-      <TrelloCardsList key={idx} list={list.list} config={list.config} />
+
+    // we only show those lists which match the current toggleList
+    return map(filteredLists, list => (
+      <TrelloCardsList key={list.list.id} list={list.list} config={list.config} />
     ))
   }
 

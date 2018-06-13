@@ -15,6 +15,7 @@ class TrelloCard extends React.Component {
       estimated: config.estimates_with_round_brackets ? this.getEstimation(/\([0-9]+\)/g) : 0, // (%s)
       consumed: config.estimates_with_square_brackets ? this.getEstimation(/\[[0-9]+\]/g) : 0, // [%s]
     }
+
     invoke(this.props, 'addEstimations', estimation)
   }
 

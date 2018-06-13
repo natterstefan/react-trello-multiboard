@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const BlockContainer = styled.div`
   display: block;
-  padding: 10px 0;
+  padding: 5px 0;
 `
 
 // Trello like scrolling
@@ -15,7 +15,7 @@ export const ScrollContainer = styled.div`
   max-width: 100vw;
   min-width: 0;
   overflow-x: auto;
-  padding: 10px 0;
+  padding: 5px 0;
 
   &:after {
     content: '';

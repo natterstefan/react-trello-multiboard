@@ -5,7 +5,6 @@ export const mockExampleBoardConfig = {
   board: 'hello-world',
   estimates_with_round_brackets: true,
   estimates_with_square_brackets: true,
-  lists: /#upcoming/,
   shortcut: 'hw',
 }
 

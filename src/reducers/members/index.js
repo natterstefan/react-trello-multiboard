@@ -1,6 +1,7 @@
 import { assign, forEach, forOwn, get, map, merge, omit, pick, uniq } from 'lodash'
 import { actions } from '../../actions/members'
 import { actions as boardActions } from '../../actions/boards'
+import { actions as appActions } from '../../actions/app'
 
 export const initialState = {
   error: null,
@@ -14,6 +15,23 @@ export function reducer(state = initialState, action) {
   switch (type) {
     case boardActions.RESET_BOARDS:
       return assign({}, initialState)
+
+    case appActions.RESET_ESTIMATIONS:
+      // currently this will cause the <TrelloCardsList /> to be re-rendered (see
+      // <Board />), as this is the case re-rendering <TrelloCard /> causes a new
+      // calculation of the estimations. To not increase the estimations endlessly,
+      // we need to reset the estimations here (as the current setup requires us
+      // to do so)
+      const newState = omit(state, ['members', 'isLoading', 'error'])
+      forOwn(newState, (value, key) => {
+        // if the user had estimations previously, we reset all of them
+        if (newState[key].estimations) {
+          newState[key].boardEstimations = undefined
+          newState[key].estimations = undefined
+        }
+      })
+
+      return merge({}, state, newState)
 
     case actions.REQUEST_MEMBERS:
       return merge({}, state, {

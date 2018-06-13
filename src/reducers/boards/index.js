@@ -1,5 +1,6 @@
-import { assign, findIndex, get, merge } from 'lodash'
+import { assign, findIndex, get, map, merge } from 'lodash'
 import { actions } from '../../actions/boards'
+import { actions as appActions } from '../../actions/app'
 
 export const initialState = {
   data: null, // contains the board objects
@@ -11,7 +12,21 @@ export function reducer(state = initialState, action) {
   const type = get(action, 'type')
   switch (type) {
     case actions.RESET_BOARDS:
-      return assign({}, initialState)
+      return initialState
+
+    case appActions.RESET_ESTIMATIONS:
+      const newData = map(state.data, board => {
+        // if the user had estimations previously, we reset all of them
+        const newBoard = board
+        if (newBoard.estimations) {
+          newBoard.estimations = undefined
+        }
+        return newBoard
+      })
+
+      return merge({}, state, {
+        data: newData,
+      })
 
     case actions.REQUEST:
       return merge({}, state, {
@@ -30,6 +45,11 @@ export function reducer(state = initialState, action) {
       const { payload } = action
       const { estimations } = payload
       const boardIndex = findIndex(state.data, item => item.board.id === action.payload.boardId)
+
+      if (boardIndex < 0) {
+        // eg. the board was not added yet
+        return state
+      }
 
       const newState = assign({}, state)
       const estimated =

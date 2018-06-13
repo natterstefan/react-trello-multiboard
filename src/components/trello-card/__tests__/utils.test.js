@@ -3,7 +3,7 @@ import {
   storeStateMockPreferred,
   storeStateMockPreferredMember,
   storeStateMockPreferredMemberInvalid,
-} from '../__mocks__/props'
+} from '../__mocks__/trello-card'
 
 describe('component/TrelloCard/utils', () => {
   const cardProps = { cardMembers: ['member-1', 'member-2'] }

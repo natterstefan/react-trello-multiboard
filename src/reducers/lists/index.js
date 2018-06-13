@@ -10,7 +10,7 @@ export function reducer(state = initialState, action) {
 
   switch (type) {
     case boardActions.RESET_BOARDS:
-      return assign({}, initialState)
+      return initialState
 
     case actions.REQUEST:
       return assign({}, state, {
@@ -27,6 +27,7 @@ export function reducer(state = initialState, action) {
           error: action.error,
         },
       })
+
     default:
       return state
   }

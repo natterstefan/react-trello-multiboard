@@ -37,6 +37,7 @@ const mergeProps = (stateProps, { dispatch }, ownProps) => {
     boardName,
     isHidden: isCardHidden(isCardHiddenProps),
     addEstimations,
+    toggleList: stateProps.toggleList,
   }
 }
 
