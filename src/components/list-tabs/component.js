@@ -12,12 +12,12 @@ const styles = () => ({
     flexGrow: 1,
     marginBottom: 30,
     marginTop: 30,
-    width: '100%',
+    width: '98vw',
+    paddingRight: 25,
+    paddingLeft: 10,
   },
 })
 
-// TODO:
-// - add tests and fix ui on smaller screens (padding/margin right)
 class ListTabs extends React.Component {
   handleChange = (event, value) => {
     this.props.changeListToggle(get(this.props, `listsConfig[${value}]`))

@@ -161,10 +161,12 @@ class MainApp extends React.Component {
               </BlockContainer>
             </React.Fragment>
           )}
-          <Typography variant="headline" component="h2">
-            Boards {get(this.props, 'app.listToggle.toggleList', '').replace(/\//g, '')}
-          </Typography>
-          <ListTabs />
+          <BlockContainer>
+            <Typography variant="headline" component="h2">
+              Boards {get(this.props, 'app.listToggle.toggleList', '').replace(/\//g, '')}
+            </Typography>
+            <ListTabs />
+          </BlockContainer>
           <BoardsList />
           {isAppLoading && (
             <div className={classes.bottomLoader}>

@@ -52,10 +52,12 @@ preferred team members.
 ![TrelloMultiBoardExample](trello_multiboard_example.png)
 
 As you can see in the example, there are three trello boards and two members.
-From each board all cards of a list matching the `#pattern` pattern in the
+From each board all cards of a list matching the `#sprint1` pattern in the
 title (can be any pattern, defined in [config.js](config/config.example.js)) is
 listed below. Each member can be selected, which causes the list of cards to only
-show those of the selected member.
+show those of the selected member. Additionally, you see five sprints on the page.
+You can select one sprint and see the cards of the selected pattern. This allows
+you to plan ahead.
 
 ## Development & Build Requirements
 

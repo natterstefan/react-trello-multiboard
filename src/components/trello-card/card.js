@@ -4,7 +4,6 @@ import { map } from 'lodash'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
 // TODO
-// - add tests
 // - handle case when avatarHash is null, use `initials` on user instead
 const TrelloCardUI = ({ badges, boardName, members, name, shortUrl, listName }) => (
   <a className="trello-card-wrapper" href={shortUrl}>
