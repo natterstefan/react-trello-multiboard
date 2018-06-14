@@ -25,11 +25,18 @@ const requestLists = (board, config) => async dispatch => {
 
   // TODO: optimise
   // eg. url: http://localhost:2222/#/?pattern=#sprint1,#sprint2,#sprint3
-  const parsedSearch = qs.parse(history.location.search)
-  const parsedPatternSearch = (parsedSearch.pattern && parsedSearch.pattern.split(',')) || []
-  const parsedPatternHash = history.location.hash.split(',') || []
-  const newRegexSearch = map(parsedPatternSearch, pattern => new RegExp(pattern))
-  const newRegexHash = map(parsedPatternHash, pattern => new RegExp(pattern))
+  let newRegexSearch = []
+  let newRegexHash = []
+  if (history.location.search) {
+    const parsedSearch = qs.parse(history.location.search)
+    const parsedPatternSearch = (parsedSearch.pattern && parsedSearch.pattern.split(',')) || []
+    newRegexSearch = map(parsedPatternSearch, pattern => new RegExp(pattern))
+  }
+
+  if (history.location.hash) {
+    const parsedPatternHash = history.location.hash.split(',') || []
+    newRegexHash = map(parsedPatternHash, pattern => new RegExp(pattern))
+  }
 
   const regexRules =
     (newRegexSearch.length > 0 && newRegexSearch) ||

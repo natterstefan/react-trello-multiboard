@@ -32,7 +32,6 @@ export function reducer(state = initialState, action) {
   switch (type) {
     case actions.REGISTER_PATTERN:
       const newListConfig = map(action.pattern, i => regexStringifier('lists', i))
-      console.log('newListConfig', newListConfig) /* eslint-disable-line */
       return assign({}, state, {
         config: {
           lists: newListConfig,
