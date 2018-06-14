@@ -100,10 +100,13 @@ class MainApp extends React.Component {
     // vheight sticky footer trick, see: https://blog.hellojs.org/flexbox-sticky-footer-and-react-d116e4cfca5
     return (
       <React.Fragment>
-        {appErrors &&
-          appErrors.length > 0 && (
-            <Notification message="An error occured. Please try it again later." />
-          )}
+        <Notification
+          message={
+            appErrors && appErrors.length > 0
+              ? 'An error occured. Please try it again later.'
+              : undefined
+          }
+        />
         <div style={{ minHeight: '100vh', marginBottom: 30 }}>
           <BlockContainer>
             <Typography variant="headline" component="h2">
