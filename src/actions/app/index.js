@@ -3,7 +3,10 @@ const actions = {
   TOGGLE_PREFERRED: 'TOGGLE_PREFERRED',
   TOGGLE_PREFERRED_MEMBER: 'TOGGLE_PREFERRED_MEMBER',
   TOGGLE_PREFERRED_LIST: 'TOGGLE_PREFERRED_LIST',
+  REGISTER_PATTERN: 'REGISTER_PATTERN',
 }
+
+const addNewPatterns = pattern => ({ type: actions.REGISTER_PATTERN, pattern })
 
 const togglePreferred = toggle => ({ type: actions.TOGGLE_PREFERRED, toggle })
 
@@ -13,4 +16,11 @@ const toggleList = pattern => ({ type: actions.TOGGLE_PREFERRED_LIST, pattern })
 
 const resetEstimations = pattern => ({ type: actions.RESET_ESTIMATIONS, pattern })
 
-export { actions, togglePreferred, resetEstimations, togglePreferredMember, toggleList }
+export {
+  actions,
+  addNewPatterns,
+  togglePreferred,
+  resetEstimations,
+  togglePreferredMember,
+  toggleList,
+}
