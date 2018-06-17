@@ -23,7 +23,7 @@ const receiveLists = (boardId, data, error = null) => ({
 const requestLists = (board, config) => async dispatch => {
   dispatch(startRequestList(board.id))
 
-  // TODO: optimise
+  // TODO: optimise and write tests for history.*
   // eg. url: http://localhost:2222/#/?pattern=#sprint1,#sprint2,#sprint3
   let newRegexSearch = []
   let newRegexHash = []
