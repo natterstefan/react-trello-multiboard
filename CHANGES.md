@@ -6,6 +6,11 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased][1]
 
+### Added
+
+* `<ListTabs \/>` added
+* list `pattern` can be modified with query parameters. eg: http://localhost:2222/#/?pattern=#sprint1,#sprint2,#sprint3
+
 ### Changed
 
 * **Breaking**: `config.js` can now contain multiple `lists` patterns, each list
@@ -14,10 +19,6 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
   deeplinking for the list patterns)
   * _Note_: even though semver would suggest adding releasing a major release, I
     decided to stick to 0.x.y still until further notice here.
-
-### Added
-
-* `<ListTabs \/>` added
 
 ## 2018/06/09 [0.1.1][5]
 

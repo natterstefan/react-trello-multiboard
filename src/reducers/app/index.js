@@ -1,4 +1,4 @@
-import { get, map, merge } from 'lodash'
+import { assign, get, map, merge } from 'lodash'
 import { actions } from '../../actions/app'
 import history from '../../utils/history'
 import Config from '../../../config/config'
@@ -30,6 +30,17 @@ export function reducer(state = initialState, action) {
   const type = get(action, 'type')
 
   switch (type) {
+    case actions.REGISTER_PATTERN:
+      const newListConfig = map(action.pattern, i => regexStringifier('lists', i))
+      return assign({}, state, {
+        config: {
+          lists: newListConfig,
+        },
+        listToggle: {
+          toggleList: newListConfig[0] || undefined,
+        },
+      })
+
     case actions.TOGGLE_PREFERRED:
       const togglePreferredMember = get(state, 'memberToggle.togglePreferredMember', false)
       return merge({}, state, {
