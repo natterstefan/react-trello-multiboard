@@ -1,6 +1,7 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { actions, requestLists } from '../'
+import { actions as appActions } from '../../../actions/app'
 
 // some static mocks
 import {
@@ -42,6 +43,10 @@ describe('actions/cards:async actions', () => {
     // payload is set in setup-jest.js (config mock)
     const expectedActions = [
       { boardId: 'board-1', type: actions.REQUEST },
+      {
+        pattern: [/#upcoming/],
+        type: appActions.REGISTER_PATTERN,
+      },
       {
         error: null,
         boardId: 'board-1',
