@@ -9,7 +9,9 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 ### Added
 
 * `<ListTabs \/>` added
-* list `pattern` can be modified with query parameters. eg: http://localhost:2222/#/?pattern=#sprint1,#sprint2,#sprint3
+* list `pattern` can be modified with query parameters. Examples:
+  * http://localhost:2222/#/?pattern=#sprint-1,#sprint-2,#sprint-3
+  * http://localhost:2222/#/pattern/#sprint-1,#sprint-2,#sprint-3/
 
 ### Changed
 
