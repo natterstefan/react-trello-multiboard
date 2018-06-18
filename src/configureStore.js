@@ -14,9 +14,12 @@ import rootReducer from './reducers'
 const persistConfig = {
   key: 'root',
   storage,
-  // TODO: current issue with boards => estimations persist as well!
-  // we need to make sure that the estimations are eg. re-calcuated after rehydrating
-  whitelist: ['app', 'boards', 'lists', 'cards'],
+  // NOTE:
+  // - we could add ['boards', 'lists', 'cards'], as well but the data would
+  //   be old with every refresh and the user _most likely_ does not want this!
+  // TODO
+  // - define what to persist
+  whitelist: ['app'],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
