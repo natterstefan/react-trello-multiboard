@@ -23,6 +23,7 @@ preferred team members.
     * [Trello API Key](#trello-api-key)
     * [Dependencies](#dependencies)
     * [Config.js](#configjs)
+  * [URL Shortcuts & Bookmarks](#url-shortcuts--bookmarks)
   * [How to start the App locally](#how-to-start-the-app-locally)
   * [How to build the App for Production](#how-to-build-the-app-for-production)
   * [How to develop and contribute](#how-to-develop-and-contribute)
@@ -170,6 +171,16 @@ Example:
 * Card 2: "Upload docker imge \(3)\[0]"
 
 Would result in the following total estimation for the board: Example-Board \(6)\[1]
+
+## URL Shortcuts & Bookmarks
+
+Certain url links can be used to eg. customize the inital lists and selected member:
+
+* Selected lists on page refresh
+  * http://localhost:2222/#/?pattern=#sprint-1,#sprint-2,\<other-patterns>
+  * http://localhost:2222/#/pattern/#sprint-1,#sprint-2,#sprint-3/
+* Filter a member already
+  * http://localhost:2222/#/member/\<preferred-member-username>
 
 ## How to start the App locally
 

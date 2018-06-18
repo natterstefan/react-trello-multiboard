@@ -24,17 +24,22 @@ const requestLists = (board, config) => async dispatch => {
   dispatch(startRequestList(board.id))
 
   // TODO: optimise and write tests for history.*
-  // eg. url: http://localhost:2222/#/?pattern=#sprint1,#sprint2,#sprint3
   let newRegexSearch = []
   let newRegexHash = []
+
   if (history.location.search) {
+    // eg. url: http://localhost:2222/#/?pattern=#sprint1,#sprint2,#sprint3
     const parsedSearch = qs.parse(history.location.search)
     const parsedPatternSearch = (parsedSearch.pattern && parsedSearch.pattern.split(',')) || []
     newRegexSearch = map(parsedPatternSearch, pattern => new RegExp(pattern))
   }
 
   if (history.location.hash) {
-    const parsedPatternHash = history.location.hash.split(',') || []
+    // eg. url: http://localhost:2222/#/pattern/#sprint-1,#sprint-2/
+    const parsedPatternHash = map(
+      history.location.hash.split(',') || [],
+      item => item.replace(/^\/|\/$/, ''), // remove / at the end and beginning of the string
+    )
     newRegexHash = map(parsedPatternHash, pattern => new RegExp(pattern))
   }
 
