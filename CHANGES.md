@@ -8,6 +8,9 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+* redux-persist stores the current redux-store in the localStorage. Enables
+  faster reloading of the app, as data is only requested/renewed in a specific
+  interval
 * `<ListTabs \/>` added
 * list `pattern` can be modified with query parameters. eg: http://localhost:2222/#/?pattern=#sprint1,#sprint2,#sprint3
 

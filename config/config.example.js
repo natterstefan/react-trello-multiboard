@@ -5,6 +5,7 @@ module.exports = {
   company_member: 'exampleusername',
   preferred_members: /exampleusername|anotheruser/,
   lists: [/#upcoming/],
+  refreshCycle: 1,
   boards: [
     {
       shortcut: 'hw',

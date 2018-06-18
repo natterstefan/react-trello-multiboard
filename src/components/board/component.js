@@ -15,7 +15,9 @@ const ThinContainer = styled.div`
 
 class Board extends React.Component {
   componentDidMount() {
-    invoke(this.props, 'loadLists')
+    if ((this.props.lists && this.props.lists.length === 0) || this.props.shouldUpdate) {
+      invoke(this.props, 'loadLists')
+    }
   }
 
   componentDidUpdate(prevProps) {

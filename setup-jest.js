@@ -20,6 +20,7 @@ Enzyme.configure({ adapter: new Adapter() })
 // make icons available in all tests
 fontawesome.library.add(brands, faAlignLeft, faCheckSquare, faCommentDots, faPaperclip)
 
+// mock configuration
 jest.mock('./config/config', () => ({
   app_title: 'Trello Multiboard',
   api_key: 'your_api_key',
@@ -27,6 +28,28 @@ jest.mock('./config/config', () => ({
   preferred_members: /exampleusername|anotheruser/,
   lists: [/#upcoming/],
   boards: [mockExampleBoardConfig],
+  refreshCycle: 1,
+}))
+
+// mock redux environment & libraries
+jest.mock('redux-persist', () => ({
+  persistStore: jest.fn().mockReturnValue({ persistStore: 'dummy-persistStore' }),
+  persistReducer: jest.fn(),
+}))
+jest.mock('redux-persist/lib/storage', () => ({
+  getItem: jest.fn(),
+  removeItem: jest.fn(),
+  setItem: jest.fn(),
+}))
+jest.mock('redux', () => ({
+  applyMiddleware: jest.fn(),
+  combineReducers: jest.fn(),
+  createStore: jest
+    .fn()
+    .mockReturnValue({ dispatch: jest.fn(), getState: jest.fn(), subscribe: jest.fn() }),
+}))
+jest.mock('redux-devtools-extension', () => ({
+  composeWithDevTools: jest.fn(),
 }))
 
 // mock $ (jquery)

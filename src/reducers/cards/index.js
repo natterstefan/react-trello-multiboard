@@ -26,6 +26,7 @@ export function reducer(state = initialState, action) {
           data: action.payload,
           error: action.error,
         },
+        ts: new Date().getTime(),
       })
     default:
       return state

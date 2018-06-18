@@ -14,7 +14,7 @@ const togglePreferredMember = memberId => ({ type: actions.TOGGLE_PREFERRED_MEMB
 
 const toggleList = pattern => ({ type: actions.TOGGLE_PREFERRED_LIST, pattern })
 
-const resetEstimations = pattern => ({ type: actions.RESET_ESTIMATIONS, pattern })
+const resetEstimations = () => ({ type: actions.RESET_ESTIMATIONS })
 
 export {
   actions,

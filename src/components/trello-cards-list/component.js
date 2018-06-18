@@ -15,13 +15,15 @@ const ColumnContainer = styled.div`
 
 class TrelloCardsList extends React.Component {
   componentDidMount() {
-    invoke(this.props, 'loadCards')
+    if ((this.props.cards && this.props.cards.length === 0) || this.props.shouldUpdate) {
+      invoke(this.props, 'loadCards')
+    }
   }
 
   renderList() {
     const { cards, list } = this.props
 
-    if (cards.length === 0) {
+    if (!cards || cards.length === 0) {
       return <Typography>No matching card(s) found</Typography>
     }
 

@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import { get } from 'lodash'
 import List from './component'
 import { requestCards } from '../../actions/cards'
+import { shouldUpdate } from '../../utils/should-update'
 
 const mapStateToProps = state => ({
   cards: get(state, 'cards', {}),
@@ -12,7 +13,7 @@ const mapDispatchToProps = dispatch => ({ dispatch })
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   // data
   const cardState = get(stateProps, `cards[${ownProps.list.id}]`, {})
-  const cards = get(cardState, 'data', [])
+  const cards = get(cardState, 'data', []) || []
   const isLoading = get(cardState, 'isLoading', false)
   const error = get(cardState, 'error')
 
@@ -26,6 +27,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
     cards,
     isLoading,
     loadCards,
+    shouldUpdate: shouldUpdate(get(stateProps, 'cards.ts')),
   }
 }
 

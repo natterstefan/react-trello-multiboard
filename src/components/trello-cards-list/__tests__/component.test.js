@@ -67,9 +67,21 @@ describe('Component/TrelloCardsList', () => {
     })
   })
 
-  test('should loadCards once mounted', () => {
+  test('should not loadCards once mounted by default', () => {
     const loadCards = jest.fn()
     shallow(<TrelloCardsList {...props} loadCards={loadCards} />)
+    expect(loadCards).toHaveBeenCalledTimes(0)
+  })
+
+  test('should loadCards once mounted and shouldUpdate is true', () => {
+    const loadCards = jest.fn()
+    shallow(<TrelloCardsList {...props} loadCards={loadCards} shouldUpdate />)
+    expect(loadCards).toHaveBeenCalledTimes(1)
+  })
+
+  test('should loadCards once mounted and no cards are loaded (available)', () => {
+    const loadCards = jest.fn()
+    shallow(<TrelloCardsList {...props} loadCards={loadCards} cards={[]} />)
     expect(loadCards).toHaveBeenCalledTimes(1)
   })
 })
