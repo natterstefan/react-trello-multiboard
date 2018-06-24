@@ -104,7 +104,7 @@ class MainApp extends React.Component {
           appErrors.length > 0 && (
             <Notification message="An error occured. Please try it again later." />
           )}
-        <div style={{ minHeight: '100vh', marginBottom: 30 }}>
+        <div style={{ minHeight: '100vh', marginBottom: 30, paddingBottom: 50 }}>
           <BlockContainer>
             <Typography variant="headline" component="h2">
               Options

@@ -1,6 +1,6 @@
 /* global module */
 module.exports = {
-  app_title: 'Trello Multiboard',
+  app_title: 'Multiboard for Trello®',
   api_key: 'your_api_key',
   company_member: 'exampleusername',
   preferred_members: /exampleusername|anotheruser/,

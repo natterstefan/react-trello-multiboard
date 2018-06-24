@@ -7,6 +7,7 @@ exports[`Component/MainApp should render without throwing an error 1`] = `
       Object {
         "marginBottom": 30,
         "minHeight": "100vh",
+        "paddingBottom": 50,
       }
     }
   >

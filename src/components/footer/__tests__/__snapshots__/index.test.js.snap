@@ -4,6 +4,11 @@ exports[`Component/MainApp should render without throwing an error 1`] = `
 <styled.footer>
   <WithStyles(Typography)
     color="inherit"
+    style={
+      Object {
+        "paddingBottom": 5,
+      }
+    }
   >
     <a
       href="https://github.com/natterstefan/react-trello-multiboard/"
@@ -38,6 +43,11 @@ exports[`Component/MainApp should render without throwing an error 1`] = `
       />
        Star on GitHub
     </a>
+  </WithStyles(Typography)>
+  <WithStyles(Typography)
+    color="inherit"
+  >
+    We are not affiliated, associated, authorized, endorsed by or in any way officially connected to Trello®, Inc. (www.trello.com).
   </WithStyles(Typography)>
 </styled.footer>
 `;

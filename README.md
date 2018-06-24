@@ -7,8 +7,10 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/natterstefan/react-trello-multiboard/badge.svg)](https://snyk.io/test/github/natterstefan/react-trello-multiboard)
 [![GitHub license](https://img.shields.io/github/license/natterstefan/react-trello-multiboard.svg)](https://github.com/natterstefan/react-trello-multiboard/blob/master/LICENCE)
 
+![TrelloMultiBoardExample](assets/images/trello_multiboard_example.gif)
+
 React-Trello-Multiboard is a single-page application built with React displaying
-multiple cards of several Trello boards and lists. The cards can be filtered by
+multiple cards of several Trello® boards and lists. The cards can be filtered by
 preferred team members.
 
 <!-- TOC -->
@@ -50,9 +52,9 @@ preferred team members.
 
 ## Example
 
-![TrelloMultiBoardExample](trello_multiboard_example.png)
+![TrelloMultiBoardExample](assets/images/trello_multiboard_example.png)
 
-As you can see in the example, there are three trello boards and two members.
+As you can see in the example, there are three Trello® boards and two members.
 From each board all cards of a list matching the `#sprint1` pattern in the
 title (can be any pattern, defined in [config.js](config/config.example.js)) is
 listed below. Each member can be selected, which causes the list of cards to only
@@ -116,7 +118,7 @@ your needs and eg. enter your [API key][1] and other settings into the `config.j
 
 ```js
 module.exports = {
-  app_title: 'Trello Multiboard',
+  app_title: 'Multiboard for Trello®',
   api_key: 'your_api_key',
   company_member: 'exampleusername'
   preferred_members: /exampleusername|anotheruser/,
@@ -246,6 +248,9 @@ an issue please][3].
 ## Licence
 
 [MIT](LICENCE)
+
+We are not affiliated, associated, authorized, endorsed by or in any way
+officially connected to Trello®, Inc. (www.trello.com).
 
 ## More Examples
 
