@@ -16,4 +16,6 @@ export default {
   }),
   listName: PropTypes.string.isRequired,
   isHidden: PropTypes.bool,
+  minimizeLabels: PropTypes.bool,
+  toggleMinimizeLabels: PropTypes.func,
 }

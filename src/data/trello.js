@@ -52,7 +52,7 @@ export const getLists = boardId =>
 export const getCards = listId =>
   new Promise((resolve, reject) =>
     getData(
-      `/lists/${listId}/cards?members=true&member_fields=avatarHash,fullName,initials,username&fields=id,name,idBoard,idMembers,idList,shortUrl,badges`,
+      `/lists/${listId}/cards?members=true&member_fields=avatarHash,fullName,initials,username&fields=badges,labels,name,id,idBoard,idList,idMembers,shortUrl`,
       resolve,
       reject,
     ),

@@ -27,6 +27,7 @@ describe('Component/TrelloCardContainer', () => {
   const mockDispatch = jest.fn()
   const mockAddMembersEstimation = jest.fn()
   const mockAddBoardEstimations = jest.fn()
+  const mockToggleMinimizeLabels = jest.fn()
 
   beforeEach(() => {
     store = mockStore(storeStateMock)
@@ -36,13 +37,17 @@ describe('Component/TrelloCardContainer', () => {
     mockDispatch.mockReset()
     mockAddMembersEstimation.mockReset()
     mockAddBoardEstimations.mockReset()
+    mockToggleMinimizeLabels.mockReset()
 
     // see https://github.com/facebook/jest/issues/2567#issuecomment-345805358
-    jest.mock('../../../actions/members', () => ({
-      addMembersEstimation: mockAddMembersEstimation,
+    jest.mock('../../../actions/app', () => ({
+      toggleMinimizeLabels: mockToggleMinimizeLabels,
     }))
     jest.mock('../../../actions/boards', () => ({
       addBoardEstimations: mockAddBoardEstimations,
+    }))
+    jest.mock('../../../actions/members', () => ({
+      addMembersEstimation: mockAddMembersEstimation,
     }))
   })
 
@@ -68,6 +73,7 @@ describe('Component/TrelloCardContainer', () => {
       config: props.config,
       isHidden: false,
       listName: 'example-list',
+      minimizeLabels: true,
     }
 
     expect(wrapper.props()).toEqual(
@@ -92,5 +98,21 @@ describe('Component/TrelloCardContainer', () => {
     expect(store.dispatch).toHaveBeenCalledTimes(2)
     expect(mockAddMembersEstimation).toHaveBeenCalledTimes(1)
     expect(mockAddBoardEstimations).toHaveBeenCalledTimes(1)
+  })
+
+  test('should add toggleMinimizeLabels dispatch to props', () => {
+    const TrelloCardContainer = require('../').default
+    const wrapper = shallow(
+      <TrelloCardContainer
+        store={store}
+        card={props.card}
+        config={props.config}
+        listName="example-list"
+      />,
+    )
+
+    wrapper.props().toggleMinimizeLabels()
+    expect(store.dispatch).toHaveBeenCalledTimes(1)
+    expect(mockToggleMinimizeLabels).toHaveBeenCalledTimes(1)
   })
 })

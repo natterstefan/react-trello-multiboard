@@ -8,6 +8,7 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+* <TrelloCardUi /> can display labels (with toggle: show or hide)
 * `<ListTabs \/>` added
 * list `pattern` can be modified with query parameters. Examples:
   * http://localhost:2222/#/?pattern=#sprint-1,#sprint-2,#sprint-3

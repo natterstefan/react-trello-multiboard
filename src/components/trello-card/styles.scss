@@ -1,5 +1,4 @@
-// based on https://jsfiddle.net/natterstefan/4eghdrLs/
-
+// https://codepen.io/natterstefan/pen/QxJZzW?editors=0110
 .trello-card-wrapper {
   color: #4d4d4d;
   text-decoration: none;
@@ -18,6 +17,81 @@
   // min-width: 240px;
   padding: 8px;
   width: 316px;
+
+  &--labels {
+    margin-top: -10px; // will create a bigger clickable area
+    overflow: auto;
+    padding: 10px 0 5px; // will create a bigger clickable area
+    position: relative;
+  }
+
+  &--labels-text {
+    @mixin background-color($bgcolor) {
+      background-color: $bgcolor;
+      color: #fff;
+    }
+
+    background-color: #efefef;
+    border-radius: 4px;
+    color: #000;
+    display: block;
+    float: left;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 600;
+    height: 22px;
+    line-height: 15px;
+    margin: 0 4px 4px 0;
+    max-width: 198px;
+    min-width: 40px;
+    overflow: hidden;
+    padding: 3px 6px;
+    position: relative;
+    text-overflow: ellipsis;
+    text-shadow: none;
+    white-space: nowrap;
+    width: auto;
+
+    &__minimize {
+      height: 5px;
+    }
+
+    &__green {
+      @include background-color(#61bd4f);
+    }
+
+    &__yellow {
+      @include background-color(#f2d600);
+    }
+
+    &__lime {
+      @include background-color(#51e898);
+    }
+
+    &__orange {
+      @include background-color(#ff9f1a);
+    }
+
+    &__red {
+      @include background-color(#eb5a46);
+    }
+
+    &__purple {
+      @include background-color(#c377e0);
+    }
+
+    &__blue {
+      @include background-color(#0079bf);
+    }
+
+    &__pink {
+      @include background-color(#ff78cb);
+    }
+
+    &__black {
+      @include background-color(#4d4d4d);
+    }
+  }
 
   &__content {
     background-color: #fff;

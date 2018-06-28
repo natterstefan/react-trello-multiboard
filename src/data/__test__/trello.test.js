@@ -150,7 +150,7 @@ describe('data/Trello', () => {
 
     expect(Trello.getCards(123)).resolves.toEqual('success')
     expect(TrelloJs.get.mock.calls[0][0]).toBe(
-      '/lists/123/cards?members=true&member_fields=avatarHash,fullName,initials,username&fields=id,name,idBoard,idMembers,idList,shortUrl,badges',
+      '/lists/123/cards?members=true&member_fields=avatarHash,fullName,initials,username&fields=badges,labels,name,id,idBoard,idList,idMembers,shortUrl',
     )
   })
 

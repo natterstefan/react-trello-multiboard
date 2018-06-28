@@ -1,5 +1,6 @@
 const actions = {
   RESET_ESTIMATIONS: 'RESET_ESTIMATIONS',
+  TOGGLE_MINIMIZE_LABELS: 'TOGGLE_MINIMIZE_LABELS',
   TOGGLE_PREFERRED: 'TOGGLE_PREFERRED',
   TOGGLE_PREFERRED_MEMBER: 'TOGGLE_PREFERRED_MEMBER',
   TOGGLE_PREFERRED_LIST: 'TOGGLE_PREFERRED_LIST',
@@ -7,6 +8,8 @@ const actions = {
 }
 
 const addNewPatterns = pattern => ({ type: actions.REGISTER_PATTERN, pattern })
+
+const toggleMinimizeLabels = () => ({ type: actions.TOGGLE_MINIMIZE_LABELS })
 
 const togglePreferred = toggle => ({ type: actions.TOGGLE_PREFERRED, toggle })
 
@@ -21,6 +24,7 @@ export {
   addNewPatterns,
   togglePreferred,
   resetEstimations,
+  toggleMinimizeLabels,
   togglePreferredMember,
   toggleList,
 }

@@ -6,7 +6,7 @@ import LinearProgress from '@material-ui/core/LinearProgress'
 import Card from '@material-ui/core/Card'
 import Typography from '@material-ui/core/Typography'
 
-import { mockEampleUser1 } from '../../../__mocks__/mocks'
+import { mockExampleUser1 } from '../../../__mocks__/mocks'
 
 import Member from '../component'
 import UserAvatar from '../user-avatar'
@@ -19,7 +19,7 @@ const props = {
   },
   isActive: false,
   isLoading: false,
-  member: mockEampleUser1,
+  member: mockExampleUser1,
   onClick: jest.fn(),
 }
 

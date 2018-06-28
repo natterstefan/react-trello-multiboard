@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component/TrelloCardUi should render without throwing an error 1`] = `
+<a
+  className="trello-card-wrapper"
+  href="https://trello.com/id-1"
+  onClick={[Function]}
+  target="_blank"
+>
+  <div
+    className="trello-card"
+  >
+    <div
+      className="trello-card__content"
+    >
+      <div
+        className="trello-card--labels"
+      >
+        <span
+          className="trello-card--labels-text trello-card--labels-text__orange trello-card--labels-text__minimize"
+          key="label-1"
+          title="orange"
+        >
+          orange
+        </span>
+      </div>
+      <div
+        className="trello-card__title"
+      >
+        example-name
+      </div>
+      <div
+        className="trello-card__badges"
+      >
+        <div>
+          <FontAwesomeIcon
+            border={false}
+            className=""
+            fixedWidth={false}
+            flip={null}
+            icon={
+              Array [
+                "fa",
+                "comment-dots",
+              ]
+            }
+            listItem={false}
+            mask={null}
+            name=""
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size="sm"
+            spin={false}
+            symbol={false}
+            transform={null}
+          />
+           
+          1
+        </div>
+        <div>
+          <FontAwesomeIcon
+            border={false}
+            className=""
+            fixedWidth={false}
+            flip={null}
+            icon={
+              Array [
+                "fa",
+                "paperclip",
+              ]
+            }
+            listItem={false}
+            mask={null}
+            name=""
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size="sm"
+            spin={false}
+            symbol={false}
+            transform={null}
+          />
+           
+          1
+        </div>
+        <div>
+          <FontAwesomeIcon
+            border={false}
+            className=""
+            fixedWidth={false}
+            flip={null}
+            icon={
+              Array [
+                "fa",
+                "check-square",
+              ]
+            }
+            listItem={false}
+            mask={null}
+            name=""
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size="sm"
+            spin={false}
+            symbol={false}
+            transform={null}
+          />
+           
+          1
+          /
+          2
+        </div>
+      </div>
+      <div
+        className="trello-card__members"
+      >
+        <ul>
+          <li
+            key="https://trello.com/id-1-123456789"
+          >
+            <div
+              className="trello-card__member"
+            >
+              <img
+                alt="Example Username"
+                className="trello-card__member--image"
+                src="https://trello-avatars.s3.amazonaws.com/123456789/50.png"
+              />
+            </div>
+          </li>
+          <li
+            key="https://trello.com/id-1-987654321"
+          >
+            <div
+              className="trello-card__member"
+            >
+              <img
+                alt="Another User"
+                className="trello-card__member--image"
+                src="https://trello-avatars.s3.amazonaws.com/987654321/50.png"
+              />
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      className="trello-card__board-details"
+    >
+      <div
+        className="trello-card__board-name"
+      >
+        example-board
+        :
+      </div>
+      <div
+        className="trello-card__list-name"
+      >
+        example-list
+      </div>
+    </div>
+  </div>
+</a>
+`;

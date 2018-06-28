@@ -6,11 +6,33 @@ describe('reducers/app', () => {
     config: { lists: ['/#upcoming/'] },
     listToggle: { toggleList: '/#upcoming/' },
     memberToggle: { togglePreferred: false, togglePreferredMember: null },
+    trelloCardUI: {
+      minimizeLabels: true,
+    },
   }
 
   test('returns the correct initial state', () => {
     const testState = app()
     expect(testState).toEqual(initialState)
+  })
+
+  test('returns a correct new state when TOGGLE_MINIMIZE_LABELS is triggered', () => {
+    const action = { type: actions.TOGGLE_MINIMIZE_LABELS }
+    const result = app(initialState, action)
+    expect(result).toEqual({
+      ...initialState,
+      trelloCardUI: {
+        minimizeLabels: false,
+      },
+    })
+
+    const newResult = app(result, action)
+    expect(newResult).toEqual({
+      ...initialState,
+      trelloCardUI: {
+        minimizeLabels: true,
+      },
+    })
   })
 
   test('returns a correct new state when REGISTER_PATTERN is triggered with a pattern array', () => {

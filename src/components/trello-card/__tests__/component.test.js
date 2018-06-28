@@ -35,6 +35,20 @@ describe('Component/TrelloCard', () => {
     expect(wrapper.find(TrelloCardUi)).toHaveLength(1)
   })
 
+  test('should pass the correct props to the TrelloCardUi component', () => {
+    const wrapper = mount(<TrelloCard {...props} />)
+    const element = wrapper.find(TrelloCardUi)
+    expect(JSON.stringify(element.props())).toEqual(
+      JSON.stringify({
+        ...props.card,
+        boardName: props.boardName,
+        listName: props.listName,
+        minimizeLabels: true,
+        toggleMinimizeLabels: jest.fn(),
+      }),
+    )
+  })
+
   test('should add default estimations to redux by invoking addEstimations prop function', () => {
     const addEstimations = jest.fn()
     shallow(<TrelloCard {...props} addEstimations={addEstimations} />)
