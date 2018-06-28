@@ -9,6 +9,7 @@ module.exports = {
     {
       shortcut: 'hw',
       board: 'hello-world',
+      id: 'board-1', // optional: only required when board is public but user should see it
       estimates_with_round_brackets: true,
       estimates_with_square_brackets: true,
     },
