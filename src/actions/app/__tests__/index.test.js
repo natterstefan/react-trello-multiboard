@@ -2,6 +2,7 @@ import {
   actions,
   addNewPatterns,
   resetEstimations,
+  toggleMinimizeLabels,
   togglePreferred,
   togglePreferredMember,
   toggleList,
@@ -10,6 +11,7 @@ import {
 describe('actions/app', () => {
   const expectedActions = {
     RESET_ESTIMATIONS: 'RESET_ESTIMATIONS',
+    TOGGLE_MINIMIZE_LABELS: 'TOGGLE_MINIMIZE_LABELS',
     TOGGLE_PREFERRED: 'TOGGLE_PREFERRED',
     TOGGLE_PREFERRED_MEMBER: 'TOGGLE_PREFERRED_MEMBER',
     TOGGLE_PREFERRED_LIST: 'TOGGLE_PREFERRED_LIST',
@@ -23,6 +25,10 @@ describe('actions/app', () => {
   test('addNewPatterns should return correct actions object', () => {
     const pattern = ['pattern-1', 'pattern-2']
     expect(addNewPatterns(pattern)).toMatchObject({ type: actions.REGISTER_PATTERN, pattern })
+  })
+
+  test('toggleMinimizeLabels should return correct actions object', () => {
+    expect(toggleMinimizeLabels()).toMatchObject({ type: actions.TOGGLE_MINIMIZE_LABELS })
   })
 
   test('togglePreferred should return correct actions object', () => {

@@ -8,7 +8,7 @@ export const mockExampleBoardConfig = {
   shortcut: 'hw',
 }
 
-export const mockEampleUser1 = {
+export const mockExampleUser1 = {
   avatarHash: '123456789',
   fullName: 'Example Username',
   id: 'member-1',
@@ -16,7 +16,7 @@ export const mockEampleUser1 = {
   username: 'exampleusername',
 }
 
-export const mockEampleUser2 = {
+export const mockExampleUser2 = {
   avatarHash: '987654321',
   fullName: 'Another User',
   id: 'member-2',
@@ -24,7 +24,7 @@ export const mockEampleUser2 = {
   username: 'anotheruser',
 }
 
-export const mockEampleUser3 = {
+export const mockExampleUser3 = {
   avatarHash: null,
   fullName: 'Third User',
   id: 'member-3',
@@ -35,11 +35,11 @@ export const mockEampleUser3 = {
 export const mockExampleMemberResponse = username => {
   switch (username) {
     case 'anotheruser':
-      return mockEampleUser2
+      return mockExampleUser2
     case 'thirduser':
-      return mockEampleUser3
+      return mockExampleUser3
     default:
-      return mockEampleUser1
+      return mockExampleUser1
   }
 }
 
@@ -56,11 +56,18 @@ export const mockExampleCardsResponse = {
   id: 'card-1',
   name: 'Test Card Name',
   idBoard: 'board-1',
-  idMembers: [mockEampleUser1.id, mockEampleUser2.id],
+  idMembers: [mockExampleUser1.id, mockExampleUser2.id],
   idList: 'list-1',
+  labels: [
+    {
+      color: 'orange',
+      id: 'label-1',
+      name: 'orange',
+    },
+  ],
   shortUrl: 'https://trello.com/c/abcdefgh',
   members: [
-    pick(mockEampleUser1, ['id', 'username', 'fullName']),
-    pick(mockEampleUser2, ['id', 'username', 'fullName']),
+    pick(mockExampleUser1, ['id', 'username', 'fullName']),
+    pick(mockExampleUser2, ['id', 'username', 'fullName']),
   ],
 }

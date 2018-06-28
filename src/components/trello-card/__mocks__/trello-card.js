@@ -1,4 +1,4 @@
-import { mockEampleUser1, mockEampleUser2 } from '../../../__mocks__/mocks'
+import { mockExampleUser1, mockExampleUser2 } from '../../../__mocks__/mocks'
 
 export const props = {
   addEstimations: jest.fn(),
@@ -14,7 +14,14 @@ export const props = {
     id: 'id-1',
     idBoard: 'board-1',
     idMembers: ['member-1', 'member-2'],
-    members: [mockEampleUser1, mockEampleUser2],
+    labels: [
+      {
+        color: 'orange',
+        id: 'label-1',
+        name: 'orange',
+      },
+    ],
+    members: [mockExampleUser1, mockExampleUser2],
     name: 'example-name',
     shortUrl: 'https://trello.com/id-1',
   },
@@ -24,6 +31,8 @@ export const props = {
   },
   isHidden: false,
   listName: 'example-list',
+  minimizeLabels: true,
+  toggleMinimizeLabels: jest.fn(),
 }
 
 export const storeStateMock = {
@@ -48,6 +57,9 @@ export const storeStateMock = {
     memberToggle: {
       togglePreferred: false,
       togglePreferredMember: null,
+    },
+    trelloCardUI: {
+      minimizeLabels: true,
     },
   },
   members: {

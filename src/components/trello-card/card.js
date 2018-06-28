@@ -1,14 +1,56 @@
+// https://codepen.io/natterstefan/pen/QxJZzW?editors=0110
 import React from 'react'
 import PropTypes from 'prop-types'
-import { map } from 'lodash'
+import classNames from 'classnames'
+import { get, map, includes } from 'lodash'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+
+// clicks on the label should not open a new tab with the TrelloCard
+const onClick = (event, callback = () => {}) => {
+  const classes = get(event, 'target.classList.value') || ''
+  if (includes(classes, 'labels')) {
+    event.preventDefault()
+    callback()
+  }
+}
 
 // TODO
 // - handle case when avatarHash is null, use `initials` on user instead
-const TrelloCardUI = ({ badges, boardName, members, name, shortUrl, listName }) => (
-  <a className="trello-card-wrapper" href={shortUrl}>
+const TrelloCardUI = ({
+  badges,
+  boardName,
+  labels,
+  members,
+  minimizeLabels,
+  name,
+  shortUrl,
+  listName,
+  toggleMinimizeLabels,
+}) => (
+  <a
+    className="trello-card-wrapper"
+    href={shortUrl}
+    onClick={event => onClick(event, toggleMinimizeLabels)}
+    target="_blank"
+  >
     <div className="trello-card">
       <div className="trello-card__content">
+        <div className="trello-card--labels">
+          {map(labels, label => (
+            <span
+              key={label.id}
+              className={classNames(
+                `trello-card--labels-text trello-card--labels-text__${label.color}`,
+                {
+                  'trello-card--labels-text__minimize': minimizeLabels,
+                },
+              )}
+              title={label.name}
+            >
+              {label.name}
+            </span>
+          ))}
+        </div>
         <div className="trello-card__title">{name}</div>
         <div className="trello-card__badges">
           {badges &&
@@ -74,6 +116,14 @@ TrelloCardUI.propTypes = {
     checkItems: PropTypes.number,
     checkItemsChecked: PropTypes.number,
   }).isRequired,
+  boardName: PropTypes.string.isRequired,
+  labels: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+    }),
+  ).isRequired,
+  listName: PropTypes.string.isRequired,
   members: PropTypes.arrayOf(
     PropTypes.shape({
       avatarHash: PropTypes.string,
@@ -81,10 +131,15 @@ TrelloCardUI.propTypes = {
       initials: PropTypes.string,
     }),
   ).isRequired,
-  boardName: PropTypes.string.isRequired,
+  minimizeLabels: PropTypes.bool,
   name: PropTypes.string.isRequired,
   shortUrl: PropTypes.string.isRequired,
-  listName: PropTypes.string.isRequired,
+  toggleMinimizeLabels: PropTypes.func,
+}
+
+TrelloCardUI.defaultProps = {
+  minimizeLabels: false,
+  toggleMinimizeLabels: () => {},
 }
 
 export default TrelloCardUI

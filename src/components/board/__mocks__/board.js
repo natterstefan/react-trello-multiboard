@@ -1,6 +1,6 @@
 import {
-  mockEampleUser1,
-  mockEampleUser2,
+  mockExampleUser1,
+  mockExampleUser2,
   mockExampleBoardResponse,
   mockExampleListResponse,
 } from '../../../__mocks__/mocks'
@@ -42,6 +42,6 @@ export const storeStateMock = {
     },
   },
   members: {
-    members: [mockEampleUser1, mockEampleUser2],
+    members: [mockExampleUser1, mockExampleUser2],
   },
 }

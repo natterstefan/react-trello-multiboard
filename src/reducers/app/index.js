@@ -17,12 +17,15 @@ const initialState = {
   config: {
     lists: listConfig,
   },
+  listToggle: {
+    toggleList: decodedPatternFromUrl || listConfig[0] || false,
+  },
   memberToggle: {
     togglePreferred: typeof memberFromUrl !== 'undefined' || false,
     togglePreferredMember: memberFromUrl || null,
   },
-  listToggle: {
-    toggleList: decodedPatternFromUrl || listConfig[0] || false,
+  trelloCardUI: {
+    minimizeLabels: true,
   },
 }
 
@@ -38,6 +41,13 @@ export function reducer(state = initialState, action) {
         },
         listToggle: {
           toggleList: newListConfig[0] || undefined,
+        },
+      })
+
+    case actions.TOGGLE_MINIMIZE_LABELS:
+      return merge({}, state, {
+        trelloCardUI: {
+          minimizeLabels: !get(state, 'trelloCardUI.minimizeLabels'),
         },
       })
 

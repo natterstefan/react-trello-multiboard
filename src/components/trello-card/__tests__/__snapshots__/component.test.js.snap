@@ -36,6 +36,13 @@ exports[`Component/TrelloCard should render without throwing an error 1`] = `
         "member-1",
         "member-2",
       ],
+      "labels": Array [
+        Object {
+          "color": "orange",
+          "id": "label-1",
+          "name": "orange",
+        },
+      ],
       "members": Array [
         Object {
           "avatarHash": "123456789",
@@ -64,6 +71,8 @@ exports[`Component/TrelloCard should render without throwing an error 1`] = `
   }
   isHidden={false}
   listName="example-list"
+  minimizeLabels={true}
+  toggleMinimizeLabels={[MockFunction]}
 >
   <div
     className="card member_member-1 member_member-2"
@@ -93,6 +102,15 @@ exports[`Component/TrelloCard should render without throwing an error 1`] = `
           "member-2",
         ]
       }
+      labels={
+        Array [
+          Object {
+            "color": "orange",
+            "id": "label-1",
+            "name": "orange",
+          },
+        ]
+      }
       listName="example-list"
       members={
         Array [
@@ -112,12 +130,16 @@ exports[`Component/TrelloCard should render without throwing an error 1`] = `
           },
         ]
       }
+      minimizeLabels={true}
       name="example-name"
       shortUrl="https://trello.com/id-1"
+      toggleMinimizeLabels={[MockFunction]}
     >
       <a
         className="trello-card-wrapper"
         href="https://trello.com/id-1"
+        onClick={[Function]}
+        target="_blank"
       >
         <div
           className="trello-card"
@@ -125,6 +147,17 @@ exports[`Component/TrelloCard should render without throwing an error 1`] = `
           <div
             className="trello-card__content"
           >
+            <div
+              className="trello-card--labels"
+            >
+              <span
+                className="trello-card--labels-text trello-card--labels-text__orange trello-card--labels-text__minimize"
+                key="label-1"
+                title="orange"
+              >
+                orange
+              </span>
+            </div>
             <div
               className="trello-card__title"
             >
