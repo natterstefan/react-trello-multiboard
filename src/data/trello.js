@@ -44,6 +44,9 @@ export const authenticateUser = () =>
 export const getMeBoards = () =>
   new Promise((resolve, reject) => getData('/member/me/boards?fields=id,name', resolve, reject))
 
+export const getBoard = boardId =>
+  new Promise((resolve, reject) => getData(`/boards/${boardId}?fields=id,name`, resolve, reject))
+
 export const getLists = boardId =>
   new Promise((resolve, reject) =>
     getData(`/boards/${boardId}/lists?fields=id,idBoard,name`, resolve, reject),
@@ -65,9 +68,10 @@ export const getMember = memberId =>
 
 export default {
   authenticateUser,
-  getMeBoards,
-  getLists,
   getCards,
+  getBoard,
+  getLists,
+  getMeBoards,
   getMember,
   isTrelloAvailable,
   trello,

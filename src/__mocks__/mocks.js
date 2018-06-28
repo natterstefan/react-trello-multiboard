@@ -2,7 +2,8 @@ import { pick } from 'lodash'
 
 // This file contains mocked responses from the data/trello API.
 export const mockExampleBoardConfig = {
-  board: 'hello-world',
+  name: 'hello-world',
+  id: 'board-1', // can be optional
   estimates_with_round_brackets: true,
   estimates_with_square_brackets: true,
   shortcut: 'hw',

@@ -1,6 +1,6 @@
-import { forEach } from 'lodash'
+import { find, forEach, sortBy } from 'lodash'
 import Config from '../../../config/config'
-import { getMeBoards } from '../../data/trello'
+import { getBoard, getMeBoards } from '../../data/trello'
 
 const actions = {
   RESET_BOARDS: 'RESET_BOARDS',
@@ -23,20 +23,50 @@ const requestBoards = () => async dispatch => {
   try {
     const result = await getMeBoards()
     const boards = []
-    forEach(result, board => {
-      forEach(Config.boards, configuredBoard => {
-        if (configuredBoard.board === board.name) {
-          const boardObj = {
-            board,
-            config: configuredBoard,
-          }
-          boards.push(boardObj)
+    console.log('Config', Config) /* eslint-disable-line */
+    console.log('result', result) /* eslint-disable-line */
+
+    const additionalBoards = []
+    forEach(Config.boards, (configuredBoard, idx) => {
+      // get a board by it's name (works for boards a user subscribed to)
+      const nameBoard = find(result, b => b.name === configuredBoard.name)
+      const idBoard = find(result, b => b.id === configuredBoard.id)
+
+      if (nameBoard || idBoard) {
+        const boardObj = {
+          idx,
+          board: nameBoard,
+          config: configuredBoard,
         }
-      })
+        boards.push(boardObj)
+      } else if (configuredBoard.id && !idBoard) {
+        // TODO: write test for this case
+        // if the .id is set, but the board was not found we query boards
+        // (eg. for public boards, where people are not member of it, which means
+        // you would not find it in their me/boards result)
+        additionalBoards.push(
+          new Promise(resolve => {
+            getBoard(configuredBoard.id)
+              .then(data => resolve({ configuredBoard, data, idx }))
+              .catch(error => resolve({ configuredBoard, error, idx }))
+          }),
+        )
+      }
+    })
+
+    const idBoards = await Promise.all(additionalBoards)
+    forEach(idBoards, ({ configuredBoard, data, idx }) => {
+      const boardObj = {
+        idx,
+        board: data,
+        config: configuredBoard,
+      }
+      boards.push(boardObj)
     })
 
     // then update the state once we got all boards
-    dispatch(receiveBoards(boards))
+    // TODO: evaluate if board.idx should be removed
+    dispatch(receiveBoards(sortBy(boards, ['idx'])))
   } catch (e) {
     dispatch(receiveBoards(e, true))
   }
