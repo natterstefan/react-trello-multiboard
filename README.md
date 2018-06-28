@@ -42,6 +42,7 @@ preferred team members.
 
 * :memo: flexible multiboard configuration (eg. select multiple lists to display from multiple boards)
 * :office: optimised teamwork experience, (eg. send deeplinks to your colleagues with their stories already filtered)
+* :lock: your data stays secure in your browser and is not shared with others
 * :hammer: built with awesome technologies, like: [react 16.x](https://github.com/facebook/react),
   [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom),
   [redux](https://github.com/reduxjs/redux), [material-ui](https://github.com/mui-org/material-ui)
@@ -61,6 +62,8 @@ listed below. Each member can be selected, which causes the list of cards to onl
 show those of the selected member. Additionally, you see five sprints on the page.
 You can select one sprint and see the cards of the selected pattern. This allows
 you to plan ahead.
+
+You can find the example in the gif above here: [https://multiboardfortrello.com/example/#/](https://bit.ly/2KfeewR)
 
 ## Development & Build Requirements
 
