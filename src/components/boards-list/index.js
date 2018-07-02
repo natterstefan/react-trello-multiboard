@@ -14,8 +14,8 @@ const mapDispatchToProps = () => ({})
 
 const mergeProps = stateProps => {
   const boards = get(stateProps.boards, 'data', {})
-  const isLoading = get(boards, 'isLoading', false)
-  const error = get(boards, 'error')
+  const isLoading = get(stateProps.boards, 'isLoading', false)
+  const error = get(stateProps.boards, 'error')
 
   const getEstimations = (board = {}) => {
     const { togglePreferredMember } = stateProps.memberToggle
