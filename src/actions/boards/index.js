@@ -23,8 +23,6 @@ const requestBoards = () => async dispatch => {
   try {
     const result = await getMeBoards()
     const boards = []
-    console.log('Config', Config) /* eslint-disable-line */
-    console.log('result', result) /* eslint-disable-line */
 
     const additionalBoards = []
     forEach(Config.boards, (configuredBoard, idx) => {

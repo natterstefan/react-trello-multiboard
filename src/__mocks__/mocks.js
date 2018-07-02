@@ -48,7 +48,7 @@ export const mockExampleBoardResponse = { name: 'hello-world', id: 'board-1' }
 
 // most likely it should be an array with two lists (one matching and one not)
 export const mockExampleListResponse = {
-  id: 'list-123',
+  id: 'list-1',
   idBoard: 'board-1',
   name: 'Test List Name #upcoming',
 }
