@@ -37,7 +37,6 @@ const mergeProps = stateProps => {
   }
 
   return {
-    boardsList: stateProps,
     boards,
     error,
     getEstimations,

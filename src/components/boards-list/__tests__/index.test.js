@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 
-import { mockExampleUser1, mockExampleBoardResponse } from '../../../__mocks__/mocks'
+import { mockExampleBoardResponse } from '../../../__mocks__/mocks'
 import { storeStateMock } from '../__mocks__/boards-list'
 
 // inspired by https://github.com/reactjs/redux/issues/1534#issuecomment-205061049
@@ -26,15 +26,6 @@ describe('Component/BoardsListContainer', () => {
 
     const boardsList = [{ board: mockExampleBoardResponse }]
     const expectedProps = {
-      boardsList: {
-        boards: {
-          data: [{ board: { name: 'hello-world', id: 'board-1' } }],
-          error: null,
-          isLoading: true,
-        },
-        members: { members: [mockExampleUser1] },
-        memberToggle: { togglePreferred: false, togglePreferredMember: null },
-      },
       boards: boardsList,
       error: null,
       getEstimations: expect.any(Function),
