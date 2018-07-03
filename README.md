@@ -35,6 +35,7 @@ preferred team members.
   * [Licence](#licence)
   * [More Examples](#more-examples)
   * [Maintainers](#maintainers)
+  * [Changelog](CHANGES.md)
 
 <!-- /TOC -->
 

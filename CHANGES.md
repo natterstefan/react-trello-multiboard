@@ -6,6 +6,8 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased][1]
 
+## 2018/07/03 [0.2.0][6]
+
 ### Added
 
 * config can now contain the `id` of a board, which allows adding public
@@ -47,8 +49,6 @@ boards: [
   will be available in the `<ListTabs \/>` component and can later be used to
   select a specific list. All filters work as expected and as before (also with
   deeplinking for the list patterns)
-  * _Note_: even though semver would suggest adding releasing a major release, I
-    decided to stick to 0.x.y still until further notice here.
 
 ```js
 // previous config
@@ -69,6 +69,9 @@ boards: [
   },
 ],
 ```
+
+* _Note_: even though semver would suggest adding releasing a major release, I
+  decided to stick to 0.2.y still until further notice.
 
 ## 2018/06/09 [0.1.1][5]
 
