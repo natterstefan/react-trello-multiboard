@@ -67,6 +67,7 @@ describe('actions/board:async actions', () => {
         error: null,
         payload: [
           {
+            idx: 0,
             board,
             config,
           },

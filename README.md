@@ -42,6 +42,7 @@ preferred team members.
 
 * :memo: flexible multiboard configuration (eg. select multiple lists to display from multiple boards)
 * :office: optimised teamwork experience, (eg. send deeplinks to your colleagues with their stories already filtered)
+* :door: add private (accessible only to invited members of the Board) and public Trello boards
 * :lock: your data stays secure in your browser and is not shared with others
 * :hammer: built with awesome technologies, like: [react 16.x](https://github.com/facebook/react),
   [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom),
@@ -129,7 +130,8 @@ module.exports = {
   boards: [
     {
       shortcut: 'hw',
-      board: 'hello-world',
+      name: 'hello-world',
+      id: 'board-1',
       estimates_with_round_brackets: true,
       estimates_with_square_brackets: true,
     },
@@ -154,9 +156,26 @@ The main config properties look like this:
 The list of boards should contain board objects like this:
 
 * `shortcut` (string): the title above each list of tasks
-* `board` (string): name of trello board
+* `name` (string): name of trello board
+* `id` (string, optional): id of trello board, only required when board is public but user should see it
 * `estimates_with_round_brackets` (bool)
 * `estimates_with_square_brackets` (bool)
+
+With the `id` property you can add boards, which are public and the user is not
+part of when accessing your TrelloMultiBoard App.
+
+##### How to get the id of your board?
+
+Let's assume the url of your board looks like this: https://trello.com/b/123asdf/hello-world.
+You can get the id of the board now by changing the url to: https://trello.com/b/123asdf/hello-world.json.
+Wait for some time (depends on the number of lists and card of the board) and
+you should see a result similar to
+
+```
+ { "id": "IGVA5wQ67w2mBbkctLxi", "name": "hello-world", "desc":"", ... }
+```
+
+The id at the beginning of the JSON is the id of the board.
 
 #### Estimations Configuration
 

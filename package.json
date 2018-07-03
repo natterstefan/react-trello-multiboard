@@ -30,7 +30,7 @@
     "lint": "eslint ./src",
     "lint:scss": "stylelint ./src",
     "postinstall": "./node_modules/.bin/cpy \"./config/config.example.js\" \"./config\" --no-overwrite --rename=\"config.js\"",
-    "precommit": "npm run analyse:size && lint-staged",
+    "precommit": "npm run build && npm run analyse:size && lint-staged",
     "prepush": "npm test",
     "start": "webpack-dev-server --hot --config webpack/dev.config.js",
     "test": "jest",

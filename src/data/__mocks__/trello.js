@@ -15,6 +15,7 @@ import {
 
 // NOTE: use mockResolvedValue instead
 export const authenticateUser = jest.fn().mockResolvedValue({})
+export const getBoard = jest.fn().mockResolvedValue(mockExampleBoardResponse)
 export const getMeBoards = jest.fn().mockResolvedValue([mockExampleBoardResponse])
 export const getLists = jest.fn().mockResolvedValue([mockExampleListResponse])
 export const getCards = jest.fn().mockResolvedValue([mockExampleCardsResponse])
@@ -23,6 +24,7 @@ export const isTrelloAvailable = jest.fn().mockReturnValue(true)
 
 export default {
   authenticateUser,
+  getBoard,
   getMeBoards,
   getLists,
   getCards,

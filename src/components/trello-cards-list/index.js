@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { get } from 'lodash'
-import List from './component'
+import TrelloCardsList from './component'
 import { requestCards } from '../../actions/cards'
 
 const mapStateToProps = state => ({
@@ -29,5 +29,7 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
   }
 }
 
-const ListContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(List)
-export default ListContainer
+const TrelloCardsListContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(
+  TrelloCardsList,
+)
+export default TrelloCardsListContainer

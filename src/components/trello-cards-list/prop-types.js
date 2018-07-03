@@ -2,7 +2,9 @@ import PropTypes from 'prop-types'
 import { card } from '../trello-card/prop-types'
 
 export const listConfig = PropTypes.shape({
-  board: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  // optional, eg. if the TrelloBoard is public and member must not be part of it
+  id: PropTypes.string,
   estimates_with_round_brackets: PropTypes.bool,
   estimates_with_square_brackets: PropTypes.bool,
   shortcut: PropTypes.string,

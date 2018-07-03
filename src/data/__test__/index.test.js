@@ -14,6 +14,7 @@ describe('data/Trello', () => {
     const expectedExport = {
       default: {
         authenticateUser: expect.any(Function),
+        getBoard: expect.any(Function),
         getMeBoards: expect.any(Function),
         getLists: expect.any(Function),
         getCards: expect.any(Function),

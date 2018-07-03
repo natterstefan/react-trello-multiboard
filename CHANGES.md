@@ -8,6 +8,8 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+* config can now contain the `id` of a board, which allows adding public
+  Trello boards as well. Related to breaking change note regarding config.js below.
 * <TrelloCardUi /> can display labels (with toggle: show or hide)
 * `<ListTabs \/>` added
 * list `pattern` can be modified with query parameters. Examples:
@@ -16,12 +18,57 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ### Changed
 
+* **Breaking**: boards config in `config.js` changed:
+
+```js
+// previous config
+
+boards: [
+  {
+    // ...
+    board: 'hello-world', // renamed to 'name'
+  },
+],
+```
+
+```js
+// new config
+
+boards: [
+  {
+    // ...
+    name: 'hello-world', // new property 'name'
+    id: 'board-1', // optional, see README
+  },
+],
+```
+
 * **Breaking**: `config.js` can now contain multiple `lists` patterns, each list
   will be available in the `<ListTabs \/>` component and can later be used to
   select a specific list. All filters work as expected and as before (also with
   deeplinking for the list patterns)
   * _Note_: even though semver would suggest adding releasing a major release, I
     decided to stick to 0.x.y still until further notice here.
+
+```js
+// previous config
+boards: [
+  {
+    // ...
+    lists: /#upcoming/,
+  },
+],
+```
+
+```js
+// new config
+lists: [/#upcoming/],
+boards: [
+  {
+    // does not contain lists anymore
+  },
+],
+```
 
 ## 2018/06/09 [0.1.1][5]
 
