@@ -141,3 +141,4 @@ boards: [
 [3]: https://github.com/natterstefan/react-trello-multiboard/compare/v0.0.1...v0.0.2
 [4]: https://github.com/natterstefan/react-trello-multiboard/compare/v0.0.2...v0.1.0
 [5]: https://github.com/natterstefan/react-trello-multiboard/compare/v0.1.0...v0.1.1
+[6]: https://github.com/natterstefan/react-trello-multiboard/compare/v0.1.1...v0.2.0
