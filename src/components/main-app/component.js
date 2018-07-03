@@ -85,7 +85,7 @@ class MainApp extends React.Component {
 
   render() {
     const { showEstimationCard } = this.state
-    const { app, appErrors, classes, isAppLoading, isLoading } = this.props
+    const { app, classes, isAppLoading, isLoading } = this.props
     const togglePreferred = get(app, 'memberToggle.togglePreferred', false)
     const togglePreferredMember = get(app, 'memberToggle.togglePreferredMember', false)
 
@@ -100,10 +100,7 @@ class MainApp extends React.Component {
     // vheight sticky footer trick, see: https://blog.hellojs.org/flexbox-sticky-footer-and-react-d116e4cfca5
     return (
       <React.Fragment>
-        {appErrors &&
-          appErrors.length > 0 && (
-            <Notification message="An error occured. Please try it again later." />
-          )}
+        <Notification />
         <div style={{ minHeight: '100vh', marginBottom: 30, paddingBottom: 50 }}>
           <BlockContainer>
             <Typography variant="headline" component="h2">

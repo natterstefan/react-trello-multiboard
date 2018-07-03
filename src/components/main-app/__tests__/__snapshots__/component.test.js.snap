@@ -2,6 +2,7 @@
 
 exports[`Component/MainApp should render without throwing an error 1`] = `
 <React.Fragment>
+  <Connect(WithStyles(Notification)) />
   <div
     style={
       Object {

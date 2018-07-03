@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component/Notification should render without throwing an error 1`] = `
+<WithStyles(Snackbar)
+  ContentProps={
+    Object {
+      "aria-describedby": "message-id",
+    }
+  }
+  action={
+    Array [
+      <WithStyles(IconButton)
+        aria-label="Close"
+        className="Notification-close-1"
+        color="inherit"
+        onClick={[Function]}
+      >
+        <pure(Close) />
+      </WithStyles(IconButton)>,
+    ]
+  }
+  anchorOrigin={
+    Object {
+      "horizontal": "right",
+      "vertical": "bottom",
+    }
+  }
+  autoHideDuration={10000}
+  message={
+    <span
+      id="message-id"
+    >
+      Test Message
+    </span>
+  }
+  onClose={[Function]}
+  open={true}
+/>
+`;

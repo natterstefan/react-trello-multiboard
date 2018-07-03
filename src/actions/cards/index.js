@@ -30,8 +30,8 @@ const requestCards = (list, config) => async dispatch => {
     })
 
     dispatch(receiveCards(list.id, cards))
-  } catch (errorMsg) {
-    dispatch(receiveCards(list.id, null, errorMsg))
+  } catch (error) {
+    dispatch(receiveCards(list.id, null, error))
   }
 }
 

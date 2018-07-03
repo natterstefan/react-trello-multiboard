@@ -103,7 +103,7 @@ describe('data/Trello', () => {
 
     expect(TrelloJs.authorize).toHaveBeenCalledWith(
       expect.objectContaining({
-        name: 'multiboard-for-trello',
+        name: 'Trello Multiboard',
         type: 'redirect',
         scope: {
           read: true,

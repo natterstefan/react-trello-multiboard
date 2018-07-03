@@ -65,8 +65,8 @@ const requestBoards = () => async dispatch => {
     // then update the state once we got all boards
     // TODO: evaluate if board.idx should be removed
     dispatch(receiveBoards(sortBy(boards, ['idx'])))
-  } catch (e) {
-    dispatch(receiveBoards(e, true))
+  } catch (error) {
+    dispatch(receiveBoards(null, error))
   }
 }
 

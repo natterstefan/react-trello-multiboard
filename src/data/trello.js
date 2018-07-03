@@ -1,3 +1,5 @@
+import Config from '../../config/config'
+
 export const trello = window.Trello
 
 export const isTrelloAvailable = () => {
@@ -17,7 +19,17 @@ const getData = (query, resolve, reject) => {
       resolve(result)
     },
     errorMsg => {
-      reject(errorMsg)
+      let error = errorMsg
+      if (errorMsg.status === 401) {
+        // Trello Response Code 401: eg. when api_key changed but old one is still
+        // present in the localStorage
+        error = {
+          responseText: errorMsg.responseText,
+          status: errorMsg.status,
+          statusText: errorMsg.statusText,
+        }
+      }
+      reject(error)
     },
   )
 }
@@ -28,7 +40,7 @@ export const authenticateUser = () =>
       reject(new Error('Trello is not defined'))
     }
     trello.authorize({
-      name: 'multiboard-for-trello', // Note: probably add to config.js
+      name: Config.app_title || 'multiboard-for-trello',
       type: 'redirect',
       scope: {
         read: true,

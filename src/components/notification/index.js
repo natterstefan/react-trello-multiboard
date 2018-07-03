@@ -1,74 +1,71 @@
-// Docs https://material-ui.com/demos/snackbars/
-import React from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
-import Snackbar from '@material-ui/core/Snackbar'
-import IconButton from '@material-ui/core/IconButton'
-import CloseIcon from '@material-ui/icons/Close'
+import { connect } from 'react-redux'
+import { forOwn, get } from 'lodash'
 
-const styles = theme => ({
-  close: {
-    width: theme.spacing.unit * 4,
-    height: theme.spacing.unit * 4,
-  },
-})
+import Notification from './component'
 
-class Notification extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      open: typeof props.message !== 'undefined' || false,
+const checkState = (state, type, prop) => {
+  forOwn(get(state, type, {}) || {}, value => value && value[prop])
+}
+
+const mapStateToProps = state => {
+  // we check if the app is still in a loading state
+  const isAppLoading = {
+    isBoardsLoading: get(state, 'boards.isLoading') || undefined,
+    isCardsLoading: checkState(state, 'cards', 'isLoading') || undefined,
+    isListsLoading: checkState(state, 'lists', 'isLoading') || undefined,
+    isMembersLoading: get(state, 'members.isLoading') || undefined,
+  }
+
+  // evaluate if one of the stores has an error and make them (if one occurs)
+  // available to the <Component /> so we can tell the user about it
+  const appErrors = []
+  forOwn(
+    {
+      boardError: get(state, 'boards.error') || undefined,
+      cardError: checkState(state, 'cards', 'error') || undefined,
+      listError: checkState(state, 'lists', 'error') || undefined,
+      memberError: get(state, 'members.error') || undefined,
+      userError: get(state, 'user.error') || undefined,
+    },
+    (item, key) => item && appErrors.push({ key, message: item.message }),
+  )
+
+  return {
+    appErrors,
+    error: get(state, 'boards.error') || undefined,
+    isAppLoading,
+  }
+}
+
+const mapDispatchToProps = () => ({})
+
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  // if we have an error present, we prepare a message already here
+  const { appErrors, error } = stateProps
+  let customMessage = null
+  let autoHideDuration = 10000
+  if (error) {
+    if (error.status === 401) {
+      if (localStorage) {
+        // only when localStorage in the browser is available
+        localStorage.removeItem('trello_token')
+      }
+      customMessage = `${
+        error.responseText
+      }: Please reload the page and try it again. Optional: delete localStorage as well.`
+      autoHideDuration = 60 * 1000 // 1 minute
     }
+  } else if (appErrors && appErrors.length > 0) {
+    customMessage = 'An error occured. Please try it again later.'
   }
 
-  handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return
-    }
-
-    this.setState({ open: false })
-  }
-
-  render() {
-    const { classes, message } = this.props
-    return (
-      <div>
-        <Snackbar
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'right',
-          }}
-          open={this.state.open}
-          autoHideDuration={10000}
-          onClose={this.handleClose}
-          ContentProps={{
-            'aria-describedby': 'message-id',
-          }}
-          message={<span id="message-id">{message}</span>}
-          action={[
-            <IconButton
-              key="close"
-              aria-label="Close"
-              color="inherit"
-              className={classes.close}
-              onClick={this.handleClose}
-            >
-              <CloseIcon />
-            </IconButton>,
-          ]}
-        />
-      </div>
-    )
+  return {
+    ...stateProps,
+    ...ownProps,
+    autoHideDuration,
+    message: customMessage || ownProps.message,
   }
 }
 
-Notification.propTypes = {
-  classes: PropTypes.object.isRequired, // eslint-disable-line
-  message: PropTypes.string,
-}
-
-Notification.defaultProps = {
-  message: undefined,
-}
-
-export default withStyles(styles)(Notification)
+const NotificationContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(Notification)
+export default NotificationContainer

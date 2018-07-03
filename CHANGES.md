@@ -6,6 +6,11 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased][1]
 
+### Added
+
+* When Trello-API returns 401 (eg. when `api_key` changed and old token is still
+  present in the localStorage) show error notification and force re-authentication.
+
 ## 2018/07/03 [0.2.0][6]
 
 ### Added
