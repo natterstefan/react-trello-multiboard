@@ -23,25 +23,8 @@ const mapStateToProps = state => {
     isMembersLoading: get(state, 'members.isLoading') || undefined,
   }
 
-  // evaluate if one of the stores has an error and make them (if one occurs)
-  // available to the <Component /> so we can tell the user about it
-  const appErrors = []
-  forOwn(
-    {
-      boardError: get(state, 'boards.error') || undefined,
-      cardError: checkState(state, 'cards', 'error') || undefined,
-      listError: checkState(state, 'lists', 'error') || undefined,
-      memberError: get(state, 'members.error') || undefined,
-      userError: get(state, 'user.error') || undefined,
-    },
-    (item, key) => item && appErrors.push({ key, message: item.message }),
-  )
-
   return {
     app: get(state, 'app', {}),
-    appErrors,
-    error: get(state, 'boards.error', null),
-    info: get(state, 'info', {}),
     isAppLoading: includes(isAppLoading, true),
     isLoading: get(state, 'boards.isLoading', false),
     isMembersLoading: isAppLoading.isMembersLoading,
