@@ -42,7 +42,7 @@ describe('Component/MainApp', () => {
   test('should render without throwing an error', () => {
     const wrapper = shallow(<MainApp {...props} />).dive()
     expect(wrapper.find(EstimationCard).length).toEqual(0) // only visible after toggle
-    expect(wrapper.find(Notification).length).toEqual(0) // only visible when property appErrors is valid
+    expect(wrapper.find(Notification).length).toEqual(1)
     expect(wrapper.find(BoardsList).length).toEqual(1)
     expect(wrapper.find(MembersList).length).toEqual(1)
     expect(wrapper).toMatchSnapshot()
@@ -56,16 +56,6 @@ describe('Component/MainApp', () => {
     })
     wrapper.update()
     expect(wrapper.find(EstimationCard).length).toEqual(1)
-  })
-
-  test('should show Notification when appErrors is a valid array', () => {
-    const wrapper = shallow(<MainApp {...props} />).dive()
-    expect(wrapper.find(Notification).length).toEqual(0)
-    wrapper.setProps({
-      appErrors: ['example error'],
-    })
-    wrapper.update()
-    expect(wrapper.find(Notification).length).toEqual(1)
   })
 
   test('should render an LinearProgress when isLoading is true', () => {

@@ -18,8 +18,8 @@ const authenticateUser = () => async dispatch => {
   try {
     await doAuthenticateUser()
     dispatch(doneAuthentication(true))
-  } catch (e) {
-    dispatch(doneAuthentication(null, e))
+  } catch (error) {
+    dispatch(doneAuthentication(null, error))
   }
 }
 

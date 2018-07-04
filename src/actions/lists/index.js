@@ -82,8 +82,8 @@ const requestLists = (board, config) => async dispatch => {
     })
 
     dispatch(receiveLists(board.id, lists))
-  } catch (errorMsg) {
-    dispatch(receiveLists(board.id, null, errorMsg))
+  } catch (error) {
+    dispatch(receiveLists(board.id, null, error))
   }
 }
 

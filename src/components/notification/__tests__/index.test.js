@@ -1,36 +1,74 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
 
-import Notification from '../'
+import {
+  props,
+  storeStateMock,
+  storeWithBoardError,
+  storeWithAnyError,
+} from '../__mocks__/notification'
 
-describe('Component/Notification', () => {
-  const props = {
-    message: 'Test Message',
-  }
+// inspired by https://github.com/reactjs/redux/issues/1534#issuecomment-205061049
+const mockStore = configureMockStore([thunk])
 
-  test('should render without throwing an error', () => {
-    expect(shallow(<Notification {...props} />).dive()).toMatchSnapshot()
+describe('Component/NotificationContainer', () => {
+  let store
+  beforeEach(() => {
+    window.localStorage.removeItem.mockReset()
+    store = mockStore(storeStateMock)
   })
 
-  test('should have a default open state of false when no props.message is available', () => {
-    const wrapper = shallow(<Notification />).dive()
-    const instance = wrapper.instance()
-
-    expect(instance.state).toEqual({ open: false })
+  afterAll(() => {
+    jest.resetModules()
   })
 
-  test('should return undefined when handleClose was called with reason "clickaway"', () => {
-    const wrapper = shallow(<Notification {...props} />).dive()
-    const instance = wrapper.instance()
-    expect(instance.handleClose(null, 'clickaway')).toBe(undefined)
+  test('should get data from the store and prepare props without throwing an error', () => {
+    const NotificationContainer = require('../').default
+    const wrapper = shallow(<NotificationContainer store={store} {...props} someOtherProp />)
+
+    const expectedProps = {
+      autoHideDuration: 10000,
+      message: 'some notification',
+      someOtherProp: true,
+    }
+
+    expect(wrapper.props()).toEqual(expect.objectContaining(expectedProps))
   })
 
-  test('should change the state of state.open when handleClose was called with another reason than "clickaway"', () => {
-    const wrapper = shallow(<Notification {...props} />).dive()
-    const instance = wrapper.instance()
+  test('should show a different message when board.error met certain conditions', () => {
+    store = mockStore(storeWithBoardError)
+    const NotificationContainer = require('../').default
+    const wrapper = shallow(<NotificationContainer store={store} {...props} />)
 
-    expect(instance.state).toEqual({ open: true })
-    instance.handleClose(null)
-    expect(instance.state).toEqual({ open: false })
+    const expectedProps = {
+      autoHideDuration: 60000,
+      message:
+        'example response: Please reload the page and try it again. Optional: delete localStorage as well.',
+    }
+
+    expect(wrapper.props()).toEqual(expect.objectContaining(expectedProps))
+  })
+
+  test('should remove an item from localStorage when board.error met certain conditions', () => {
+    store = mockStore(storeWithBoardError)
+    const NotificationContainer = require('../').default
+    shallow(<NotificationContainer store={store} {...props} />)
+    expect(window.localStorage.removeItem).toHaveBeenCalledTimes(1)
+    expect(window.localStorage.removeItem).toHaveBeenCalledWith('trello_token')
+  })
+
+  test('should show a default error message when other errors then the 401-board.error are available', () => {
+    store = mockStore(storeWithAnyError)
+    const NotificationContainer = require('../').default
+    const wrapper = shallow(<NotificationContainer store={store} {...props} />)
+
+    const expectedProps = {
+      autoHideDuration: 10000,
+      message: 'An error occured. Please try it again later.',
+    }
+
+    expect(wrapper.props()).toEqual(expect.objectContaining(expectedProps))
   })
 })

@@ -1,4 +1,7 @@
 describe('data/Trello', () => {
+  const resolve = jest.fn()
+  const reject = jest.fn()
+
   // mock trello's client.js
   const TrelloJs = {
     authorize: jest.fn(args => args.success()), // default: resolve w/ success
@@ -8,9 +11,18 @@ describe('data/Trello', () => {
     }),
   }
 
+  const TrelloJsError = {
+    get: jest.fn((api, successCb, errorCb) => {
+      errorCb('error')
+    }),
+  }
+
   beforeEach(() => {
+    global.Trello = TrelloJs
     TrelloJs.authorize.mockReset()
     TrelloJs.get.mockReset()
+    resolve.mockReset()
+    reject.mockReset()
     jest.resetModules() // will allow to change global.* in each test
   })
 
@@ -67,12 +79,7 @@ describe('data/Trello', () => {
   })
 
   test('all exposed methods should resolve with the result, if trello.get resolves', () => {
-    const trelloGet = {
-      get: jest.fn((api, successCb) => {
-        successCb('success')
-      }),
-    }
-    global.Trello = trelloGet
+    global.Trello = TrelloJs
     const Trello = require('../trello')
 
     expect(Trello.getMeBoards()).resolves.toEqual('success')
@@ -82,18 +89,71 @@ describe('data/Trello', () => {
   })
 
   test('all exposed methods should reject with an error, if trello.get rejects', () => {
-    const trelloGet = {
-      get: jest.fn((api, successCb, errorCb) => {
-        errorCb('error')
-      }),
-    }
-    global.Trello = trelloGet
+    global.Trello = TrelloJsError
     const Trello = require('../trello')
 
     expect(Trello.getMeBoards()).rejects.toEqual('error')
     expect(Trello.getLists()).rejects.toEqual('error')
     expect(Trello.getCards()).rejects.toEqual('error')
     expect(Trello.getMember()).rejects.toEqual('error')
+  })
+
+  test('getQuery should reject an error if Trello does not exist', () => {
+    global.Trello = undefined
+    const Trello = require('../trello')
+    Trello.getQuery('some-query', resolve, reject)
+
+    expect(resolve).toHaveBeenCalledTimes(0)
+    expect(reject).toHaveBeenCalledWith(new Error('Trello is not defined'))
+    expect(reject).toHaveBeenCalledTimes(1)
+  })
+
+  test('getQuery should call trello.get', () => {
+    const TrelloJsSuccess = {
+      get: jest.fn((api, successCb) => {
+        successCb('success')
+      }),
+    }
+    global.Trello = TrelloJsSuccess
+    const Trello = require('../trello')
+    Trello.getQuery('some-query', resolve, reject)
+
+    expect(resolve).toHaveBeenCalledTimes(1)
+    expect(resolve).toHaveBeenCalledWith('success')
+    expect(reject).toHaveBeenCalledTimes(0)
+  })
+
+  test('getQuery should call trello.get and reject if an error occures', () => {
+    global.Trello = TrelloJsError
+    const Trello = require('../trello')
+    Trello.getQuery('some-query', resolve, reject)
+
+    expect(resolve).toHaveBeenCalledTimes(0)
+    expect(reject).toHaveBeenCalledWith('error')
+    expect(reject).toHaveBeenCalledTimes(1)
+  })
+
+  test('getQuery should treat errors with status 401 properly', () => {
+    const trelloGet = {
+      get: jest.fn((api, successCb, errorCb) => {
+        errorCb({
+          status: 401,
+          responseText: 'some-response',
+          statusText: 'some-status',
+        })
+      }),
+    }
+    global.Trello = trelloGet
+    const Trello = require('../trello')
+    Trello.getQuery('some-query', resolve, reject)
+
+    expect(resolve).toHaveBeenCalledTimes(0)
+    expect(reject).toHaveBeenCalledWith({
+      responseText: 'some-response',
+      status: 401,
+      statusText: 'some-status',
+    })
+    expect(reject).toHaveBeenCalledTimes(1)
   })
 
   test('authenticateUser should be called with the proper args', async () => {
@@ -103,7 +163,7 @@ describe('data/Trello', () => {
 
     expect(TrelloJs.authorize).toHaveBeenCalledWith(
       expect.objectContaining({
-        name: 'multiboard-for-trello',
+        name: 'Trello Multiboard',
         type: 'redirect',
         scope: {
           read: true,
@@ -134,6 +194,14 @@ describe('data/Trello', () => {
 
     expect(Trello.getMeBoards()).resolves.toEqual('success')
     expect(TrelloJs.get.mock.calls[0][0]).toBe('/member/me/boards?fields=id,name')
+  })
+
+  test('getBoard should be called with the correct query', () => {
+    global.Trello = TrelloJs
+    const Trello = require('../trello')
+
+    expect(Trello.getBoard('board-1')).resolves.toEqual('success')
+    expect(TrelloJs.get.mock.calls[0][0]).toBe('/boards/board-1?fields=id,name')
   })
 
   test('getLists should be called with the correct query', () => {

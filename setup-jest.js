@@ -37,6 +37,11 @@ window.Trello = {
   get: jest.fn(() => Promise.resolve({})),
 }
 
+// mock browser's localStorage
+global.localStorage = {
+  removeItem: jest.fn(),
+}
+
 // mock trello's embed.min.js
 window.TrelloCards = {
   create: jest.fn((cardId, cardSelector, options) => {

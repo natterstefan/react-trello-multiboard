@@ -19,6 +19,7 @@ describe('data/Trello', () => {
         getLists: expect.any(Function),
         getCards: expect.any(Function),
         getMember: expect.any(Function),
+        getQuery: expect.any(Function),
         isTrelloAvailable: expect.any(Function),
         trello: { test: 123 },
       },
