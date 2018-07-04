@@ -6,6 +6,8 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased][1]
 
+## 2018/07/04 [0.2.1][7]
+
 ### Added
 
 * When Trello-API returns 401 (eg. when `api_key` changed and old token is still
@@ -147,3 +149,4 @@ boards: [
 [4]: https://github.com/natterstefan/react-trello-multiboard/compare/v0.0.2...v0.1.0
 [5]: https://github.com/natterstefan/react-trello-multiboard/compare/v0.1.0...v0.1.1
 [6]: https://github.com/natterstefan/react-trello-multiboard/compare/v0.1.1...v0.2.0
+[7]: https://github.com/natterstefan/react-trello-multiboard/compare/v0.2.0...v0.2.1
