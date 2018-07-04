@@ -1,21 +1,17 @@
 import { connect } from 'react-redux'
 import { get } from 'lodash'
-import { isAppLoading as isAppLoadingCheck, getAppErrorsList } from '../../utils/utils'
+import { getAppErrorsList } from '../../utils/utils'
 
 import Notification from './component'
 
 const mapStateToProps = state => {
-  // we check if the app is still in a loading state
-  const isAppLoading = isAppLoadingCheck(state)
-
   // evaluate if one of the stores has an error and make them (if one occurs)
   // available to the <Component /> so we can tell the user about it
   const appErrors = getAppErrorsList(state)
 
   return {
     appErrors,
-    error: get(state, 'boards.error') || undefined,
-    isAppLoading,
+    error: get(state, 'boards.error') || null,
   }
 }
 
@@ -24,6 +20,7 @@ const mapDispatchToProps = () => ({})
 const mergeProps = (stateProps, dispatchProps, ownProps) => {
   // if we have an error present, we prepare a message already here
   const { appErrors, error } = stateProps
+
   let customMessage = null
   let autoHideDuration = 10000
   if (error) {
@@ -38,11 +35,12 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => {
       autoHideDuration = 60 * 1000 // 1 minute
     }
   } else if (appErrors && appErrors.length > 0) {
+    // NOTE: currently we do not differ between any other errors, we just raise
+    // the notification/error hint
     customMessage = 'An error occured. Please try it again later.'
   }
 
   return {
-    ...stateProps,
     ...ownProps,
     autoHideDuration,
     message: customMessage || ownProps.message,

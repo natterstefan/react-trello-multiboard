@@ -26,7 +26,7 @@ describe('utils', () => {
       },
       members: { isLoading: true },
       lists: {
-        'list-1': { isLoading: true },
+        'board-1': { isLoading: true },
       },
     }
     test('returns an array of values with default, fallback and current values', () => {
@@ -48,8 +48,8 @@ describe('utils', () => {
         },
         members: { error: null },
         lists: {
-          'list-1': { error: { message: 'some error list-1 message ' } },
-          'list-2': { error: { message: 'some error list-2 message ' } },
+          'board-1': { error: { message: 'some error board-1 message ' } },
+          'board-2': { error: { message: 'some error board-2 message ' } },
         },
         user: {
           error: { message: 'some error user message ' },
@@ -57,7 +57,10 @@ describe('utils', () => {
       }
       expect(getAppErrorsList(mockState)).toEqual([
         { key: 'cardError', message: ['some error card message '] },
-        { key: 'listError', message: ['some error list-1 message ', 'some error list-2 message '] },
+        {
+          key: 'listError',
+          message: ['some error board-1 message ', 'some error board-2 message '],
+        },
         { key: 'userError', message: 'some error user message ' },
       ])
     })
@@ -70,8 +73,8 @@ describe('utils', () => {
         },
         members: { error: null },
         lists: {
-          'list-1': { error: null },
-          'list-2': { error: null },
+          'board-1': { error: null },
+          'board-2': { error: null },
         },
         user: {
           error: null,
