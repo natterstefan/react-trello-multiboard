@@ -1,4 +1,7 @@
 describe('data/Trello', () => {
+  const resolve = jest.fn()
+  const reject = jest.fn()
+
   // mock trello's client.js
   const TrelloJs = {
     authorize: jest.fn(args => args.success()), // default: resolve w/ success
@@ -8,9 +11,18 @@ describe('data/Trello', () => {
     }),
   }
 
+  const TrelloJsError = {
+    get: jest.fn((api, successCb, errorCb) => {
+      errorCb('error')
+    }),
+  }
+
   beforeEach(() => {
+    global.Trello = TrelloJs
     TrelloJs.authorize.mockReset()
     TrelloJs.get.mockReset()
+    resolve.mockReset()
+    reject.mockReset()
     jest.resetModules() // will allow to change global.* in each test
   })
 
@@ -67,12 +79,7 @@ describe('data/Trello', () => {
   })
 
   test('all exposed methods should resolve with the result, if trello.get resolves', () => {
-    const trelloGet = {
-      get: jest.fn((api, successCb) => {
-        successCb('success')
-      }),
-    }
-    global.Trello = trelloGet
+    global.Trello = TrelloJs
     const Trello = require('../trello')
 
     expect(Trello.getMeBoards()).resolves.toEqual('success')
@@ -82,12 +89,7 @@ describe('data/Trello', () => {
   })
 
   test('all exposed methods should reject with an error, if trello.get rejects', () => {
-    const trelloGet = {
-      get: jest.fn((api, successCb, errorCb) => {
-        errorCb('error')
-      }),
-    }
-    global.Trello = trelloGet
+    global.Trello = TrelloJsError
     const Trello = require('../trello')
 
     expect(Trello.getMeBoards()).rejects.toEqual('error')
@@ -99,8 +101,6 @@ describe('data/Trello', () => {
   test('getQuery should reject an error if Trello does not exist', () => {
     global.Trello = undefined
     const Trello = require('../trello')
-    const resolve = jest.fn()
-    const reject = jest.fn()
     Trello.getQuery('some-query', resolve, reject)
 
     expect(resolve).toHaveBeenCalledTimes(0)
@@ -109,15 +109,13 @@ describe('data/Trello', () => {
   })
 
   test('getQuery should call trello.get', () => {
-    const trelloGet = {
+    const TrelloJsSuccess = {
       get: jest.fn((api, successCb) => {
         successCb('success')
       }),
     }
-    global.Trello = trelloGet
+    global.Trello = TrelloJsSuccess
     const Trello = require('../trello')
-    const resolve = jest.fn()
-    const reject = jest.fn()
     Trello.getQuery('some-query', resolve, reject)
 
     expect(resolve).toHaveBeenCalledTimes(1)
@@ -126,15 +124,8 @@ describe('data/Trello', () => {
   })
 
   test('getQuery should call trello.get and reject if an error occures', () => {
-    const trelloGet = {
-      get: jest.fn((api, successCb, errorCb) => {
-        errorCb('error')
-      }),
-    }
-    global.Trello = trelloGet
+    global.Trello = TrelloJsError
     const Trello = require('../trello')
-    const resolve = jest.fn()
-    const reject = jest.fn()
     Trello.getQuery('some-query', resolve, reject)
 
     expect(resolve).toHaveBeenCalledTimes(0)
@@ -154,8 +145,6 @@ describe('data/Trello', () => {
     }
     global.Trello = trelloGet
     const Trello = require('../trello')
-    const resolve = jest.fn()
-    const reject = jest.fn()
     Trello.getQuery('some-query', resolve, reject)
 
     expect(resolve).toHaveBeenCalledTimes(0)

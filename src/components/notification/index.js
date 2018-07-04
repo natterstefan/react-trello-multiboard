@@ -1,34 +1,16 @@
 import { connect } from 'react-redux'
-import { forOwn, get } from 'lodash'
+import { get } from 'lodash'
+import { isAppLoading as isAppLoadingCheck, getAppErrorsList } from '../../utils/utils'
 
 import Notification from './component'
 
-const checkState = (state, type, prop) => {
-  forOwn(get(state, type, {}) || {}, value => value && value[prop])
-}
-
 const mapStateToProps = state => {
   // we check if the app is still in a loading state
-  const isAppLoading = {
-    isBoardsLoading: get(state, 'boards.isLoading') || undefined,
-    isCardsLoading: checkState(state, 'cards', 'isLoading') || undefined,
-    isListsLoading: checkState(state, 'lists', 'isLoading') || undefined,
-    isMembersLoading: get(state, 'members.isLoading') || undefined,
-  }
+  const isAppLoading = isAppLoadingCheck(state)
 
   // evaluate if one of the stores has an error and make them (if one occurs)
   // available to the <Component /> so we can tell the user about it
-  const appErrors = []
-  forOwn(
-    {
-      boardError: get(state, 'boards.error') || undefined,
-      cardError: checkState(state, 'cards', 'error') || undefined,
-      listError: checkState(state, 'lists', 'error') || undefined,
-      memberError: get(state, 'members.error') || undefined,
-      userError: get(state, 'user.error') || undefined,
-    },
-    (item, key) => item && appErrors.push({ key, message: item.message }),
-  )
+  const appErrors = getAppErrorsList(state)
 
   return {
     appErrors,

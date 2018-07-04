@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { forOwn, get, includes } from 'lodash'
+import { get, includes } from 'lodash'
 
 // actions
 import { push } from 'connected-react-router'
@@ -9,19 +9,11 @@ import { resetBoards, requestBoards } from '../../actions/boards'
 import { loadPreferredMembers } from '../../actions/members'
 
 import MainApp from './component'
-
-const checkState = (state, type, prop) => {
-  forOwn(get(state, type, {}) || {}, value => value && value[prop])
-}
+import { isAppLoading as isAppLoadingCheck } from '../../utils/utils'
 
 const mapStateToProps = state => {
   // we check if the app is still in a loading state
-  const isAppLoading = {
-    isBoardsLoading: get(state, 'boards.isLoading') || undefined,
-    isCardsLoading: checkState(state, 'cards', 'isLoading') || undefined,
-    isListsLoading: checkState(state, 'lists', 'isLoading') || undefined,
-    isMembersLoading: get(state, 'members.isLoading') || undefined,
-  }
+  const isAppLoading = isAppLoadingCheck(state)
 
   return {
     app: get(state, 'app', {}),
