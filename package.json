@@ -1,6 +1,6 @@
 {
   "name": "react-trello-multiboard",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "React-Trello-Multiboard is a React application displaying multiple cards of several Trello boards and lists. The cards can be filtered by preferred team members.",
   "repository": {
     "type": "git",
