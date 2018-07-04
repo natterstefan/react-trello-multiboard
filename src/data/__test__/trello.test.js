@@ -96,6 +96,77 @@ describe('data/Trello', () => {
     expect(Trello.getMember()).rejects.toEqual('error')
   })
 
+  test('getQuery should reject an error if Trello does not exist', () => {
+    global.Trello = undefined
+    const Trello = require('../trello')
+    const resolve = jest.fn()
+    const reject = jest.fn()
+    Trello.getQuery('some-query', resolve, reject)
+
+    expect(resolve).toHaveBeenCalledTimes(0)
+    expect(reject).toHaveBeenCalledWith(new Error('Trello is not defined'))
+    expect(reject).toHaveBeenCalledTimes(1)
+  })
+
+  test('getQuery should call trello.get', () => {
+    const trelloGet = {
+      get: jest.fn((api, successCb) => {
+        successCb('success')
+      }),
+    }
+    global.Trello = trelloGet
+    const Trello = require('../trello')
+    const resolve = jest.fn()
+    const reject = jest.fn()
+    Trello.getQuery('some-query', resolve, reject)
+
+    expect(resolve).toHaveBeenCalledTimes(1)
+    expect(resolve).toHaveBeenCalledWith('success')
+    expect(reject).toHaveBeenCalledTimes(0)
+  })
+
+  test('getQuery should call trello.get and reject if an error occures', () => {
+    const trelloGet = {
+      get: jest.fn((api, successCb, errorCb) => {
+        errorCb('error')
+      }),
+    }
+    global.Trello = trelloGet
+    const Trello = require('../trello')
+    const resolve = jest.fn()
+    const reject = jest.fn()
+    Trello.getQuery('some-query', resolve, reject)
+
+    expect(resolve).toHaveBeenCalledTimes(0)
+    expect(reject).toHaveBeenCalledWith('error')
+    expect(reject).toHaveBeenCalledTimes(1)
+  })
+
+  test('getQuery should treat errors with status 401 properly', () => {
+    const trelloGet = {
+      get: jest.fn((api, successCb, errorCb) => {
+        errorCb({
+          status: 401,
+          responseText: 'some-response',
+          statusText: 'some-status',
+        })
+      }),
+    }
+    global.Trello = trelloGet
+    const Trello = require('../trello')
+    const resolve = jest.fn()
+    const reject = jest.fn()
+    Trello.getQuery('some-query', resolve, reject)
+
+    expect(resolve).toHaveBeenCalledTimes(0)
+    expect(reject).toHaveBeenCalledWith({
+      responseText: 'some-response',
+      status: 401,
+      statusText: 'some-status',
+    })
+    expect(reject).toHaveBeenCalledTimes(1)
+  })
+
   test('authenticateUser should be called with the proper args', async () => {
     global.Trello = TrelloJs
     const Trello = require('../trello')
@@ -134,6 +205,14 @@ describe('data/Trello', () => {
 
     expect(Trello.getMeBoards()).resolves.toEqual('success')
     expect(TrelloJs.get.mock.calls[0][0]).toBe('/member/me/boards?fields=id,name')
+  })
+
+  test('getBoard should be called with the correct query', () => {
+    global.Trello = TrelloJs
+    const Trello = require('../trello')
+
+    expect(Trello.getBoard('board-1')).resolves.toEqual('success')
+    expect(TrelloJs.get.mock.calls[0][0]).toBe('/boards/board-1?fields=id,name')
   })
 
   test('getLists should be called with the correct query', () => {

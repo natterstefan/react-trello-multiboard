@@ -9,15 +9,15 @@ export const isTrelloAvailable = () => {
   return false
 }
 
-const getData = (query, resolve, reject) => {
+export const getQuery = (query, resolve, reject) => {
   if (!isTrelloAvailable()) {
     reject(new Error('Trello is not defined'))
+    return
   }
+
   trello.get(
     query,
-    result => {
-      resolve(result)
-    },
+    result => resolve(result),
     errorMsg => {
       let error = errorMsg
       if (errorMsg.status === 401) {
@@ -54,19 +54,19 @@ export const authenticateUser = () =>
   })
 
 export const getMeBoards = () =>
-  new Promise((resolve, reject) => getData('/member/me/boards?fields=id,name', resolve, reject))
+  new Promise((resolve, reject) => getQuery('/member/me/boards?fields=id,name', resolve, reject))
 
 export const getBoard = boardId =>
-  new Promise((resolve, reject) => getData(`/boards/${boardId}?fields=id,name`, resolve, reject))
+  new Promise((resolve, reject) => getQuery(`/boards/${boardId}?fields=id,name`, resolve, reject))
 
 export const getLists = boardId =>
   new Promise((resolve, reject) =>
-    getData(`/boards/${boardId}/lists?fields=id,idBoard,name`, resolve, reject),
+    getQuery(`/boards/${boardId}/lists?fields=id,idBoard,name`, resolve, reject),
   )
 
 export const getCards = listId =>
   new Promise((resolve, reject) =>
-    getData(
+    getQuery(
       `/lists/${listId}/cards?members=true&member_fields=avatarHash,fullName,initials,username&fields=badges,labels,name,id,idBoard,idList,idMembers,shortUrl`,
       resolve,
       reject,
@@ -75,7 +75,7 @@ export const getCards = listId =>
 
 export const getMember = memberId =>
   new Promise((resolve, reject) =>
-    getData(`/members/${memberId}?fields=username,avatarHash,fullName,initials`, resolve, reject),
+    getQuery(`/members/${memberId}?fields=username,avatarHash,fullName,initials`, resolve, reject),
   )
 
 export default {
@@ -85,6 +85,7 @@ export default {
   getLists,
   getMeBoards,
   getMember,
+  getQuery,
   isTrelloAvailable,
   trello,
 }
