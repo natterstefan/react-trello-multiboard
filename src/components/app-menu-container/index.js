@@ -104,7 +104,6 @@ class AppMenuContainer extends React.Component {
     super(props)
     this.state = {
       open: false,
-      anchor: 'left',
     }
   }
 
@@ -118,12 +117,12 @@ class AppMenuContainer extends React.Component {
 
   render() {
     const { classes, theme } = this.props
-    const { anchor, open } = this.state
+    const { open } = this.state
 
     const drawer = (
       <Drawer
         variant="persistent"
-        anchor={anchor}
+        anchor={'left'}
         open={open}
         classes={{
           paper: classes.drawerPaper,
@@ -139,22 +138,13 @@ class AppMenuContainer extends React.Component {
       </Drawer>
     )
 
-    let before = null
-    let after = null
-
-    if (anchor === 'left') {
-      before = drawer
-    } else {
-      after = drawer
-    }
-
     return (
       <div className={classes.root}>
         <div className={classes.appFrame}>
           <AppBar
             className={classNames(classes.appBar, {
               [classes.appBarShift]: open,
-              [classes[`appBarShift-${anchor}`]]: open,
+              [classes['appBarShift-left']]: open,
             })}
           >
             <Toolbar disableGutters={!open}>
@@ -171,17 +161,16 @@ class AppMenuContainer extends React.Component {
               </Typography>
             </Toolbar>
           </AppBar>
-          {before}
+          {drawer}
           <main
-            className={classNames(classes.content, classes[`content-${anchor}`], {
+            className={classNames(classes.content, classes['content-left'], {
               [classes.contentShift]: open,
-              [classes[`contentShift-${anchor}`]]: open,
+              [classes['contentShift-left']]: open,
             })}
           >
             <div className={classes.drawerHeader} />
             {this.props.children}
           </main>
-          {after}
         </div>
       </div>
     )

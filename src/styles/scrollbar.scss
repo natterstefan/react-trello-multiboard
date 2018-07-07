@@ -1,0 +1,25 @@
+/** Scrollbar
+ * - https://gist.github.com/natterstefan/d294080bd0dee372cca03a81fa5c25c9
+*/
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  border: 1px solid #d5d5d5;
+  height: 2px;
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $primary-color;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
