@@ -35,14 +35,15 @@ exports[`Component/AppMenuContainer should render without throwing an error 1`] 
       anchor="left"
       classes={
         Object {
-          "paper": "AppMenuContainer-drawerPaper-9",
+          "docked": "AppMenuContainer-drawer-9",
+          "paper": "AppMenuContainer-drawerPaper-10",
         }
       }
       open={false}
       variant="persistent"
     >
       <div
-        className="AppMenuContainer-drawerHeader-10"
+        className="AppMenuContainer-drawerHeader-11"
       >
         <WithStyles(IconButton)
           onClick={[Function]}
@@ -54,10 +55,10 @@ exports[`Component/AppMenuContainer should render without throwing an error 1`] 
       <AppMenuContent />
     </WithStyles(Drawer)>
     <main
-      className="AppMenuContainer-content-11 AppMenuContainer-content-left-12"
+      className="AppMenuContainer-content-12 AppMenuContainer-content-left-13"
     >
       <div
-        className="AppMenuContainer-drawerHeader-10"
+        className="AppMenuContainer-drawerHeader-11"
       />
       <Child />
     </main>

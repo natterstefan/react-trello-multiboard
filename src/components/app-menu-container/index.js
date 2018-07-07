@@ -59,9 +59,14 @@ const styles = theme => ({
   hide: {
     display: 'none',
   },
+  drawer: {
+    backgroundColor: '#fff',
+    border: '1px solid rgba(0, 0, 0, 0.12)',
+  },
   drawerPaper: {
     position: 'relative',
     width: drawerWidth,
+    borderRight: 0,
   },
   drawerHeader: {
     display: 'flex',
@@ -125,6 +130,7 @@ class AppMenuContainer extends React.Component {
         anchor={'left'}
         open={open}
         classes={{
+          docked: classes.drawer,
           paper: classes.drawerPaper,
         }}
       >
