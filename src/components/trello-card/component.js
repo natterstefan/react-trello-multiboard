@@ -49,7 +49,8 @@ class TrelloCard extends React.Component {
         id={`card_${card.id}`}
         className={`card ${this.getMemberClass()}`}
         style={{
-          display: isHidden ? 'none' : 'block',
+          display: isHidden ? 'none' : 'flex',
+          justifyContent: 'center',
         }}
       >
         <TrelloCardUI

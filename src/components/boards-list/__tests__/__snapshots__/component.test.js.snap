@@ -6,6 +6,12 @@ exports[`Component/BoardsList should render without throwing an error 1`] = `
     key="board-1"
   >
     <WithStyles(Typography)
+      style={
+        Object {
+          "marginBottom": 20,
+          "textAlign": "center",
+        }
+      }
       variant="headline"
     >
       board-1

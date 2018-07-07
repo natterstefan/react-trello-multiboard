@@ -41,7 +41,7 @@ const BoardsList = props => {
         const boardName = getBoardName(get(board, 'board.name', ''))
         return (
           <BoardContent key={board.board.id}>
-            <Typography variant="headline">
+            <Typography variant="headline" style={{ marginBottom: 20, textAlign: 'center' }}>
               {boardName} {renderEstimations(board)}
             </Typography>
             <Board board={board.board} config={board.config} />

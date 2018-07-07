@@ -11,6 +11,8 @@ import TrelloCardsList from '../trello-cards-list'
 const ThinContainer = styled.div`
   padding: 5px 0;
   min-width: 200px;
+  justify-content: center;
+  display: flex;
 `
 
 class Board extends React.Component {

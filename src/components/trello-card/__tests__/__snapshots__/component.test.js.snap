@@ -79,7 +79,8 @@ exports[`Component/TrelloCard should render without throwing an error 1`] = `
     id="card_id-1"
     style={
       Object {
-        "display": "block",
+        "display": "flex",
+        "justifyContent": "center",
       }
     }
   >
