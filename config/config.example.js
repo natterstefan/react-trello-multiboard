@@ -2,6 +2,7 @@
 module.exports = {
   app_title: 'Multiboard for Trello®',
   api_key: 'your_api_key',
+  google_analytics_property: 'UA-12345678-9',
   company_member: 'exampleusername',
   preferred_members: /exampleusername|anotheruser/,
   lists: [/#upcoming/],

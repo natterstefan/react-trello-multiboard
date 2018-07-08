@@ -15,7 +15,7 @@ export const PrivacyContent = () => (
 )
 
 // TODO
-// - add page only if config.tracking = true
+// - add page only if config.google_analytics_property = true
 const PrivacyPage = () => (
   <ErrorBoundary>
     <CookieNotice />

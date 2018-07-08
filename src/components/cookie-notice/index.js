@@ -7,7 +7,7 @@ const message =
   'We use cookies to give you the best online experience. See what we do and how you can disagree '
 
 // TODO
-// - add notice only if config.tracking = true
+// - add notice only if config.google_analytics_property = true
 const CookieNotice = () => (
   <div className="cookie-notice">
     <CookieBanner

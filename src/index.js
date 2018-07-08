@@ -23,6 +23,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
 import reducers from './reducers'
 import history from './utils/history'
+import { initGA } from './utils/google-analytics'
 import { GITHUB_URL } from './constants'
 import historyMiddleware from './middleware/history'
 
@@ -42,6 +43,12 @@ const store = createStore(
 // enable add all brand icons in the entire app
 fontawesome.library.add(brands, faAlignLeft, faCheckSquare, faCommentDots, faPaperclip)
 
+// init tracking, the utils modules must take care of checking the Config
+// for the required values
+initGA(history)
+
+// TODO
+// - add Privacy route only if config.google_analytics_property = true
 export const TrelloMultiboard = () => (
   <Provider store={store}>
     <div>
