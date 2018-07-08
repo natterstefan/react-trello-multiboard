@@ -29,6 +29,7 @@ import historyMiddleware from './middleware/history'
 // Components
 import AppPage from './pages/page-app'
 import ConfigPage from './pages/page-config'
+import PrivacyPage from './pages/page-privacy'
 
 // Setup Redux store
 const store = createStore(
@@ -56,6 +57,7 @@ export const TrelloMultiboard = () => (
               return null
             }}
           />
+          <Route path="/privacy" component={PrivacyPage} />
           <Route path="/" component={AppPage} />
         </Switch>
       </ConnectedRouter>

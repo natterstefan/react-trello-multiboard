@@ -1,0 +1,37 @@
+.cookie-notice {
+  background-color: $primary-color;
+  padding-left: 5px;
+  padding-top: 5px;
+
+  &--banner {
+    align-items: center;
+    background-color: #484848;
+    color: #fff;
+    display: flex;
+    height: auto;
+    justify-content: space-evenly;
+    padding: 10px 15px;
+
+    a {
+      color: #fff;
+    }
+  }
+
+  .cookie-message {
+    padding-right: 15px;
+  }
+
+  .button-close {
+    background-color: #fff;
+    cursor: pointer;
+    flex: 0 0 auto; // important for mobile
+    font-weight: bold;
+    margin-right: 15px; // important for mobile
+    outline: 0;
+    padding: 0.75em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100px;
+  }
+}

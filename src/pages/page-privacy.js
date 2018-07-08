@@ -3,17 +3,18 @@ import React from 'react'
 // Components
 import ErrorBoundary from '../components/error-boundary'
 import AppContainer from '../components/app-menu-container'
-import MainApp from '../components/main-app'
 import CookieNotice from '../components/cookie-notice'
 
-const App = props => (
+export const PrivacyContent = () => <span id="privacy">Privacy</span>
+
+const PrivacyPage = () => (
   <ErrorBoundary>
     <CookieNotice />
     <AppContainer>
-      <MainApp {...props} />
+      <PrivacyContent />
     </AppContainer>
   </ErrorBoundary>
 )
-App.displayName = 'App'
+PrivacyPage.displayName = 'PrivacyPage'
 
-export default App
+export default PrivacyPage

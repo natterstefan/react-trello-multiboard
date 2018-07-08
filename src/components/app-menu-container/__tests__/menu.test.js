@@ -16,7 +16,7 @@ describe('Component/AppMenuContent', () => {
         <AppMenuContent />
       </Router>,
     )
-    expect(wrapper.find(ListItem).length).toBe(3)
+    expect(wrapper.find(ListItem).length).toBe(4)
     expect(
       wrapper
         .find(ListItem)
@@ -33,6 +33,12 @@ describe('Component/AppMenuContent', () => {
       wrapper
         .find(ListItem)
         .at(2)
+        .prop('to'),
+    ).toBe('/privacy')
+    expect(
+      wrapper
+        .find(ListItem)
+        .at(3)
         .prop('to'),
     ).toBe('/github')
   })

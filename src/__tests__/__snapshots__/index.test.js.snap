@@ -48,6 +48,10 @@ exports[`Component/TrelloMultiBoard should render without throwing an error 1`] 
         />
         <Route
           component={[Function]}
+          path="/privacy"
+        />
+        <Route
+          component={[Function]}
           path="/"
         />
       </Switch>

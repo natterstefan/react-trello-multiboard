@@ -15,6 +15,7 @@ import proptypes from './page-config.prop-types'
 import Config from '../../config/config'
 import AppContainer from '../components/app-menu-container'
 import ErrorBoundary from '../components/error-boundary'
+import CookieNotice from '../components/cookie-notice'
 
 // Utils
 import { regexStringifier } from '../utils/regex-stringify'
@@ -28,6 +29,7 @@ const styles = theme => ({
 
 const ConfigPage = props => (
   <ErrorBoundary>
+    <CookieNotice />
     <AppContainer>
       <Paper className={props.classes.root} elevation={4}>
         <Typography variant="headline" component="h1">

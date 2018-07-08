@@ -83,6 +83,7 @@
     "prop-types": "15.6.1",
     "query-string": "6.1.0",
     "react": "16.4.0",
+    "react-cookie-banner": "4.0.0",
     "react-dom": "16.4.0",
     "react-redux": "5.0.7",
     "react-router-dom": "4.2.2",
