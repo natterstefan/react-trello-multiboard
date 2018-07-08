@@ -61,3 +61,7 @@ window.TrelloCards = {
   }),
   load: jest.fn(),
 }
+
+// as long as we do not have implemented a Markdown-Loader for Jest, we mock
+// every markdown file here
+jest.mock('./src/content/privacy.md', () => ({}))

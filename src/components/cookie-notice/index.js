@@ -6,6 +6,8 @@ import CookieBanner from 'react-cookie-banner'
 const message =
   'We use cookies to give you the best online experience. See what we do and how you can disagree '
 
+// TODO
+// - add notice only if config.tracking = true
 const CookieNotice = () => (
   <div className="cookie-notice">
     <CookieBanner
