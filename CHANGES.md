@@ -6,6 +6,21 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased][1]
 
+### Added
+
+* breakpoints constant added
+
+### Changed
+
+* UI improvements
+  * customize scrollbars (horizontal and vertical)
+  * Options toggle (show and hide)
+  * centered all elements in BoardsList (eg. board name)
+
+### Removed
+
+* removed iframe styling from main.scss
+
 ## 2018/07/04 [0.2.1][7]
 
 ### Added
