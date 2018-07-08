@@ -18,6 +18,8 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import AppMenuContent from './menu'
 import Config from '../../../config/config'
 
+import { breakpoints } from '../../constants'
+
 const drawerWidth = 240
 
 const styles = theme => ({
@@ -86,6 +88,10 @@ const styles = theme => ({
   },
   'content-left': {
     marginLeft: -drawerWidth,
+    padding: 20,
+    [breakpoints.small]: {
+      padding: 10,
+    },
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
