@@ -15,4 +15,13 @@ describe('Component/AppMenuContainer', () => {
     expect(wrapper.dive()).toMatchSnapshot()
     expect(wrapper.find(Child).length).toEqual(1)
   })
+
+  test('should render proper withStyles result', () => {
+    const wrapper = shallow(
+      <AppMenuContainer>
+        <Child />
+      </AppMenuContainer>,
+    )
+    expect(wrapper).toMatchSnapshot()
+  })
 })

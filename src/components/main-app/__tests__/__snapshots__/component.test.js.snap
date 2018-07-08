@@ -13,35 +13,13 @@ exports[`Component/MainApp should render without throwing an error 1`] = `
     }
   >
     <styled.div>
-      <WithStyles(Typography)
-        component="h2"
-        variant="headline"
-      >
-        Options
-      </WithStyles(Typography)>
       <WithStyles(Button)
         className="MainApp-button-2"
-        id="togglePreferredButton"
+        id="showOptions"
         onClick={[Function]}
         variant="raised"
       >
-        Toggle preferred Members
-      </WithStyles(Button)>
-      <WithStyles(Button)
-        className="MainApp-button-2"
-        id="showEstimationCard"
-        onClick={[Function]}
-        variant="raised"
-      >
-        Show Estimations Card
-      </WithStyles(Button)>
-      <WithStyles(Button)
-        className="MainApp-button-2"
-        id="doResetButton"
-        onClick={[Function]}
-        variant="raised"
-      >
-        Refresh Boards
+        Show Options
       </WithStyles(Button)>
     </styled.div>
     <styled.div>

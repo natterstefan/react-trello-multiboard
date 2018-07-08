@@ -42,6 +42,7 @@ class MainApp extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      showOptions: false,
       showEstimationCard: false,
     }
   }
@@ -84,7 +85,7 @@ class MainApp extends React.Component {
   }
 
   render() {
-    const { showEstimationCard } = this.state
+    const { showEstimationCard, showOptions } = this.state
     const { app, classes, isAppLoading, isLoading } = this.props
     const togglePreferred = get(app, 'memberToggle.togglePreferred', false)
     const togglePreferredMember = get(app, 'memberToggle.togglePreferredMember', false)
@@ -103,42 +104,53 @@ class MainApp extends React.Component {
         <Notification />
         <div style={{ minHeight: '100vh', marginBottom: 30, paddingBottom: 50 }}>
           <BlockContainer>
-            <Typography variant="headline" component="h2">
-              Options
-            </Typography>
             <Button
               variant="raised"
-              id="togglePreferredButton"
+              id="showOptions"
               className={classes.button}
               onClick={() => {
-                invoke(this.props, 'doTogglePreferred', !togglePreferred)
+                this.setState({ showOptions: !showOptions })
               }}
             >
-              {togglePreferred || togglePreferredMember
-                ? 'Toggle all Members'
-                : 'Toggle preferred Members'}
+              {showOptions ? 'Hide Options' : 'Show Options'}
             </Button>
-            <Button
-              variant="raised"
-              id="showEstimationCard"
-              className={classes.button}
-              onClick={() => {
-                this.setState({ showEstimationCard: !this.state.showEstimationCard })
-              }}
-            >
-              Show Estimations Card
-            </Button>
-            <Button
-              variant="raised"
-              id="doResetButton"
-              className={classes.button}
-              onClick={() => {
-                invoke(this.props, 'reloadBoards')
-                invoke(this.props, 'loadPreferredMembers')
-              }}
-            >
-              Refresh Boards
-            </Button>
+            {showOptions && (
+              <React.Fragment>
+                <Button
+                  variant="raised"
+                  id="togglePreferredButton"
+                  className={classes.button}
+                  onClick={() => {
+                    invoke(this.props, 'doTogglePreferred', !togglePreferred)
+                  }}
+                >
+                  {togglePreferred || togglePreferredMember
+                    ? 'Toggle all Members'
+                    : 'Toggle preferred Members'}
+                </Button>
+                <Button
+                  variant="raised"
+                  id="showEstimationCard"
+                  className={classes.button}
+                  onClick={() => {
+                    this.setState({ showEstimationCard: !this.state.showEstimationCard })
+                  }}
+                >
+                  Show Estimations Card
+                </Button>
+                <Button
+                  variant="raised"
+                  id="doResetButton"
+                  className={classes.button}
+                  onClick={() => {
+                    invoke(this.props, 'reloadBoards')
+                    invoke(this.props, 'loadPreferredMembers')
+                  }}
+                >
+                  Refresh Boards
+                </Button>
+              </React.Fragment>
+            )}
           </BlockContainer>
           <BlockContainer>
             <Typography variant="headline" component="h2">

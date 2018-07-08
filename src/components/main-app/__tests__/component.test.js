@@ -48,6 +48,11 @@ describe('Component/MainApp', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
+  test('should have an initial state', () => {
+    const wrapper = shallow(<MainApp {...props} />).dive()
+    expect(wrapper.state()).toEqual({ showEstimationCard: false, showOptions: false })
+  })
+
   test('should show EstimationCard when toggled', () => {
     const wrapper = shallow(<MainApp {...props} />).dive()
     expect(wrapper.find(EstimationCard).length).toEqual(0)
@@ -85,8 +90,32 @@ describe('Component/MainApp', () => {
     expect(props.loadBoards).toHaveBeenCalledTimes(1)
   })
 
+  test('should change showOptions state when showOptions button was pressed', () => {
+    const wrapper = shallow(<MainApp {...props} />).dive()
+    expect(wrapper.state()).toMatchObject({ showOptions: false })
+
+    wrapper.find('#showOptions').simulate('click')
+    expect(wrapper.state()).toMatchObject({ showOptions: true })
+  })
+
+  test('should not show options buttons when state.showOptions is false', () => {
+    const wrapper = shallow(<MainApp {...props} />).dive()
+    expect(wrapper.find('#togglePreferredButton')).toHaveLength(0)
+    expect(wrapper.find('#showEstimationCard')).toHaveLength(0)
+    expect(wrapper.find('#doResetButton')).toHaveLength(0)
+  })
+
+  test('should show options buttons when state.showOptions is true', () => {
+    const wrapper = shallow(<MainApp {...props} />).dive()
+    wrapper.setState({ showOptions: true })
+    expect(wrapper.find('#togglePreferredButton')).toHaveLength(1)
+    expect(wrapper.find('#showEstimationCard')).toHaveLength(1)
+    expect(wrapper.find('#doResetButton')).toHaveLength(1)
+  })
+
   test('should invoke doTogglePreferred when Toggle Preferred Button was clicked and change togglePreferred', () => {
     const wrapper = shallow(<MainApp {...props} />).dive()
+    wrapper.setState({ showOptions: true })
     wrapper.find('#togglePreferredButton').simulate('click')
 
     expect(props.doTogglePreferred).toHaveBeenCalledTimes(1)
@@ -106,9 +135,20 @@ describe('Component/MainApp', () => {
 
   test('should invoke resetBoards when Toggle Refresh Boards Button was clicked', () => {
     const wrapper = shallow(<MainApp {...props} />).dive()
+    wrapper.setState({ showOptions: true })
     wrapper.find('#doResetButton').simulate('click')
 
     expect(props.reloadBoards).toHaveBeenCalledTimes(1)
     expect(props.loadPreferredMembers).toHaveBeenCalledTimes(1)
+  })
+
+  test('should change the state.showEstimationCard when the EstimationCard Button was clicked', () => {
+    const wrapper = shallow(<MainApp {...props} />).dive()
+    expect(wrapper.state()).toMatchObject({ showEstimationCard: false })
+
+    wrapper.setState({ showOptions: true })
+    wrapper.find('#showEstimationCard').simulate('click')
+
+    expect(wrapper.state()).toMatchObject({ showEstimationCard: true })
   })
 })
