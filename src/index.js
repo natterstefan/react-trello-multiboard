@@ -48,6 +48,7 @@ fontawesome.library.add(brands, faAlignLeft, faCheckSquare, faCommentDots, faPap
 initGA(history)
 
 // TODO
+// - add routes to own component
 // - add Privacy route only if config.google_analytics_property = true
 export const TrelloMultiboard = () => (
   <Provider store={store}>
