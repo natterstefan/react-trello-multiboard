@@ -103,6 +103,7 @@
     "babel-preset-env": "1.7.0",
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-2": "6.24.1",
+    "copy-webpack-plugin": "4.5.2",
     "coveralls": "3.0.1",
     "cpy-cli": "2.0.0",
     "cross-env": "5.1.6",

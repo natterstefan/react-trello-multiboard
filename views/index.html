@@ -4,11 +4,11 @@
     <title><%= htmlWebpackPlugin.options.appTitle %> [<%= htmlWebpackPlugin.options.appVersion %>]</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   </head>
   <body>
     <div id="app" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- jQuery is required for Trello's client.js -->
+    <script src="./js/jquery.min.js"></script>
     <script src="https://api.trello.com/1/client.js?key=<%= htmlWebpackPlugin.options.apiKey %>"></script>
   </body>
 </html>
