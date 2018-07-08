@@ -10,6 +10,8 @@ import DashboardIcon from '@material-ui/icons/Dashboard'
 import SettingsIcon from '@material-ui/icons/Settings'
 import FingerprintIcon from '@material-ui/icons/Fingerprint'
 
+// TODO
+// - add Privacy only if config.tracking = true
 const menuConfig = [
   {
     target: '/',

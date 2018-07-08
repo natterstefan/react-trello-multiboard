@@ -29,7 +29,7 @@
     "format:scss": "stylelint --fix ./src",
     "lint": "eslint ./src",
     "lint:scss": "stylelint ./src",
-    "postinstall": "./node_modules/.bin/cpy \"./config/config.example.js\" \"./config\" --no-overwrite --rename=\"config.js\"",
+    "postinstall": "cpy \"./config/config.example.js\" \"./config\" --no-overwrite --rename=\"config.js\" && cpy \"./src/content/privacy.example.md\" \"./src/content\" --no-overwrite --rename=\"privacy.md\"",
     "precommit": "npm run build && npm run analyse:size && lint-staged",
     "prepush": "npm test",
     "start": "webpack-dev-server --hot --config webpack/dev.config.js",

@@ -14,6 +14,8 @@ export const PrivacyContent = () => (
   <span id="privacy" dangerouslySetInnerHTML={{ __html: marked(Content) }} />
 )
 
+// TODO
+// - add page only if config.tracking = true
 const PrivacyPage = () => (
   <ErrorBoundary>
     <CookieNotice />

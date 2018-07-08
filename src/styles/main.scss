@@ -1,5 +1,16 @@
 /** globals **/
 $primary-color: #3f51b5;
+$font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+
+body,
+p,
+span {
+  // based on Typography from MaterialUI
+  font-family: $font-family;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5em;
+}
 
 @import './scrollbar';
 @import '../components/cookie-notice/styles';

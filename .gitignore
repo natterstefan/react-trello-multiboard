@@ -11,3 +11,6 @@ config.js
 
 ## Coverall
 .coveralls.yml
+
+## Content
+src/content/privacy.md
