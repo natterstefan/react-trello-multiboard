@@ -13,6 +13,7 @@ const ThinContainer = styled.div`
   min-width: 200px;
   justify-content: center;
   display: flex;
+  flex-direction: column;
 `
 
 class Board extends React.Component {
