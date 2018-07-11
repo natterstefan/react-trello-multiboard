@@ -2,14 +2,21 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import PrivacyPage, { PrivacyContent } from '../page-privacy'
-import ErrorBoundary from '../../components/error-boundary'
-import AppContainer from '../../components/app-menu-container'
+import Layout from '../../layout'
 
-describe('Page/Privacy', () => {
+describe('Page/PrivacyPage', () => {
   test('should render without throwing an error', () => {
     const wrapper = shallow(<PrivacyPage />)
-    expect(wrapper.find(ErrorBoundary).length).toBe(1)
-    expect(wrapper.find(AppContainer).length).toBe(1)
-    expect(wrapper.find(PrivacyContent).length).toBe(1)
+    expect(wrapper).toHaveLength(1)
+  })
+
+  test('should render a Layout', () => {
+    const wrapper = shallow(<PrivacyPage />)
+    expect(wrapper.find(Layout).length).toBe(1)
+  })
+
+  test('should render with PrivacyContent as a child of Layout', () => {
+    const wrapper = shallow(<PrivacyPage />)
+    expect(wrapper.dive().find(PrivacyContent).length).toBe(1)
   })
 })

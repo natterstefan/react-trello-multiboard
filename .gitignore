@@ -7,10 +7,10 @@ node_modules
 temp
 
 ## Configs
-config.js
+config/config.js
 
 ## Coverall
 .coveralls.yml
 
 ## Content
-src/content/privacy.md
+src/pages-content/privacy.md

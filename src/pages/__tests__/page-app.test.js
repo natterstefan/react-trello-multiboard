@@ -1,16 +1,24 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import PageApp from '../page-app'
-import ErrorBoundary from '../../components/error-boundary'
-import AppContainer from '../../components/app-menu-container'
+import AppPage from '../page-app'
+
+import Layout from '../../layout'
 import MainApp from '../../components/main-app'
 
-describe('Page/App', () => {
+describe('Page/AppPage', () => {
   test('should render without throwing an error', () => {
-    const wrapper = shallow(<PageApp />)
-    expect(wrapper.find(ErrorBoundary).length).toBe(1)
-    expect(wrapper.find(AppContainer).length).toBe(1)
-    expect(wrapper.find(MainApp).length).toBe(1)
+    const wrapper = shallow(<AppPage />)
+    expect(wrapper).toHaveLength(1)
+  })
+
+  test('should render a Layout', () => {
+    const wrapper = shallow(<AppPage />)
+    expect(wrapper.find(Layout).length).toBe(1)
+  })
+
+  test('should render with MainApp as a child of Layout', () => {
+    const wrapper = shallow(<AppPage />)
+    expect(wrapper.dive().find(MainApp).length).toBe(1)
   })
 })

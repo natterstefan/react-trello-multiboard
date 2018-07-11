@@ -1,7 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Route, Switch } from 'react-router-dom'
-import { connectRouter, ConnectedRouter, routerMiddleware } from 'connected-react-router'
+import { connectRouter, routerMiddleware } from 'connected-react-router'
 
 // Material UI
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -24,13 +23,9 @@ import thunkMiddleware from 'redux-thunk'
 import reducers from './reducers'
 import history from './utils/history'
 import { initGA } from './utils/google-analytics'
-import { GITHUB_URL } from './constants'
 import historyMiddleware from './middleware/history'
 
-// Components
-import AppPage from './pages/page-app'
-import ConfigPage from './pages/page-config'
-import PrivacyPage from './pages/page-privacy'
+import Routes from './routes'
 
 // Setup Redux store
 const store = createStore(
@@ -47,28 +42,11 @@ fontawesome.library.add(brands, faAlignLeft, faCheckSquare, faCommentDots, faPap
 // for the required values
 initGA(history)
 
-// TODO
-// - add routes to own component
-// - add Privacy route only if config.google_analytics_property = true
 export const TrelloMultiboard = () => (
   <Provider store={store}>
     <div>
       <CssBaseline />
-      <ConnectedRouter history={history}>
-        <Switch>
-          <Route exact path="/config" component={ConfigPage} />
-          <Route
-            path="/github"
-            component={() => {
-              // alternative https://stackoverflow.com/a/42988282/1238150
-              window.location.href = GITHUB_URL
-              return null
-            }}
-          />
-          <Route path="/privacy" component={PrivacyPage} />
-          <Route path="/" component={AppPage} />
-        </Switch>
-      </ConnectedRouter>
+      <Routes />
     </div>
   </Provider>
 )

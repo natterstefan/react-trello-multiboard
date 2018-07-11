@@ -10,8 +10,9 @@ import faCheckSquare from '@fortawesome/fontawesome-free-solid/faCheckSquare'
 import faCommentDots from '@fortawesome/fontawesome-free-solid/faCommentDots'
 import faPaperclip from '@fortawesome/fontawesome-free-solid/faPaperclip'
 
-// mock config
-import { mockExampleBoardConfig } from './src/__mocks__/mocks'
+// mock modules
+jest.mock('./config/config')
+jest.mock('./src/utils/google-analytics')
 
 // other enzyme tools (not used yet)
 // - https://github.com/FormidableLabs/enzyme-matchers
@@ -19,16 +20,6 @@ Enzyme.configure({ adapter: new Adapter() })
 
 // make icons available in all tests
 fontawesome.library.add(brands, faAlignLeft, faCheckSquare, faCommentDots, faPaperclip)
-
-jest.mock('./config/config', () => ({
-  app_title: 'Trello Multiboard',
-  api_key: 'your_api_key',
-  google_analytics_property: 'UA-12345678-9',
-  company_member: 'exampleusername',
-  preferred_members: /exampleusername|anotheruser/,
-  lists: [/#upcoming/],
-  boards: [mockExampleBoardConfig],
-}))
 
 // mock $ (jquery)
 window.$ = jest.fn()
@@ -65,4 +56,4 @@ window.TrelloCards = {
 
 // as long as we do not have implemented a Markdown-Loader for Jest, we mock
 // every markdown file here
-jest.mock('./src/content/privacy.md', () => ({}))
+jest.mock('./src/pages-content/privacy.md', () => ({}))

@@ -14,6 +14,10 @@ span {
   line-height: 1.5em;
 }
 
+pre {
+  font-size: 12px;
+}
+
 @import './scrollbar';
 @import '../components/cookie-notice/styles';
 @import '../components/trello-card/styles';

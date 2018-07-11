@@ -1,3 +1,4 @@
+// TODO test Config.google_analytics_property = false case
 import React from 'react'
 import { mount, shallow } from 'enzyme'
 import { HashRouter as Router } from 'react-router-dom'
@@ -10,7 +11,16 @@ describe('Component/AppMenuContent', () => {
     expect(shallow(<AppMenuContent />)).toMatchSnapshot()
   })
 
-  test('should pass the correct properties to the rendered ListItems', () => {
+  test('should render the proper number of ListItems', () => {
+    const wrapper = mount(
+      <Router>
+        <AppMenuContent />
+      </Router>,
+    )
+    expect(wrapper.find(ListItem).length).toBe(4)
+  })
+
+  test('should render the proper order of ListItems', () => {
     const wrapper = mount(
       <Router>
         <AppMenuContent />
