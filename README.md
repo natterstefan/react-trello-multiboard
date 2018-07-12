@@ -270,7 +270,7 @@ an issue please][3].
 
 ## Licence
 
-[MIT](LICENCE)
+[Apache License 2.0](LICENCE)
 
 We are not affiliated, associated, authorized, endorsed by or in any way
 officially connected to Trello®, Inc. (www.trello.com).
