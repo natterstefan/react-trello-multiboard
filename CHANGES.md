@@ -8,10 +8,19 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+* <Routes /> component added for better and easier route management
+* Google Analytics Feature: simply add `google_analytics_property` to the config.js
+  and enable Google Analytics on the page (including a privacy page.) Take a look
+  at the [README](README#google-analytics--privacy-page) to get to know the feature.
+* CookieNotice component added, will be automatically present when Google Analytics
+  is configured
+* Markdown files can be used to create content for a page (eg. a privacy page)
 * breakpoints constant added
 
 ### Changed
 
+* jQuery (required for Trello), MaterialUI Fonts and Icons are self-hosted now
+* <Layout /> component added to easier render Pages and their shared page components
 * UI improvements
   * customize scrollbars (horizontal and vertical)
   * Options toggle (show and hide)
