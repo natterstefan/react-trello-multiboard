@@ -22,34 +22,6 @@ exports[`Component/AppMenuContent should render without throwing an error 1`] = 
     <WithStyles(ListItem)
       button={true}
       component={[Function]}
-      key="Config"
-      replace={true}
-      to="/config"
-    >
-      <WithStyles(ListItemIcon)>
-        <pure(Settings) />
-      </WithStyles(ListItemIcon)>
-      <WithStyles(ListItemText)
-        primary="Config"
-      />
-    </WithStyles(ListItem)>
-    <WithStyles(ListItem)
-      button={true}
-      component={[Function]}
-      key="Privacy"
-      replace={true}
-      to="/privacy"
-    >
-      <WithStyles(ListItemIcon)>
-        <pure(Fingerprint) />
-      </WithStyles(ListItemIcon)>
-      <WithStyles(ListItemText)
-        primary="Privacy"
-      />
-    </WithStyles(ListItem)>
-    <WithStyles(ListItem)
-      button={true}
-      component={[Function]}
       key="GitHub"
       replace={true}
       to="/github"
@@ -80,6 +52,20 @@ exports[`Component/AppMenuContent should render without throwing an error 1`] = 
       </WithStyles(ListItemIcon)>
       <WithStyles(ListItemText)
         primary="GitHub"
+      />
+    </WithStyles(ListItem)>
+    <WithStyles(ListItem)
+      button={true}
+      component={[Function]}
+      key="Privacy"
+      replace={true}
+      to="/privacy"
+    >
+      <WithStyles(ListItemIcon)>
+        <pure(Fingerprint) />
+      </WithStyles(ListItemIcon)>
+      <WithStyles(ListItemText)
+        primary="Privacy"
       />
     </WithStyles(ListItem)>
   </WithStyles(List)>

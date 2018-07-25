@@ -5,17 +5,8 @@ import marked from 'marked'
 // Content
 import Content from '../pages-content/privacy.md'
 
-// Components
-import Layout from '../layout'
-
-export const PrivacyContent = () => (
-  <span id="privacy" dangerouslySetInnerHTML={{ __html: marked(Content) }} />
-)
-
 const PrivacyPage = () => (
-  <Layout>
-    <PrivacyContent />
-  </Layout>
+  <span id="privacy" dangerouslySetInnerHTML={{ __html: marked(Content) }} />
 )
 PrivacyPage.displayName = 'PrivacyPage'
 

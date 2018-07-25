@@ -8,10 +8,13 @@ import CookieNotice from '../../components/cookie-notice'
 
 describe('Layout/Layout', () => {
   let wrapper
+  const props = {
+    pages: [{ target: '/some-target' }],
+  }
 
   beforeEach(() => {
     wrapper = shallow(
-      <Layout>
+      <Layout {...props}>
         <span>SomeChild</span>
       </Layout>,
     )
@@ -29,5 +32,10 @@ describe('Layout/Layout', () => {
     expect(wrapper.find(ErrorBoundary)).toHaveLength(1)
     expect(wrapper.find(AppContainer)).toHaveLength(1)
     expect(wrapper.find(CookieNotice)).toHaveLength(1)
+  })
+
+  test('should render AppContainer with the correct props', () => {
+    const element = wrapper.find(AppContainer)
+    expect(element.prop('pages')).toEqual([{ target: '/some-target' }])
   })
 })

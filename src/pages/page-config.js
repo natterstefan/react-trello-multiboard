@@ -12,7 +12,6 @@ import Typography from '@material-ui/core/Typography'
 
 // Config & Components
 import proptypes from './page-config.prop-types'
-import Layout from '../layout'
 import Config from '../../config/config'
 
 // Utils
@@ -26,16 +25,14 @@ const styles = theme => ({
 })
 
 const ConfigPage = props => (
-  <Layout>
-    <Paper className={props.classes.root} elevation={4}>
-      <Typography variant="headline" component="h1">
-        Current Config
-      </Typography>
-      <SyntaxHighlighter language="javascript" style={docco}>
-        {JSON.stringify(omit(Config, 'api_key'), regexStringifier, 2)}
-      </SyntaxHighlighter>
-    </Paper>
-  </Layout>
+  <Paper className={props.classes.root} elevation={4}>
+    <Typography variant="headline" component="h1">
+      Current Config
+    </Typography>
+    <SyntaxHighlighter language="javascript" style={docco}>
+      {JSON.stringify(omit(Config, 'api_key'), regexStringifier, 2)}
+    </SyntaxHighlighter>
+  </Paper>
 )
 
 ConfigPage.displayName = 'ConfigPage'

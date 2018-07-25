@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page/Config should render without throwing an error 1`] = `
+<ConfigPage
+  classes={
+    Object {
+      "root": "ConfigPage-root-1",
+    }
+  }
+/>
+`;

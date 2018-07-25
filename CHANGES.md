@@ -15,7 +15,7 @@ adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 * CookieNotice component added, will be automatically present when Google Analytics
   is configured
 * Markdown files can be used to create content for a page (eg. a privacy page)
-* breakpoints constant added
+* BREAKPOINTS constant added
 
 ### Changed
 

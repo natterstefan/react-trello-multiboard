@@ -25,21 +25,19 @@ exports[`Routes should render without throwing an error 1`] = `
 >
   <Switch>
     <Route
-      component={[Function]}
-      exact={true}
-      path="/config"
-    />
-    <Route
-      component={[Function]}
-      path="/github"
-    />
-    <Route
-      component={[Function]}
+      key="/privacy"
       path="/privacy"
+      render={[Function]}
     />
     <Route
-      component={[Function]}
+      key="/github"
+      path="/github"
+      render={[Function]}
+    />
+    <Route
+      key="/"
       path="/"
+      render={[Function]}
     />
   </Switch>
 </Connect(ConnectedRouter)>

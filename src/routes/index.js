@@ -1,30 +1,29 @@
 import React from 'react'
+import { cloneDeep, map, reverse } from 'lodash'
 import { Route, Switch } from 'react-router-dom'
 import { ConnectedRouter } from 'connected-react-router'
-import { GITHUB_URL } from '../constants'
 
+import Layout from '../layout'
 import history from '../utils/history'
-import Config from '../../config/config'
+import PAGES from '../pages/pages-config'
 
-// Components
-import AppPage from '../pages/page-app'
-import ConfigPage from '../pages/page-config'
-import PrivacyPage from '../pages/page-privacy'
+const RouteComponent = (Component, page) => (
+  <Layout page={page} pages={PAGES}>
+    <Component />
+  </Layout>
+)
+
+const renderRoutes = () =>
+  map(reverse(cloneDeep(PAGES || [])), page => (
+    <Route
+      key={page.target}
+      path={page.target}
+      render={() => RouteComponent(page.component, page)}
+    />
+  ))
 
 export default () => (
   <ConnectedRouter history={history}>
-    <Switch>
-      <Route exact path="/config" component={ConfigPage} />
-      <Route
-        path="/github"
-        component={() => {
-          // alternative https://stackoverflow.com/a/42988282/1238150
-          window.location.href = GITHUB_URL
-          return null
-        }}
-      />
-      {Config.google_analytics_property && <Route path="/privacy" component={PrivacyPage} />}
-      <Route path="/" component={AppPage} />
-    </Switch>
+    <Switch>{renderRoutes()}</Switch>
   </ConnectedRouter>
 )

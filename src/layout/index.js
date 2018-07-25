@@ -9,12 +9,13 @@ import Config from '../../config/config'
 const Layout = props => (
   <ErrorBoundary>
     {Config.google_analytics_property && <CookieNotice />}
-    <AppContainer>{props.children}</AppContainer>
+    <AppContainer pages={props.pages}>{props.children}</AppContainer>
   </ErrorBoundary>
 )
 
 Layout.displayName = 'Layout'
 Layout.propTypes = {
+  pages: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   children: PropTypes.node.isRequired,
 }
 

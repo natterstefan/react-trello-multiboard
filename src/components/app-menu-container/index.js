@@ -18,7 +18,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import AppMenuContent from './menu'
 import Config from '../../../config/config'
 
-import { breakpoints } from '../../constants'
+import { BREAKPOINTS } from '../../constants'
 
 const drawerWidth = 240
 
@@ -89,7 +89,7 @@ const styles = theme => ({
   'content-left': {
     marginLeft: -drawerWidth,
     padding: 20,
-    [breakpoints.small]: {
+    [BREAKPOINTS.small]: {
       padding: 10,
     },
   },
@@ -109,6 +109,7 @@ class AppMenuContainer extends React.Component {
     classes: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
     theme: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
     children: PropTypes.node.isRequired,
+    pages: PropTypes.array.isRequired, // eslint-disable-line react/forbid-prop-types
   }
 
   constructor(props) {
@@ -127,7 +128,7 @@ class AppMenuContainer extends React.Component {
   }
 
   render() {
-    const { classes, theme } = this.props
+    const { classes, theme, pages } = this.props
     const { open } = this.state
 
     const drawer = (
@@ -146,7 +147,7 @@ class AppMenuContainer extends React.Component {
           </IconButton>
         </div>
         <Divider />
-        <AppMenuContent />
+        <AppMenuContent pages={pages} />
       </Drawer>
     )
 
