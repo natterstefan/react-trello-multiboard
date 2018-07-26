@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component/CookieNotice should render without throwing an error 1`] = `
+<div
+  className="cookie-notice"
+>
+  <CookieBanner
+    buttonMessage="OK"
+    className="cookie-notice--banner"
+    cookie="user-has-accepted-cookies"
+    cookieExpiration={
+      Object {
+        "years": 1,
+      }
+    }
+    cookiePath="/"
+    cookies={
+      Cookies {
+        "HAS_DOCUMENT_COOKIE": true,
+        "changeListeners": Array [],
+        "cookies": Object {},
+        "hooks": undefined,
+      }
+    }
+    disableStyle={true}
+    dismissOnScroll={false}
+    dismissOnScrollThreshold={0}
+    link={
+      <Link
+        replace={false}
+        to="/privacy"
+      >
+        here.
+      </Link>
+    }
+    message="We use cookies to give you the best online experience. See what we do and how you can disagree "
+    onAccept={[Function]}
+    styles={Object {}}
+  />
+</div>
+`;

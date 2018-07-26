@@ -45,8 +45,10 @@ export function reducer(state = initialState, action) {
         return state
       }
 
+      // TODO: check if ...state.members is necessary
+      // as it adds same member multiple times when user navigates
       const uniqMembers = uniq([
-        ...state.members,
+        // ...state.members,
         ...map(members, member => pick(member, ['id', 'username', 'fullName'])),
       ])
 
@@ -70,6 +72,7 @@ export function reducer(state = initialState, action) {
         ...membersList,
       })
 
+    // TODO: add same "reset and do not increase multiple times"-handling when user navigates
     case actions.ADD_MEMBERS_ESTIMATION:
       const { payload = {} } = action
 

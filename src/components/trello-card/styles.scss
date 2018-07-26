@@ -13,8 +13,6 @@
   font: 14px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 18px;
   margin: 0 auto 15px;
-  // max-width: 316px;
-  // min-width: 240px;
   padding: 8px;
   width: 316px;
 
@@ -45,7 +43,7 @@
     max-width: 198px;
     min-width: 40px;
     overflow: hidden;
-    padding: 3px 6px;
+    padding: 5px 6px 0;
     position: relative;
     text-overflow: ellipsis;
     text-shadow: none;

@@ -1,7 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Route, Switch } from 'react-router-dom'
-import { connectRouter, ConnectedRouter, routerMiddleware } from 'connected-react-router'
+import { connectRouter, routerMiddleware } from 'connected-react-router'
 
 // Material UI
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -23,12 +22,10 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import thunkMiddleware from 'redux-thunk'
 import reducers from './reducers'
 import history from './utils/history'
-import { GITHUB_URL } from './constants'
+import { initGA } from './utils/google-analytics'
 import historyMiddleware from './middleware/history'
 
-// Components
-import AppPage from './pages/page-app'
-import ConfigPage from './pages/page-config'
+import Routes from './routes'
 
 // Setup Redux store
 const store = createStore(
@@ -41,24 +38,15 @@ const store = createStore(
 // enable add all brand icons in the entire app
 fontawesome.library.add(brands, faAlignLeft, faCheckSquare, faCommentDots, faPaperclip)
 
+// init tracking, the utils modules must take care of checking the Config
+// for the required values
+initGA(history)
+
 export const TrelloMultiboard = () => (
   <Provider store={store}>
     <div>
       <CssBaseline />
-      <ConnectedRouter history={history}>
-        <Switch>
-          <Route exact path="/config" component={ConfigPage} />
-          <Route
-            path="/github"
-            component={() => {
-              // alternative https://stackoverflow.com/a/42988282/1238150
-              window.location.href = GITHUB_URL
-              return null
-            }}
-          />
-          <Route path="/" component={AppPage} />
-        </Switch>
-      </ConnectedRouter>
+      <Routes />
     </div>
   </Provider>
 )

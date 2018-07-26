@@ -1,13 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component/AppMenuContent should render without throwing an error 1`] = `
-<div>
+<React.Fragment>
   <WithStyles(List)
     component="nav"
   >
     <WithStyles(ListItem)
       button={true}
       component={[Function]}
+      key="Dashboard"
       replace={true}
       to="/"
     >
@@ -21,19 +22,7 @@ exports[`Component/AppMenuContent should render without throwing an error 1`] = 
     <WithStyles(ListItem)
       button={true}
       component={[Function]}
-      replace={true}
-      to="/config"
-    >
-      <WithStyles(ListItemIcon)>
-        <pure(Settings) />
-      </WithStyles(ListItemIcon)>
-      <WithStyles(ListItemText)
-        primary="Config"
-      />
-    </WithStyles(ListItem)>
-    <WithStyles(ListItem)
-      button={true}
-      component={[Function]}
+      key="GitHub"
       replace={true}
       to="/github"
     >
@@ -65,6 +54,20 @@ exports[`Component/AppMenuContent should render without throwing an error 1`] = 
         primary="GitHub"
       />
     </WithStyles(ListItem)>
+    <WithStyles(ListItem)
+      button={true}
+      component={[Function]}
+      key="Privacy"
+      replace={true}
+      to="/privacy"
+    >
+      <WithStyles(ListItemIcon)>
+        <pure(Fingerprint) />
+      </WithStyles(ListItemIcon)>
+      <WithStyles(ListItemText)
+        primary="Privacy"
+      />
+    </WithStyles(ListItem)>
   </WithStyles(List)>
-</div>
+</React.Fragment>
 `;

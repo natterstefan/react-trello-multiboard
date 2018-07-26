@@ -5,5 +5,7 @@ module.exports = {
     './dist/**/*',
     './node_modules/**/*',
     './src/**/__snapshots__/**/*',
+    './src/styles/fonts.scss',
+    './src/styles/fonts/**/*',
   ],
 }

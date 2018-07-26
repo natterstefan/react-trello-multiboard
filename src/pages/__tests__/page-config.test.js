@@ -1,21 +1,23 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import { HashRouter as Router } from 'react-router-dom'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 
-import PageConfig from '../page-config'
-import ErrorBoundary from '../../components/error-boundary'
-import AppContainer from '../../components/app-menu-container'
+import ConfigPage from '../page-config'
 
 describe('Page/Config', () => {
   test('should render without throwing an error', () => {
+    const wrapper = shallow(<ConfigPage />)
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  test('should render with SyntaxHighlighter as a child of the page', () => {
     const wrapper = mount(
       <Router>
-        <PageConfig />
+        <ConfigPage />
       </Router>,
     )
-    expect(wrapper.find(ErrorBoundary).length).toBe(1)
-    expect(wrapper.find(AppContainer).length).toBe(1)
-    expect(wrapper.find(SyntaxHighlighter).length).toBe(1)
+    expect(wrapper.find(ConfigPage)).toHaveLength(1)
+    expect(wrapper.find(SyntaxHighlighter)).toHaveLength(1)
   })
 })

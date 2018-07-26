@@ -25,6 +25,7 @@ preferred team members.
     * [Trello API Key](#trello-api-key)
     * [Dependencies](#dependencies)
     * [Config.js](#configjs)
+    * [Google Analytics & Privacy Page](#google-analytics--privacy-page)
   * [URL Shortcuts & Bookmarks](#url-shortcuts--bookmarks)
   * [How to start the App locally](#how-to-start-the-app-locally)
   * [How to build the App for Production](#how-to-build-the-app-for-production)
@@ -125,6 +126,7 @@ your needs and eg. enter your [API key][1] and other settings into the `config.j
 module.exports = {
   app_title: 'Multiboard for Trello®',
   api_key: 'your_api_key',
+  google_analytics_property: 'UA-12345678-9',
   company_member: 'exampleusername'
   preferred_members: /exampleusername|anotheruser/,
   lists: [/#sprint1/, /#sprint2/, /#sprint3/],
@@ -144,6 +146,7 @@ The main config properties look like this:
 
 * `app_title`: name that appears in the Menubar and website title
 * `api_key`: your [trello api key][1]
+* `google_analytics_property`: your Google Analytics property
 * `company_member`: representing the company and available on all cards, because
   this user is used to calculate the company estimations when all members are
   toggled
@@ -196,6 +199,27 @@ Example:
 * Card 2: "Upload docker imge \(3)\[0]"
 
 Would result in the following total estimation for the board: Example-Board \(6)\[1]
+
+### Google Analytics & Privacy Page
+
+It is possible to integrate Google Analytics with pageviews by simply adding
+`google_analytics_property` to the `config.js`. This will add
+https://www.google-analytics.com/analytics.js to the app and track pageviews.
+By default doNotTrack browser settings are respected.
+
+At the same time a privacy page (eg. http://localhost:2222/#/privacy) is created
+and a CookieNotice presented to new users. The content can be defined in
+[src/pages-content](src/pages-content) by adding a [privacy.md](src/pages-content/privacy.example.md)
+file.
+
+By default [`gaOptout`](https://developers.google.com/analytics/devguides/collection/gajs/#disable)
+is available to set a disable Google Analytics cookie in the user's browser.
+
+One can use it like this in the `privacy.md` file:
+
+```md
+Or you deactivate it with a DoNotTrack Cookie: <a href="javascript:gaOptout();">Deactive Google Analytics</a>.
+```
 
 ## URL Shortcuts & Bookmarks
 

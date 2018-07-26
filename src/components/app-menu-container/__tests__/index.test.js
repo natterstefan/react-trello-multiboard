@@ -2,13 +2,14 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import AppMenuContainer from '../'
+import PAGES from '../../../pages/pages-config'
 
 describe('Component/AppMenuContainer', () => {
   const Child = () => <span>Child Content</span>
 
   test('should render without throwing an error', () => {
     const wrapper = shallow(
-      <AppMenuContainer>
+      <AppMenuContainer pages={PAGES}>
         <Child />
       </AppMenuContainer>,
     )
@@ -18,7 +19,7 @@ describe('Component/AppMenuContainer', () => {
 
   test('should render proper withStyles result', () => {
     const wrapper = shallow(
-      <AppMenuContainer>
+      <AppMenuContainer pages={PAGES}>
         <Child />
       </AppMenuContainer>,
     )

@@ -13,3 +13,6 @@ webpack/base.config.js
 webpack/dev.config.js
 webpack/prod.config.js
 webpack/prod.analyse.config.js
+
+## 3rd Party
+static/js/*.min.js

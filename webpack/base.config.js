@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const Config = require('../config/config')
 const pkg = require('../package.json')
@@ -54,12 +55,36 @@ module.exports = {
             }
           }]
         })
-      }
+      },
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: "html-loader"
+          },
+          {
+            loader: "markdown-loader"
+          }
+        ]
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+          use: [{
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
+            }
+          }]
+        }
     ]
   },
 
   plugins: [
     extractSass,
+    new CopyWebpackPlugin([
+      { from: './static' },
+    ]),
     new HtmlWebpackPlugin({
       template: './views/index.html',
       filename: 'index.html',
