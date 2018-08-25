@@ -1,5 +1,5 @@
 module.exports = {
-  extends: '@natterstefan/eslint-config-ns/stylelint',
+  extends: 'stylelint-config-ns',
   ignoreFiles: [
     './coverage/**/*',
     './dist/**/*',

@@ -95,7 +95,6 @@
     "styled-components": "3.3.0"
   },
   "devDependencies": {
-    "@natterstefan/eslint-config-ns": "git+https://github.com/natterstefan/eslint-config-ns.git#master",
     "babel-core": "6.26.3",
     "babel-jest": "23.0.1",
     "babel-loader": "7.1.4",
@@ -112,6 +111,7 @@
     "enzyme-adapter-react-16": "1.1.1",
     "enzyme-to-json": "3.3.4",
     "error-overlay-webpack-plugin": "0.1.5",
+    "eslint-config-ns": "0.2.0",
     "extract-text-webpack-plugin": "4.0.0-beta.0",
     "file-loader": "1.1.11",
     "html-loader": "0.5.5",
@@ -125,6 +125,7 @@
     "redux-mock-store": "1.5.1",
     "sass-loader": "7.0.1",
     "size-limit": "0.18.1",
+    "stylelint-config-ns": "0.1.1",
     "uglifyjs-webpack-plugin": "1.2.5",
     "webpack": "4.9.1",
     "webpack-cli": "2.1.4",
